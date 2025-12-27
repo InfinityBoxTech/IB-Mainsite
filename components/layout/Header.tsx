@@ -93,6 +93,31 @@ export default function Header() {
 		};
 	}, [activeDropdown]);
 
+	useEffect(() => {
+		// #region agent log
+		fetch(
+			'http://127.0.0.1:7243/ingest/ddd21d10-e6f4-48e3-9eae-9825c3b0fdb0',
+			{
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					location: 'Header.tsx:95',
+					message: 'Mobile menu state changed',
+					data: {
+						mobileMenuOpen: mobileMenuOpen,
+						windowWidth: typeof window !== 'undefined' ? window.innerWidth : 0,
+						isMobile: typeof window !== 'undefined' ? window.innerWidth < 1024 : false,
+					},
+					timestamp: Date.now(),
+					sessionId: 'debug-session',
+					runId: 'mobile-menu-debug',
+					hypothesisId: 'D',
+				}),
+			},
+		).catch(() => {});
+		// #endregion
+	}, [mobileMenuOpen]);
+
 	return (
 		<header
 			className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -205,7 +230,33 @@ export default function Header() {
 					{/* Mobile/Tablet Menu Button */}
 					<button
 						className="lg:hidden p-2 text-neutral-700 hover:text-emerald-600 transition-colors rounded-lg hover:bg-neutral-100"
-						onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+						onClick={() => {
+							// #region agent log
+							const newState = !mobileMenuOpen;
+							fetch(
+								'http://127.0.0.1:7243/ingest/ddd21d10-e6f4-48e3-9eae-9825c3b0fdb0',
+								{
+									method: 'POST',
+									headers: { 'Content-Type': 'application/json' },
+									body: JSON.stringify({
+										location: 'Header.tsx:208',
+										message: 'Mobile menu button clicked',
+										data: {
+											currentState: mobileMenuOpen,
+											newState: newState,
+											windowWidth: window.innerWidth,
+											isMobile: window.innerWidth < 1024,
+										},
+										timestamp: Date.now(),
+										sessionId: 'debug-session',
+										runId: 'mobile-menu-debug',
+										hypothesisId: 'A',
+									}),
+								},
+							).catch(() => {});
+							// #endregion
+							setMobileMenuOpen(newState);
+						}}
 						aria-label="Toggle menu"
 					>
 						<motion.div
@@ -229,7 +280,29 @@ export default function Header() {
 							exit={{ opacity: 0 }}
 							transition={{ duration: 0.3 }}
 							className="fixed inset-0 bg-neutral-900/20 backdrop-blur-sm z-40 lg:hidden"
-							onClick={() => setMobileMenuOpen(false)}
+							onClick={() => {
+								// #region agent log
+								fetch(
+									'http://127.0.0.1:7243/ingest/ddd21d10-e6f4-48e3-9eae-9825c3b0fdb0',
+									{
+										method: 'POST',
+										headers: { 'Content-Type': 'application/json' },
+										body: JSON.stringify({
+											location: 'Header.tsx:231',
+											message: 'Backdrop clicked',
+											data: {
+												mobileMenuOpen: mobileMenuOpen,
+											},
+											timestamp: Date.now(),
+											sessionId: 'debug-session',
+											runId: 'mobile-menu-debug',
+											hypothesisId: 'B',
+										}),
+									},
+								).catch(() => {});
+								// #endregion
+								setMobileMenuOpen(false);
+							}}
 						/>
 
 						{/* Menu Panel */}
@@ -242,7 +315,42 @@ export default function Header() {
 								damping: 30,
 								stiffness: 300,
 							}}
-							className="fixed top-16 sm:top-18 md:top-20 right-0 bottom-0 w-full max-w-sm bg-white shadow-2xl z-50 lg:hidden overflow-y-auto"
+							className="fixed top-16 sm:top-[72px] md:top-20 right-0 bottom-0 w-full max-w-sm bg-white shadow-2xl z-50 lg:hidden overflow-y-auto"
+							ref={(el) => {
+								// #region agent log
+								if (el && mobileMenuOpen) {
+									const computed = window.getComputedStyle(el);
+									fetch(
+										'http://127.0.0.1:7243/ingest/ddd21d10-e6f4-48e3-9eae-9825c3b0fdb0',
+										{
+											method: 'POST',
+											headers: { 'Content-Type': 'application/json' },
+											body: JSON.stringify({
+												location: 'Header.tsx:245',
+												message: 'Menu panel rendered',
+												data: {
+													mobileMenuOpen: mobileMenuOpen,
+													display: computed.display,
+													visibility: computed.visibility,
+													opacity: computed.opacity,
+													transform: computed.transform,
+													zIndex: computed.zIndex,
+													top: computed.top,
+													right: computed.right,
+													width: computed.width,
+													height: computed.height,
+													windowWidth: window.innerWidth,
+												},
+												timestamp: Date.now(),
+												sessionId: 'debug-session',
+												runId: 'mobile-menu-debug',
+												hypothesisId: 'C',
+											}),
+										},
+									).catch(() => {});
+								}
+								// #endregion
+							}}
 						>
 							<div className="px-6 py-8 space-y-1">
 								{navigation.map((item, index) => (

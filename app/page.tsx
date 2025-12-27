@@ -55,6 +55,7 @@ export default function Home() {
 
 			<WhoWeServeSection />
 
+			{/* Section 4 - Stats Section - Redesigned */}
 			<MetricsStrip metrics={metrics} />
 
 			<CaseStudiesSection />
