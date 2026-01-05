@@ -38,7 +38,7 @@ const pillars = [
 
 export default function EcosystemSection() {
 	return (
-		<section className='relative bg-white section-padding pt-10 xl:pt-14 pb-10 xl:pb-14 overflow-hidden'>
+		<section className='relative bg-white section-padding pt-10 xl:pt-14 pb-10 xl:pb-14 overflow-hidden z-10'>
 			{/* Subtle Background Pattern */}
 			<div className='absolute inset-0 opacity-[0.02]'>
 				<div
