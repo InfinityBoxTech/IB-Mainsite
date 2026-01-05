@@ -2,7 +2,7 @@
 
 import { Droplets, Package, ChefHat, Users } from 'lucide-react';
 import SectionHeader from './SectionHeader';
-import PillarCard from './PillarCard';
+import PillarCard from '../PillarCard';
 import BottomCTA from './BottomCTA';
 
 const pillars = [
@@ -10,61 +10,70 @@ const pillars = [
 		title: 'Hygiene Solutions',
 		description:
 			'Right chemical, right dose, right process. Controlled dispensing, audit-ready compliance, and training-backed execution.',
-		Icon: Droplets,
+		icon: <Droplets className='w-8 h-8' />,
 		href: '/what-we-do/hygiene-solutions',
-		tags: ['Controlled Dispensing', 'Audit-Ready', 'Training-Backed'],
-		image: '/images/hygiene-solutions.jpg',
-		imageAlt:
-			'Hygiene Solutions - Controlled dispensing systems and compliance',
 	},
 	{
 		title: 'Packaging Solutions',
 		description:
 			'Compostable and recyclable alternatives at institutional scale. Compliance-focused with durability for operational needs.',
-		Icon: Package,
+		icon: <Package className='w-8 h-8' />,
 		href: '/what-we-do/packaging-solutions',
-		tags: ['Compostable', 'Compliance-Focused', 'Institutional Scale'],
-		image: '/images/packaging-solutions.jpg',
-		imageAlt: 'Packaging Solutions - Sustainable packaging at scale',
 	},
 	{
 		title: 'Commercial Kitchen Solutions',
 		description:
 			'Lifecycle support from setup to maintenance. Layout optimization, workflow efficiency, and utility management.',
-		Icon: ChefHat,
+		icon: <ChefHat className='w-8 h-8' />,
 		href: '/what-we-do/commercial-kitchen-solutions',
-		tags: ['Lifecycle Support', 'Workflow Optimization', 'Utility Efficiency'],
-		image: '/images/kitchen-solutions.jpg',
-		imageAlt: 'Commercial Kitchen Solutions - Optimized kitchen layouts',
 	},
 	{
 		title: 'Manpower Solutions',
 		description:
 			'Trained, compliant workforce with SOPs, supervision, and planning. Reliable execution across multi-site operations.',
-		Icon: Users,
+		icon: <Users className='w-8 h-8' />,
 		href: '/what-we-do/manpower-solutions',
-		tags: ['Trained Workforce', 'SOP-Driven', 'Multi-Site Ready'],
-		image: '/images/manpower-solutions.jpg',
-		imageAlt: 'Manpower Solutions - Trained workforce execution',
 	},
 ];
 
 export default function EcosystemSection() {
 	return (
-		<section className='relative bg-white section-padding'>
-			<div className='container mx-auto flex flex-col gap-12 sm:gap-16 md:gap-20 lg:gap-24 xl:gap-28 2xl:gap-32 3xl:gap-36'>
-				{/* Section 1: Header */}
-				{/* <SectionHeader /> */}
+		<section className='relative bg-white section-padding pt-10 xl:pt-14 pb-10 xl:pb-14 overflow-hidden'>
+			{/* Subtle Background Pattern */}
+			<div className='absolute inset-0 opacity-[0.02]'>
+				<div
+					className='absolute inset-0'
+					style={{
+						backgroundImage: `radial-gradient(circle at 2px 2px, #059669 1px, transparent 0)`,
+						backgroundSize: '40px 40px',
+					}}
+				/>
+			</div>
 
-				{/* Section 2: Pillars Grid */}
-				{/* <div className='max-w-7xl mx-auto flex flex-col gap-10 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28 3xl:gap-32'>
-					{pillars.map((pillar, idx) => (
-						<PillarCard key={idx} {...pillar} index={idx} />
-					))}
-				</div> */}
+			<div className='container mx-auto relative z-10'>
+				<div className='flex flex-col !gap-0'>
+					{/* Section Header */}
+					<SectionHeader />
 
-				{/* Section 3: Bottom CTA */}
-				<BottomCTA />
+					{/* Pillars Grid */}
+					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-stretch'>
+						{pillars.map((pillar, idx) => (
+							<PillarCard
+								key={idx}
+								title={pillar.title}
+								description={pillar.description}
+								icon={pillar.icon}
+								href={pillar.href}
+								index={idx}
+							/>
+						))}
+					</div>
+
+					{/* Bottom CTA */}
+					<div className='mt-8 sm:mt-12 md:mt-16 lg:mt-20'>
+						<BottomCTA />
+					</div>
+				</div>
 			</div>
 		</section>
 	);

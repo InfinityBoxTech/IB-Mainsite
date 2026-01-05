@@ -1,62 +1,64 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { createPortal } from 'react-dom';
+import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 
 const navigation = [
 	{
-		name: "What We Do",
-		href: "/what-we-do",
+		name: 'What We Do',
+		href: '/what-we-do',
 		children: [
-			{ name: "Hygiene Solutions", href: "/what-we-do/hygiene-solutions" },
+			{ name: 'Hygiene Solutions', href: '/what-we-do/hygiene-solutions' },
 			{
-				name: "Packaging Solutions",
-				href: "/what-we-do/packaging-solutions",
+				name: 'Packaging Solutions',
+				href: '/what-we-do/packaging-solutions',
 			},
 			{
-				name: "Commercial Kitchen Solutions",
-				href: "/what-we-do/commercial-kitchen-solutions",
+				name: 'Commercial Kitchen Solutions',
+				href: '/what-we-do/commercial-kitchen-solutions',
 			},
-			{ name: "Manpower Solutions", href: "/what-we-do/manpower-solutions" },
+			{ name: 'Manpower Solutions', href: '/what-we-do/manpower-solutions' },
 		],
 	},
 	{
-		name: "Who We Serve",
-		href: "/who-we-serve",
+		name: 'Who We Serve',
+		href: '/who-we-serve',
 		children: [
-			{ name: "Hospitality", href: "/who-we-serve/hospitality" },
-			{ name: "Corporates", href: "/who-we-serve/corporates" },
-			{ name: "Healthcare", href: "/who-we-serve/healthcare" },
-			{ name: "Education", href: "/who-we-serve/education" },
-			{ name: "Industrial", href: "/who-we-serve/industrial" },
+			{ name: 'Hospitality', href: '/who-we-serve/hospitality' },
+			{ name: 'Corporates', href: '/who-we-serve/corporates' },
+			{ name: 'Healthcare', href: '/who-we-serve/healthcare' },
+			{ name: 'Education', href: '/who-we-serve/education' },
+			{ name: 'Industrial', href: '/who-we-serve/industrial' },
 		],
 	},
 	{
-		name: "About Us",
-		href: "/about-us",
+		name: 'About Us',
+		href: '/about-us',
 		children: [
-			{ name: "About InfinityBox", href: "/about-us" },
-			{ name: "Our Philosophy", href: "/about-us/philosophy" },
+			{ name: 'About InfinityBox', href: '/about-us' },
+			{ name: 'Our Philosophy', href: '/about-us/philosophy' },
 			{
-				name: "Sustainability Commitment",
-				href: "/about-us/sustainability",
+				name: 'Sustainability Commitment',
+				href: '/about-us/sustainability',
 			},
-			{ name: "Leadership", href: "/about-us/leadership" },
-			{ name: "Careers", href: "/about-us/careers" },
+			{ name: 'Leadership', href: '/about-us/leadership' },
+			{ name: 'Careers', href: '/about-us/careers' },
 		],
 	},
 	{
-		name: "Insights",
-		href: "/insights",
+		name: 'Insights',
+		href: '/insights',
 		children: [
-			{ name: "Blogs", href: "/insights/blogs" },
-			{ name: "Case Studies", href: "/insights/case-studies" },
-			{ name: "Industry Updates", href: "/insights/industry-updates" },
+			{ name: 'Blogs', href: '/insights/blogs' },
+			{ name: 'Case Studies', href: '/insights/case-studies' },
+			{ name: 'Industry Updates', href: '/insights/industry-updates' },
 		],
 	},
-	{ name: "Contact", href: "/contact" },
+	{ name: 'Contact', href: '/contact' },
 ];
 
 export default function Header() {
@@ -64,14 +66,20 @@ export default function Header() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 	const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+	const [mounted, setMounted] = useState(false);
 	const dropdownRef = useRef<HTMLDivElement>(null);
+	const router = useRouter();
+
+	useEffect(() => {
+		setMounted(true);
+	}, []);
 
 	useEffect(() => {
 		const handleScroll = () => {
 			setIsScrolled(window.scrollY > 20);
 		};
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
+		window.addEventListener('scroll', handleScroll);
+		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
 
 	useEffect(() => {
@@ -85,71 +93,48 @@ export default function Header() {
 		};
 
 		if (activeDropdown) {
-			document.addEventListener("mousedown", handleClickOutside);
+			document.addEventListener('mousedown', handleClickOutside);
 		}
 
 		return () => {
-			document.removeEventListener("mousedown", handleClickOutside);
+			document.removeEventListener('mousedown', handleClickOutside);
 		};
 	}, [activeDropdown]);
 
-	useEffect(() => {
-		// #region agent log
-		fetch(
-			'http://127.0.0.1:7243/ingest/ddd21d10-e6f4-48e3-9eae-9825c3b0fdb0',
-			{
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({
-					location: 'Header.tsx:95',
-					message: 'Mobile menu state changed',
-					data: {
-						mobileMenuOpen: mobileMenuOpen,
-						windowWidth: typeof window !== 'undefined' ? window.innerWidth : 0,
-						isMobile: typeof window !== 'undefined' ? window.innerWidth < 1024 : false,
-					},
-					timestamp: Date.now(),
-					sessionId: 'debug-session',
-					runId: 'mobile-menu-debug',
-					hypothesisId: 'D',
-				}),
-			},
-		).catch(() => {});
-		// #endregion
-	}, [mobileMenuOpen]);
-
 	return (
 		<header
-			className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+			className={`fixed top-0 left-0 right-0 z-[997] transition-all duration-500 ${
 				isScrolled
-					? "bg-white/98 backdrop-blur-xl shadow-lg shadow-neutral-900/5"
-					: "bg-white/90 backdrop-blur-md"
+					? 'bg-white/98 backdrop-blur-xl shadow-lg shadow-neutral-900/5 border-b border-neutral-100'
+					: 'bg-white/90 backdrop-blur-md'
 			}`}
 		>
-			<nav className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
-				<div className="flex items-center justify-between h-16 sm:h-18 md:h-20">
+			<nav className='container mx-auto section-padding'>
+				<div className='flex items-center justify-between h-16 sm:h-18 md:h-20'>
 					{/* Logo */}
-					<Link
-						href="/"
-						className="flex items-center space-x-2 group"
+					{/* Logo */}
+					<div 
+						onClick={() => router.push('/')} 
+						className='flex items-center gap-2 group cursor-pointer'
 					>
-						<motion.span
-							className="text-xl sm:text-2xl md:text-2xl font-bold text-emerald-600"
-							whileHover={{ scale: 1.05 }}
-							whileTap={{ scale: 0.95 }}
-							transition={{ type: "spring", stiffness: 400, damping: 17 }}
+						<motion.div
+							whileHover={{ rotate: 180, scale: 1.1 }}
+							transition={{ duration: 0.6, type: 'spring' }}
+							className='w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center shadow-md shadow-emerald-500/20 group-hover:shadow-lg group-hover:shadow-emerald-500/40 transition-shadow duration-300'
 						>
+							<span className='text-white font-bold text-lg sm:text-xl'>∞</span>
+						</motion.div>
+						<span className='text-xl sm:text-2xl font-bold bg-gradient-to-r from-neutral-900 to-neutral-700 bg-clip-text text-transparent'>
 							InfinityBox
-						</motion.span>
-					</Link>
+						</span>
+					</div>
 
 					{/* Desktop Navigation */}
-					<div className="hidden lg:flex items-center space-x-1 xl:space-x-2">
-						{navigation.map((item, index) => (
+					<div className='hidden lg:flex items-center gap-1 xl:gap-2'>
+						{navigation.map((item) => (
 							<div
 								key={item.name}
-								className="relative group"
-								ref={item.children ? dropdownRef : null}
+								className='relative group'
 								onMouseEnter={() =>
 									item.children && setActiveDropdown(item.name)
 								}
@@ -157,54 +142,66 @@ export default function Header() {
 							>
 								<Link
 									href={item.href}
-									className="relative px-4 py-2 text-sm xl:text-base font-medium text-neutral-700 hover:text-emerald-600 transition-colors duration-200 group"
+									className='relative px-3 xl:px-4 py-2 text-sm xl:text-base font-medium text-neutral-700 hover:text-emerald-600 transition-colors duration-200 flex items-center gap-1'
 								>
 									{item.name}
+									{item.children && (
+										<ChevronDown
+											className={`w-4 h-4 transition-transform duration-300 ${
+												activeDropdown === item.name ? 'rotate-180' : ''
+											}`}
+										/>
+									)}
 									<motion.span
-										className="absolute bottom-0 left-0 right-0 h-0.5 bg-emerald-600 origin-left"
+										className='absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500 to-teal-500 origin-left rounded-full'
 										initial={{ scaleX: 0 }}
 										whileHover={{ scaleX: 1 }}
-										transition={{ duration: 0.3, ease: "easeOut" }}
+										transition={{ duration: 0.3, ease: 'easeOut' }}
 									/>
 								</Link>
 								{item.children && (
 									<AnimatePresence>
 										{activeDropdown === item.name && (
 											<motion.div
-												initial={{ opacity: 0, y: -10, scale: 0.95 }}
+												initial={{ opacity: 0, y: 10, scale: 0.95 }}
 												animate={{ opacity: 1, y: 0, scale: 1 }}
-												exit={{ opacity: 0, y: -10, scale: 0.95 }}
+												exit={{ opacity: 0, y: 10, scale: 0.95 }}
 												transition={{
 													duration: 0.2,
 													ease: [0.4, 0, 0.2, 1],
 												}}
-												className="absolute top-full left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-neutral-100 py-3 overflow-hidden"
+												className='absolute top-full left-0 mt-2 w-72 bg-white rounded-2xl shadow-2xl border border-neutral-100 overflow-hidden'
 											>
-												<div className="absolute inset-0 bg-gradient-to-b from-emerald-50/50 to-transparent pointer-events-none" />
-												{item.children.map((child, childIndex) => (
-													<motion.div
-														key={child.name}
-														initial={{ opacity: 0, x: -10 }}
-														animate={{ opacity: 1, x: 0 }}
-														transition={{
-															delay: childIndex * 0.03,
-															duration: 0.2,
-														}}
-													>
-														<Link
-															href={child.href}
-															className="relative block px-5 py-2.5 text-sm text-neutral-700 hover:text-emerald-600 hover:bg-emerald-50/50 transition-all duration-200 group/item"
+												{/* Gradient overlay */}
+												<div className='absolute inset-0 bg-gradient-to-br from-emerald-50/50 via-transparent to-teal-50/30 pointer-events-none' />
+
+												<div className='relative p-2'>
+													{item.children.map((child, childIndex) => (
+														<motion.div
+															key={child.name}
+															initial={{ opacity: 0, x: -10 }}
+															animate={{ opacity: 1, x: 0 }}
+															transition={{
+																delay: childIndex * 0.05,
+																duration: 0.2,
+															}}
 														>
-															<span className="relative z-10">{child.name}</span>
-															<motion.span
-																className="absolute left-0 top-0 bottom-0 w-1 bg-emerald-600 origin-top"
-																initial={{ scaleY: 0 }}
-																whileHover={{ scaleY: 1 }}
-																transition={{ duration: 0.2 }}
-															/>
-														</Link>
-													</motion.div>
-												))}
+															<Link
+																href={child.href}
+																className='group/item relative flex items-center justify-between px-4 py-3 text-sm text-neutral-700 hover:text-emerald-600 rounded-xl hover:bg-gradient-to-r hover:from-emerald-50 hover:to-teal-50 transition-all duration-200'
+															>
+																<span className='font-medium'>{child.name}</span>
+																<ArrowRight className='w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300' />
+																<motion.span
+																	className='absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-emerald-500 to-teal-500 rounded-r-full origin-top'
+																	initial={{ scaleY: 0 }}
+																	whileHover={{ scaleY: 1 }}
+																	transition={{ duration: 0.2 }}
+																/>
+															</Link>
+														</motion.div>
+													))}
+												</div>
 											</motion.div>
 										)}
 									</AnimatePresence>
@@ -214,246 +211,205 @@ export default function Header() {
 					</div>
 
 					{/* CTA Button - Desktop */}
-					<div className="hidden lg:block">
-						<Link href="/contact">
+					<div className='hidden lg:block'>
+						<Link href='/contact'>
 							<motion.button
-								className="px-6 py-2.5 bg-emerald-600 text-white rounded-lg font-semibold text-sm xl:text-base hover:bg-emerald-700 transition-colors duration-200 shadow-sm hover:shadow-md"
+								className='group relative px-6 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-full font-semibold text-sm xl:text-base shadow-lg shadow-emerald-500/30 overflow-hidden'
 								whileHover={{ scale: 1.05, y: -1 }}
 								whileTap={{ scale: 0.95 }}
-								transition={{ type: "spring", stiffness: 400, damping: 17 }}
+								transition={{ type: 'spring', stiffness: 400, damping: 17 }}
 							>
-								Get in Touch
+								<span className='relative z-10 flex items-center gap-2'>
+									Get in Touch
+									<ArrowRight className='w-4 h-4 transition-transform group-hover:translate-x-1' />
+								</span>
+								{/* Shine effect */}
+								<div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000' />
 							</motion.button>
 						</Link>
 					</div>
 
-					{/* Mobile/Tablet Menu Button */}
+					{/* Mobile Menu Button */}
 					<button
-						className="lg:hidden p-2 text-neutral-700 hover:text-emerald-600 transition-colors rounded-lg hover:bg-neutral-100"
-						onClick={() => {
-							// #region agent log
-							const newState = !mobileMenuOpen;
-							fetch(
-								'http://127.0.0.1:7243/ingest/ddd21d10-e6f4-48e3-9eae-9825c3b0fdb0',
-								{
-									method: 'POST',
-									headers: { 'Content-Type': 'application/json' },
-									body: JSON.stringify({
-										location: 'Header.tsx:208',
-										message: 'Mobile menu button clicked',
-										data: {
-											currentState: mobileMenuOpen,
-											newState: newState,
-											windowWidth: window.innerWidth,
-											isMobile: window.innerWidth < 1024,
-										},
-										timestamp: Date.now(),
-										sessionId: 'debug-session',
-										runId: 'mobile-menu-debug',
-										hypothesisId: 'A',
-									}),
-								},
-							).catch(() => {});
-							// #endregion
-							setMobileMenuOpen(newState);
-						}}
-						aria-label="Toggle menu"
+						className='lg:hidden p-2 text-neutral-700 hover:text-emerald-600 transition-colors rounded-lg hover:bg-emerald-50'
+						onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+						aria-label='Toggle menu'
 					>
-						<motion.div
-							animate={{ rotate: mobileMenuOpen ? 90 : 0 }}
-							transition={{ duration: 0.3 }}
-						>
+						<div className={`transition-transform duration-300 ${mobileMenuOpen ? 'rotate-90' : ''}`}>
 							{mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-						</motion.div>
+						</div>
 					</button>
 				</div>
 			</nav>
 
-			{/* Mobile/Tablet Menu */}
-			<AnimatePresence>
-				{mobileMenuOpen && (
-					<>
-						{/* Backdrop */}
-						<motion.div
-							initial={{ opacity: 0 }}
-							animate={{ opacity: 1 }}
-							exit={{ opacity: 0 }}
-							transition={{ duration: 0.3 }}
-							className="fixed inset-0 bg-neutral-900/20 backdrop-blur-sm z-40 lg:hidden"
-							onClick={() => {
-								// #region agent log
-								fetch(
-									'http://127.0.0.1:7243/ingest/ddd21d10-e6f4-48e3-9eae-9825c3b0fdb0',
-									{
-										method: 'POST',
-										headers: { 'Content-Type': 'application/json' },
-										body: JSON.stringify({
-											location: 'Header.tsx:231',
-											message: 'Backdrop clicked',
-											data: {
-												mobileMenuOpen: mobileMenuOpen,
-											},
-											timestamp: Date.now(),
-											sessionId: 'debug-session',
-											runId: 'mobile-menu-debug',
-											hypothesisId: 'B',
-										}),
-									},
-								).catch(() => {});
-								// #endregion
-								setMobileMenuOpen(false);
-							}}
-						/>
+			{/* Mobile Menu */}
+			{/* Mobile Menu - Portalled to body to escape Header's stacking context */}
+			{mounted && createPortal(
+				<AnimatePresence>
+					{mobileMenuOpen && (
+						<>
+							{/* Backdrop */}
+							<motion.div
+								key="mobile-backdrop"
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								exit={{ opacity: 0 }}
+								transition={{ duration: 0.3 }}
+								className='fixed inset-0 bg-neutral-900/40 backdrop-blur-sm z-[9998] lg:hidden'
+								onClick={() => setMobileMenuOpen(false)}
+							/>
 
-						{/* Menu Panel */}
-						<motion.div
-							initial={{ x: "100%" }}
-							animate={{ x: 0 }}
-							exit={{ x: "100%" }}
-							transition={{
-								type: "spring",
-								damping: 30,
-								stiffness: 300,
-							}}
-							className="fixed top-16 sm:top-[72px] md:top-20 right-0 bottom-0 w-full max-w-sm bg-white shadow-2xl z-50 lg:hidden overflow-y-auto"
-							ref={(el) => {
-								// #region agent log
-								if (el && mobileMenuOpen) {
-									const computed = window.getComputedStyle(el);
-									fetch(
-										'http://127.0.0.1:7243/ingest/ddd21d10-e6f4-48e3-9eae-9825c3b0fdb0',
-										{
-											method: 'POST',
-											headers: { 'Content-Type': 'application/json' },
-											body: JSON.stringify({
-												location: 'Header.tsx:245',
-												message: 'Menu panel rendered',
-												data: {
-													mobileMenuOpen: mobileMenuOpen,
-													display: computed.display,
-													visibility: computed.visibility,
-													opacity: computed.opacity,
-													transform: computed.transform,
-													zIndex: computed.zIndex,
-													top: computed.top,
-													right: computed.right,
-													width: computed.width,
-													height: computed.height,
-													windowWidth: window.innerWidth,
-												},
-												timestamp: Date.now(),
-												sessionId: 'debug-session',
-												runId: 'mobile-menu-debug',
-												hypothesisId: 'C',
-											}),
-										},
-									).catch(() => {});
-								}
-								// #endregion
-							}}
-						>
-							<div className="px-6 py-8 space-y-1">
-								{navigation.map((item, index) => (
-									<motion.div
-										key={item.name}
-										initial={{ opacity: 0, x: 20 }}
-										animate={{ opacity: 1, x: 0 }}
-										transition={{
-											delay: index * 0.05,
-											duration: 0.3,
+							{/* Menu Panel */}
+							<motion.div
+								key="mobile-menu-panel"
+								initial={{ opacity: 0, y: -20 }}
+								animate={{ opacity: 1, y: 0 }}
+								exit={{ opacity: 0, y: -20 }}
+								transition={{ duration: 0.3, ease: 'easeOut' }}
+								className='fixed inset-0 bg-white/80 backdrop-blur-xl z-[9999] lg:hidden flex flex-col'
+							>
+								{/* Mobile Menu Header */}
+								<div className='flex items-center justify-between px-4 py-4 border-b border-neutral-100'>
+									<div
+										onClick={() => {
+											setMobileMenuOpen(false);
+											router.push('/');
 										}}
+										className='flex items-center gap-2 cursor-pointer'
 									>
-										{item.children ? (
-											<>
-												<button
-													onClick={() =>
-														setMobileExpanded(
-															mobileExpanded === item.name
-																? null
-																: item.name
-														)
-													}
-													className="w-full flex items-center justify-between px-4 py-3 text-base font-semibold text-neutral-900 hover:text-emerald-600 hover:bg-emerald-50/50 rounded-lg transition-all duration-200"
-												>
-													<span>{item.name}</span>
-													<motion.div
-														animate={{
-															rotate:
-																mobileExpanded === item.name ? 180 : 0,
-														}}
-														transition={{ duration: 0.2 }}
-													>
-														<ChevronDown size={20} />
-													</motion.div>
-												</button>
-												<AnimatePresence>
-													{mobileExpanded === item.name && (
-														<motion.div
-															initial={{ height: 0, opacity: 0 }}
-															animate={{ height: "auto", opacity: 1 }}
-															exit={{ height: 0, opacity: 0 }}
-															transition={{ duration: 0.3 }}
-															className="overflow-hidden"
+										<div className='w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center shadow-md shadow-emerald-500/20'>
+											<span className='text-white font-bold text-lg'>∞</span>
+										</div>
+										<span className='text-xl font-bold bg-gradient-to-r from-neutral-900 to-neutral-700 bg-clip-text text-transparent'>
+											InfinityBox
+										</span>
+									</div>
+									<button
+										onClick={() => setMobileMenuOpen(false)}
+										className='p-2 text-neutral-500 hover:text-neutral-900 hover:bg-neutral-100 rounded-full transition-colors'
+										aria-label="Close menu"
+									>
+										<X size={24} />
+									</button>
+								</div>
+
+								{/* Gradient background */}
+								<div className='absolute inset-0 bg-gradient-to-br from-emerald-50/10 via-white/20 to-teal-50/10 pointer-events-none -z-10' />
+
+								<div className='flex-1 overflow-y-auto'>
+									<div className='relative px-6 py-8 space-y-4 container mx-auto max-w-lg'>
+										{navigation.map((item, index) => (
+											<motion.div
+												key={item.name}
+												initial={{ opacity: 0, x: -10 }}
+												animate={{ opacity: 1, x: 0 }}
+												transition={{ delay: index * 0.05 + 0.1 }}
+											>
+												{item.children ? (
+													<>
+														<button
+															onClick={() =>
+																setMobileExpanded(
+																	mobileExpanded === item.name
+																		? null
+																		: item.name
+																)
+															}
+															className='w-full flex items-center justify-between px-4 py-3 text-base font-semibold text-neutral-900 hover:text-emerald-600 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-teal-50 rounded-xl transition-all duration-200'
 														>
-															<div className="pl-4 pr-2 py-2 space-y-1">
-																{item.children.map((child, childIndex) => (
-																	<motion.div
-																		key={child.name}
-																		initial={{ opacity: 0, x: -10 }}
-																		animate={{ opacity: 1, x: 0 }}
-																		transition={{
-																			delay: childIndex * 0.03,
-																		}}
-																	>
-																		<Link
-																			href={child.href}
-																			className="block px-4 py-2.5 text-sm text-neutral-600 hover:text-emerald-600 hover:bg-emerald-50/30 rounded-lg transition-all duration-200"
-																			onClick={() => {
-																				setMobileMenuOpen(false);
-																				setMobileExpanded(null);
-																			}}
-																		>
-																			{child.name}
-																		</Link>
-																	</motion.div>
-																))}
+															<span>{item.name}</span>
+															<div
+																className={`transition-transform duration-200 ${
+																	mobileExpanded === item.name
+																		? 'rotate-180'
+																		: ''
+																}`}
+															>
+																<ChevronDown size={20} />
 															</div>
-														</motion.div>
-													)}
-												</AnimatePresence>
-											</>
-										) : (
+														</button>
+														<AnimatePresence>
+															{mobileExpanded === item.name && (
+																<motion.div
+																	initial={{ height: 0, opacity: 0 }}
+																	animate={{ height: 'auto', opacity: 1 }}
+																	exit={{ height: 0, opacity: 0 }}
+																	transition={{ duration: 0.2 }}
+																	className='overflow-hidden'
+																>
+																	<div className='pl-4 pr-2 py-2 space-y-1'>
+																		{item.children.map(
+																			(child, childIndex) => (
+																				<motion.div
+																					key={child.name}
+																					initial={{ opacity: 0, x: -10 }}
+																					animate={{
+																						opacity: 1,
+																						x: 0,
+																					}}
+																					transition={{
+																						delay: childIndex * 0.05,
+																					}}
+																				>
+																					<div
+																						className='group/child flex items-center justify-between px-4 py-2.5 text-sm text-neutral-600 hover:text-emerald-600 hover:bg-gradient-to-r hover:from-emerald-50/50 hover:to-teal-50/50 rounded-lg transition-all duration-200 cursor-pointer'
+																						onClick={() => {
+																							setMobileMenuOpen(false);
+																							setMobileExpanded(null);
+																							router.push(child.href);
+																						}}
+																					>
+																						<span>{child.name}</span>
+																						<ArrowRight className='w-3 h-3 opacity-0 -translate-x-2 group-hover/child:opacity-100 group-hover/child:translate-x-0 transition-all duration-300' />
+																					</div>
+																				</motion.div>
+																			)
+																		)}
+																	</div>
+																</motion.div>
+															)}
+														</AnimatePresence>
+													</>
+												) : (
+													<div
+														className='flex items-center justify-between px-4 py-3 text-base font-semibold text-neutral-900 hover:text-emerald-600 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-teal-50 rounded-xl transition-all duration-200 group cursor-pointer'
+														onClick={() => {
+															setMobileMenuOpen(false);
+															router.push(item.href);
+														}}
+													>
+														<span>{item.name}</span>
+														<ArrowRight className='w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300' />
+													</div>
+												)}
+											</motion.div>
+										))}
+
+										{/* Mobile CTA */}
+										<motion.div
+											className='pt-6'
+											initial={{ opacity: 0, y: 10 }}
+											animate={{ opacity: 1, y: 0 }}
+											transition={{ delay: 0.3 }}
+										>
 											<Link
-												href={item.href}
-												className="block px-4 py-3 text-base font-semibold text-neutral-900 hover:text-emerald-600 hover:bg-emerald-50/50 rounded-lg transition-all duration-200"
+												href='/contact'
+												className='group relative flex items-center justify-center gap-2 w-full px-6 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-full font-semibold shadow-lg shadow-emerald-500/30 overflow-hidden'
 												onClick={() => setMobileMenuOpen(false)}
 											>
-												{item.name}
+												<span className='relative z-10'>Get in Touch</span>
+												<ArrowRight className='relative z-10 w-5 h-5 transition-transform group-hover:translate-x-1' />
+												<div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000' />
 											</Link>
-										)}
-									</motion.div>
-								))}
-
-								{/* Mobile CTA */}
-								<motion.div
-									initial={{ opacity: 0, y: 20 }}
-									animate={{ opacity: 1, y: 0 }}
-									transition={{ delay: navigation.length * 0.05 }}
-									className="pt-6"
-								>
-									<Link
-										href="/contact"
-										className="block w-full px-6 py-3.5 bg-emerald-600 text-white rounded-lg font-semibold text-center hover:bg-emerald-700 transition-colors duration-200 shadow-md hover:shadow-lg"
-										onClick={() => setMobileMenuOpen(false)}
-									>
-										Get in Touch
-									</Link>
-								</motion.div>
-							</div>
-						</motion.div>
-					</>
-				)}
-			</AnimatePresence>
+										</motion.div>
+									</div>
+								</div>
+							</motion.div>
+						</>
+					)}
+				</AnimatePresence>,
+				document.body
+			)}
 		</header>
 	);
 }

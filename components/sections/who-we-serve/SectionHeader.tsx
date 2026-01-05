@@ -1,9 +1,54 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Badge from '@/components/ui/Badge';
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function SectionHeader() {
+	const badgeRef = useRef<HTMLDivElement>(null);
+	const headingRef = useRef<HTMLHeadingElement>(null);
+	const subtitleRef = useRef<HTMLParagraphElement>(null);
+
+	useEffect(() => {
+		if (!badgeRef.current || !headingRef.current || !subtitleRef.current) return;
+
+		const ctx = gsap.context(() => {
+			const tl = gsap.timeline({
+				scrollTrigger: {
+					trigger: badgeRef.current,
+					start: 'top 80%',
+					once: true,
+				},
+			});
+
+			tl.fromTo(
+				badgeRef.current,
+				{ y: -100, opacity: 0 },
+				{ y: 0, opacity: 1, duration: 0.8, ease: 'back.out(1.7)' }
+			)
+				.fromTo(
+					headingRef.current,
+					{ opacity: 0, y: 20 },
+					{ opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
+					'-=0.3'
+				)
+				.fromTo(
+					subtitleRef.current,
+					{ opacity: 0, y: 20 },
+					{ opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
+					'-=0.3'
+				);
+		});
+
+		return () => ctx.revert();
+	}, []);
+
 	return (
-		<div className='w-full flex flex-col gap-6 sm:gap-6 md:gap-6 lg:gap-6 xl:gap-4 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-12 xl:py-16 items-start justify-start text-left mb-16 sm:mb-20 md:mb-24 lg:mb-28'>
-			<div className='flex justify-start items-center text-[10px] sm:text-xs md:text-sm lg:text-base'>
+		<div className='w-full flex flex-col gap-6 sm:gap-6 md:gap-6 lg:gap-6 xl:gap-4 items-start justify-start text-left mb-16 sm:mb-20 md:mb-24 lg:mb-28'>
+			<div ref={badgeRef} className='flex justify-start items-center text-[10px] sm:text-xs md:text-sm lg:text-base'>
 				<Badge
 					showDot={true}
 					leftText='Industry'
@@ -14,7 +59,7 @@ export default function SectionHeader() {
 				/>
 			</div>
 
-			<h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl font-semibold text-neutral-900 tracking-tight leading-[1.1] text-left w-full'>
+			<h1 ref={headingRef} className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl font-semibold text-neutral-900 tracking-tight leading-[1.1] text-left w-full'>
 				Who We{' '}
 				<span className='relative inline-block'>
 					<span className='relative z-10 bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent'>
@@ -24,7 +69,7 @@ export default function SectionHeader() {
 				</span>
 			</h1>
 
-			<p className='text-xl sm:text-2xl md:text-3xl lg:text-4xl text-neutral-600 leading-[1.6] font-normal max-w-3xl text-left w-full'>
+			<p ref={subtitleRef} className='text-xl sm:text-2xl md:text-3xl lg:text-4xl text-neutral-600 leading-[1.6] font-normal max-w-3xl text-left w-full'>
 				Tailored strategies for diverse sectors, addressing unique challenges
 				with measurable outcomes.
 			</p>

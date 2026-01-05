@@ -53,6 +53,9 @@ export default function Home() {
 
 			<EcosystemSection />
 
+			{/* Section Divider */}
+			<div className='h-px bg-gradient-to-r from-transparent via-neutral-200 to-transparent' />
+
 			<WhoWeServeSection />
 
 			{/* Section 4 - Stats Section - Redesigned */}
