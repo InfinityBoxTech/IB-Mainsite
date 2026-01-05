@@ -388,7 +388,7 @@ export default function HygieneSolutions() {
 						</p>
 					</motion.div>
 
-					<div className='max-w-5xl mx-auto space-y-8'>
+					<div className='max-w-5xl mx-auto flex flex-col gap-8'>
 						{processSteps.map((step, idx) => {
 							const Icon = step.icon;
 							return (
