@@ -14,7 +14,7 @@ interface IndustryCardProps {
 	index?: number;
 }
 
-const cardVariants = {
+const mainVariants = {
 	hidden: { opacity: 0, y: 50, scale: 0.95 },
 	visible: {
 		opacity: 1,
@@ -22,19 +22,16 @@ const cardVariants = {
 		scale: 1,
 		transition: {
 			duration: 0.6,
-			ease: [0.16, 1, 0.3, 1],
+			ease: [0.16, 1, 0.3, 1] as const,
 		},
 	},
-};
-
-const hoverVariants = {
 	rest: { y: 0, scale: 1 },
 	hover: {
 		y: -8,
 		scale: 1.02,
 		transition: {
 			duration: 0.3,
-			ease: [0.16, 1, 0.3, 1],
+			ease: [0.16, 1, 0.3, 1] as const,
 		},
 	},
 };
@@ -51,13 +48,12 @@ export default function IndustryCard({
 	return (
 		<Link href={href} className='block group h-full'>
 			<motion.div
-				variants={cardVariants}
+				variants={mainVariants}
 				initial='hidden'
 				whileInView='visible'
 				viewport={{ once: true, margin: '-50px' }}
 				custom={index}
 				whileHover='hover'
-				variants={hoverVariants}
 				className='relative h-full bg-white rounded-2xl sm:rounded-3xl border border-neutral-200/60 shadow-sm hover:shadow-2xl overflow-hidden transition-shadow duration-500 flex flex-col'
 			>
 				{/* Animated Gradient Background */}
@@ -212,7 +208,7 @@ export default function IndustryCard({
 					initial={{ scaleX: 0 }}
 					whileInView={{ scaleX: 1 }}
 					viewport={{ once: true }}
-					transition={{ duration: 0.8, delay: index * 0.1 + 0.5, ease: [0.16, 1, 0.3, 1] }}
+					transition={{ duration: 0.8, delay: index * 0.1 + 0.5, ease: [0.16, 1, 0.3, 1] as const }}
 					className={`h-1 bg-gradient-to-r ${gradient} origin-left`}
 				/>
 			</motion.div>
