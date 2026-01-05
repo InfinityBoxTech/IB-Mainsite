@@ -141,9 +141,9 @@ export default function Footer() {
 								<li key={link.name}>
 									<Link
 										href={link.href}
-										className='group flex items-center gap-2 text-neutral-400 hover:text-emerald-400 transition-all text-sm'
+										className='group flex items-start gap-2 text-neutral-400 hover:text-emerald-400 transition-all text-sm'
 									>
-										<ArrowRight className='w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300' />
+										<ArrowRight className='w-3 h-3 mt-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0' />
 										<span className='group-hover:translate-x-1 transition-transform duration-300'>
 											{link.name}
 										</span>
@@ -169,9 +169,9 @@ export default function Footer() {
 								<li key={link.name}>
 									<Link
 										href={link.href}
-										className='group flex items-center gap-2 text-neutral-400 hover:text-emerald-400 transition-all text-sm'
+										className='group flex items-start gap-2 text-neutral-400 hover:text-emerald-400 transition-all text-sm'
 									>
-										<ArrowRight className='w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300' />
+										<ArrowRight className='w-3 h-3 mt-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0' />
 										<span className='group-hover:translate-x-1 transition-transform duration-300'>
 											{link.name}
 										</span>
@@ -197,9 +197,9 @@ export default function Footer() {
 								<li key={link.name}>
 									<Link
 										href={link.href}
-										className='group flex items-center gap-2 text-neutral-400 hover:text-emerald-400 transition-all text-sm'
+										className='group flex items-start gap-2 text-neutral-400 hover:text-emerald-400 transition-all text-sm'
 									>
-										<ArrowRight className='w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300' />
+										<ArrowRight className='w-3 h-3 mt-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0' />
 										<span className='group-hover:translate-x-1 transition-transform duration-300'>
 											{link.name}
 										</span>
@@ -225,9 +225,9 @@ export default function Footer() {
 								<li key={link.name}>
 									<Link
 										href={link.href}
-										className='group flex items-center gap-2 text-neutral-400 hover:text-emerald-400 transition-all text-sm'
+										className='group flex items-start gap-2 text-neutral-400 hover:text-emerald-400 transition-all text-sm'
 									>
-										<ArrowRight className='w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300' />
+										<ArrowRight className='w-3 h-3 mt-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0' />
 										<span className='group-hover:translate-x-1 transition-transform duration-300'>
 											{link.name}
 										</span>

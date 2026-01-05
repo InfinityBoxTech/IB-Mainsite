@@ -23,7 +23,7 @@ export default function CTASection({
 
 	return (
 		<section
-			className={`relative section-padding pt-10 xl:pt-14 pb-10 xl:pb-14 overflow-hidden ${
+			className={`relative section-padding py-16 md:py-24 overflow-hidden ${
 				isDark
 					? 'bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900'
 					: 'bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50'

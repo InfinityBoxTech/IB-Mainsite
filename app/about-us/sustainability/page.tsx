@@ -1,137 +1,73 @@
-import type { Metadata } from "next";
-import Button from "@/components/ui/Button";
-import { CheckCircle } from "lucide-react";
+import type { Metadata } from 'next';
+import ImpactViz from '@/components/about-us/ImpactViz';
+import Button from '@/components/ui/Button';
 
 export const metadata: Metadata = {
-  title: "Sustainability Commitment",
-  description:
-    "Action-led sustainability with measurable impact. InfinityBox's commitment to reducing waste, optimizing resources, and creating circular systems.",
+	title: 'Sustainability | InfinityBox',
+	description: 'Action-Led Impact. We measure what matters.',
 };
 
 export default function Sustainability() {
-  return (
-    <div className="pt-20">
-      <section className="section-padding bg-gradient-to-br from-neutral-50 to-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl lg:text-5xl font-bold text-neutral-900 mb-6">
-              Sustainability Commitment
-            </h1>
-            <p className="text-xl text-neutral-600">
-              Action-led sustainability with measurable impact across all
-              operations.
-            </p>
-          </div>
-        </div>
-      </section>
+	return (
+		<main className='bg-neutral-950'>
+             {/* Header */}
+             <section className="py-20 md:py-24 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span className="inline-block px-4 py-2 rounded-full border border-emerald-500/30 text-emerald-400 uppercase tracking-widest text-sm mb-8">
+                    Sustainability Report
+                </span>
+                <h1 className="text-5xl md:text-8xl font-bold text-white tracking-tighter mb-8 leading-tight">
+                    DATA DRIVEN<br/> <span className="text-emerald-500">GREEN IMPACT</span>
+                </h1>
+                <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
+                    We moved beyond "eco-friendly" buzzwords. We build systems that naturally consume less and produce more.
+                </p>
+             </section>
 
-      <section className="section-padding bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-neutral-900 mb-6">
-              Our Approach
-            </h2>
-            <p className="text-lg text-neutral-700 mb-8">
-              Sustainability isn't an add-on at InfinityBox—it's integrated
-              into every solution we design and deploy. We focus on measurable
-              outcomes: waste reduction, resource optimization, and circular
-              systems that create lasting impact.
-            </p>
-          </div>
-        </div>
-      </section>
+             {/* Viz */}
+             <ImpactViz />
 
-      <section className="section-padding bg-neutral-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-neutral-900 mb-8">
-              Key Initiatives
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[
-                {
-                  title: "Waste Reduction",
-                  description:
-                    "Average 30% reduction in waste through optimized processes and circular packaging solutions.",
-                },
-                {
-                  title: "Resource Optimization",
-                  description:
-                    "Precise chemical dosing and utility efficiency systems reduce resource consumption.",
-                },
-                {
-                  title: "Circular Packaging",
-                  description:
-                    "Compostable and recyclable alternatives that support closed-loop systems.",
-                },
-                {
-                  title: "Compliance & Reporting",
-                  description:
-                    "Audit-ready documentation that supports ESG reporting and sustainability goals.",
-                },
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white rounded-lg p-6 border border-neutral-200"
-                >
-                  <h3 className="text-xl font-semibold text-neutral-900 mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-neutral-600">{item.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+             {/* CTA */}
+              <section className="section-padding pt-10 xl:pt-14 pb-10 xl:pb-14 bg-gradient-to-br from-emerald-950 via-emerald-900 to-teal-950 relative overflow-hidden">
+                 {/* Grid Pattern */}
+                 <div className="absolute inset-0 opacity-10">
+                     <div
+                         className="absolute inset-0"
+                         style={{
+                             backgroundImage: `linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)`,
+                             backgroundSize: '50px 50px',
+                         }}
+                     />
+                 </div>
 
-      <section className="section-padding bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-neutral-900 mb-6">
-              Measurable Impact
-            </h2>
-            <div className="space-y-4">
-              {[
-                "30% average waste reduction across deployments",
-                "Compliance-ready documentation for ESG reporting",
-                "Circular systems that reduce single-use dependency",
-                "Resource optimization through system-led efficiency",
-              ].map((impact, idx) => (
-                <div key={idx} className="flex items-start">
-                  <CheckCircle
-                    size={20}
-                    className="text-[var(--color-secondary)] mr-3 mt-1 flex-shrink-0"
-                  />
-                  <span className="text-neutral-700">{impact}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+                 {/* Radial Gradient Glow */}
+                 <div className="absolute inset-0 bg-radial-gradient from-emerald-500/20 via-transparent to-transparent opacity-40" />
 
-      <section className="section-padding bg-neutral-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-neutral-900 mb-4">
-              Partner for Sustainable Operations
-            </h2>
-            <p className="text-lg text-neutral-600 mb-8">
-              Learn how InfinityBox can help your organization achieve
-              sustainability goals with measurable impact.
-            </p>
-            <Button href="/contact" size="lg">
-              Discuss Sustainability Solutions
-            </Button>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
+                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                     <div className="max-w-4xl mx-auto text-center">
+                         <div className="inline-block px-4 py-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 text-emerald-300 uppercase tracking-widest text-xs md:text-sm mb-6 md:mb-8">
+                             Ready to Make a Difference?
+                         </div>
+
+                         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-tight">
+                             Make Your Impact <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-teal-300">Measurable</span>
+                         </h2>
+
+                         <p className="text-base md:text-lg lg:text-xl text-neutral-300 mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed">
+                             Get a comprehensive sustainability audit and discover how InfinityBox can help you achieve your environmental goals with data-driven solutions.
+                         </p>
+
+                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                             <a
+                                 href="/contact"
+                                 className="group relative inline-flex items-center justify-center bg-white text-emerald-950 hover:bg-emerald-50 border-none rounded-full px-8 md:px-12 py-4 md:py-5 text-base md:text-lg font-bold shadow-xl shadow-emerald-500/20 hover:shadow-2xl hover:shadow-emerald-500/30 transition-all duration-300 overflow-hidden w-full sm:w-auto"
+                             >
+                                 <span className="relative z-10 text-emerald-950">Request Sustainability Audit</span>
+                                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-100/50 to-transparent skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                             </a>
+                         </div>
+                     </div>
+                 </div>
+              </section>
+		</main>
+	);
 }
-
-
-
-
-

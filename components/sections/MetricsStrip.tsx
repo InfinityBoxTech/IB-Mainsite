@@ -27,7 +27,7 @@ export default function MetricsStrip({ metrics }: MetricsStripProps) {
 	const isInView = useInView(containerRef, { once: true, margin: '-100px' });
 
 	return (
-		<section className='relative bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 section-padding pt-10 xl:pt-14 pb-10 xl:pb-14 overflow-hidden'>
+		<section className='relative bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 section-padding py-16 md:py-24 overflow-hidden'>
 			{/* Grid Pattern */}
 			<div className='absolute inset-0 opacity-5' style={{
 				backgroundImage: `linear-gradient(#059669 1px, transparent 1px), linear-gradient(90deg, #059669 1px, transparent 1px)`,

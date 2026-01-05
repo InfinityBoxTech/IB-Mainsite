@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createPortal } from 'react-dom';
@@ -109,24 +110,27 @@ export default function Header() {
 					: 'bg-white/90 backdrop-blur-md'
 			}`}
 		>
-			<nav className='container mx-auto section-padding'>
+			<nav className='mx-auto px-4 sm:px-6 lg:px-8' style={{ maxWidth: '1280px' }}>
 				<div className='flex items-center justify-between h-16 sm:h-18 md:h-20'>
 					{/* Logo */}
-					{/* Logo */}
-					<div 
-						onClick={() => router.push('/')} 
-						className='flex items-center gap-2 group cursor-pointer'
+					<div
+						onClick={() => router.push('/')}
+						className='flex items-center group cursor-pointer'
 					>
 						<motion.div
-							whileHover={{ rotate: 180, scale: 1.1 }}
-							transition={{ duration: 0.6, type: 'spring' }}
-							className='w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center shadow-md shadow-emerald-500/20 group-hover:shadow-lg group-hover:shadow-emerald-500/40 transition-shadow duration-300'
+							whileHover={{ scale: 1.05 }}
+							transition={{ duration: 0.3, type: 'spring' }}
+							className='relative h-10 sm:h-12 md:h-14 lg:h-16 w-auto'
 						>
-							<span className='text-white font-bold text-lg sm:text-xl'>∞</span>
+							<Image
+								src='/IBlogo.jpeg'
+								alt='InfinityBox Logo'
+								width={180}
+								height={64}
+								className='h-full w-auto object-contain'
+								priority
+							/>
 						</motion.div>
-						<span className='text-xl sm:text-2xl font-bold bg-gradient-to-r from-neutral-900 to-neutral-700 bg-clip-text text-transparent'>
-							InfinityBox
-						</span>
 					</div>
 
 					{/* Desktop Navigation */}
@@ -275,14 +279,17 @@ export default function Header() {
 											setMobileMenuOpen(false);
 											router.push('/');
 										}}
-										className='flex items-center gap-2 cursor-pointer'
+										className='flex items-center cursor-pointer'
 									>
-										<div className='w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center shadow-md shadow-emerald-500/20'>
-											<span className='text-white font-bold text-lg'>∞</span>
+										<div className='relative h-10 w-auto'>
+											<Image
+												src='/IBlogo.jpeg'
+												alt='InfinityBox Logo'
+												width={140}
+												height={40}
+												className='h-full w-auto object-contain'
+											/>
 										</div>
-										<span className='text-xl font-bold bg-gradient-to-r from-neutral-900 to-neutral-700 bg-clip-text text-transparent'>
-											InfinityBox
-										</span>
 									</div>
 									<button
 										onClick={() => setMobileMenuOpen(false)}

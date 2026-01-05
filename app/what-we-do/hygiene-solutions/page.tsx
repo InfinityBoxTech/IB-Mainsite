@@ -135,22 +135,31 @@ export default function HygieneSolutions() {
 		offset: ['start start', 'end end'],
 	});
 
-	const heroY = useTransform(scrollYProgress, [0, 0.3], ['0%', '20%']);
-	const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+	const heroY = useTransform(scrollYProgress, [0, 1], [0, 200]);
+	const heroOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
+
+	// Pre-generate droplet positions to avoid hydration mismatch
+	const droplets = Array.from({ length: 20 }, (_, i) => ({
+		id: i,
+		left: (i * 37 + 13) % 100, // Pseudo-random but consistent
+		top: (i * 47 + 27) % 100,
+		duration: 3 + ((i * 17) % 20) / 10,
+		delay: ((i * 23) % 20) / 10,
+	}));
 
 	return (
 		<div ref={containerRef} className='relative bg-white'>
 			{/* Hero Section with Animated Background */}
-			<section className='relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-cyan-50 via-blue-50 to-teal-50'>
+			<section className='relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-cyan-950 via-blue-900 to-teal-950'>
 				{/* Animated Water Droplets Background */}
 				<div className='absolute inset-0 overflow-hidden'>
-					{[...Array(20)].map((_, i) => (
+					{droplets.map((droplet) => (
 						<motion.div
-							key={i}
+							key={droplet.id}
 							className='absolute w-2 h-2 bg-cyan-400/20 rounded-full'
 							style={{
-								left: `${Math.random() * 100}%`,
-								top: `${Math.random() * 100}%`,
+								left: `${droplet.left}%`,
+								top: `${droplet.top}%`,
 							}}
 							animate={{
 								y: [0, -30, 0],
@@ -158,24 +167,16 @@ export default function HygieneSolutions() {
 								opacity: [0.2, 0.5, 0.2],
 							}}
 							transition={{
-								duration: 3 + Math.random() * 2,
+								duration: droplet.duration,
 								repeat: Infinity,
-								delay: Math.random() * 2,
+								delay: droplet.delay,
 							}}
 						/>
 					))}
 				</div>
 
-				{/* Grid Pattern */}
-				<div className='absolute inset-0 opacity-[0.03]'>
-					<div
-						className='absolute inset-0'
-						style={{
-							backgroundImage: `linear-gradient(#06b6d4 1px, transparent 1px), linear-gradient(90deg, #06b6d4 1px, transparent 1px)`,
-							backgroundSize: '50px 50px',
-						}}
-					/>
-				</div>
+				{/* Gradient Overlay */}
+				<div className='absolute inset-0 bg-gradient-to-b from-transparent via-cyan-950/50 to-cyan-950/80'></div>
 
 				<motion.div
 					style={{ y: heroY, opacity: heroOpacity }}
@@ -230,9 +231,9 @@ export default function HygieneSolutions() {
 						transition={{ duration: 0.8, delay: 0.4 }}
 						className='max-w-4xl mx-auto'
 					>
-						<h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-neutral-900 mb-6 leading-tight'>
+						<h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight'>
 							<span className='block'>Hygiene Solutions</span>
-							<span className='block bg-gradient-to-r from-cyan-600 via-blue-600 to-teal-600 bg-clip-text text-transparent'>
+							<span className='block bg-gradient-to-r from-cyan-400 via-blue-400 to-teal-400 bg-clip-text text-transparent'>
 								Built for Scale
 							</span>
 						</h1>
@@ -241,7 +242,7 @@ export default function HygieneSolutions() {
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.8, delay: 0.6 }}
-							className='text-xl sm:text-2xl text-neutral-600 mb-10 leading-relaxed'
+							className='text-xl sm:text-2xl text-cyan-100 mb-10 leading-relaxed'
 						>
 							System-led hygiene protocols that ensure consistency, compliance,
 							and measurable outcomes across all your locations.
@@ -263,33 +264,33 @@ export default function HygieneSolutions() {
 							</Link>
 
 							<Link
-								href='/contact?type=hygiene-experts'
-								className='group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/80 backdrop-blur-sm text-neutral-900 font-semibold text-lg rounded-full border-2 border-neutral-300 hover:bg-white hover:border-cyan-500 transition-all duration-300'
+								href='#ecosystem'
+								className='group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold text-lg rounded-full border border-white/20 hover:bg-white/20 hover:border-cyan-400 transition-all duration-300'
 							>
-								<span>Talk to Experts</span>
+								<span>Learn More</span>
 								<ArrowRight className='w-5 h-5 transition-transform duration-300 group-hover:translate-x-1' />
 							</Link>
-						</motion.div>
 					</motion.div>
+				</motion.div>
+			</motion.div>
 
-					{/* Scroll Indicator */}
+				{/* Scroll Indicator */}
+				<motion.div
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ delay: 1.5 }}
+					className='absolute bottom-8 left-1/2 -translate-x-1/2'
+				>
 					<motion.div
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 1.5 }}
-						className='absolute bottom-8 left-1/2 -translate-x-1/2'
+						animate={{ y: [0, 8, 0] }}
+						transition={{ duration: 2, repeat: Infinity }}
+						className='w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-2'
 					>
 						<motion.div
-							animate={{ y: [0, 8, 0] }}
+							animate={{ y: [0, 12, 0] }}
 							transition={{ duration: 2, repeat: Infinity }}
-							className='w-6 h-10 rounded-full border-2 border-neutral-400 flex items-start justify-center p-2'
-						>
-							<motion.div
-								animate={{ y: [0, 12, 0] }}
-								transition={{ duration: 2, repeat: Infinity }}
-								className='w-1 h-2 bg-cyan-500 rounded-full'
-							/>
-						</motion.div>
+							className='w-1 h-2 bg-white rounded-full'
+						/>
 					</motion.div>
 				</motion.div>
 			</section>

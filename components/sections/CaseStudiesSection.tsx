@@ -80,7 +80,7 @@ const caseStudies = [
 
 export default function CaseStudiesSection() {
 	return (
-		<section className='relative bg-white section-padding pt-10 xl:pt-14 pb-10 xl:pb-14 overflow-hidden'>
+		<section className='relative bg-white section-padding py-16 md:py-24 overflow-hidden'>
 			{/* Background Pattern */}
 			<div className='absolute inset-0 opacity-[0.02]'>
 				<div
