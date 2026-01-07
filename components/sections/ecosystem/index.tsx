@@ -1,6 +1,6 @@
 'use client';
 
-import { Droplets, Package, ChefHat, Users } from 'lucide-react';
+import { Droplets, ChefHat, Users } from 'lucide-react';
 import SectionHeader from './SectionHeader';
 import PillarCard from '../PillarCard';
 import BottomCTA from './BottomCTA';
@@ -9,21 +9,21 @@ const pillars = [
 	{
 		title: 'Hygiene Solutions',
 		description:
-			'Right chemical, right dose, right process. Controlled dispensing, audit-ready compliance, and training-backed execution.',
+			'End-to-end dishwashing and hygiene operations at institutional scale. Centralised off-site and on-site dishwashing with audit-ready SOPs, trained teams, and controlled chemical dosing.',
 		icon: <Droplets className='w-8 h-8' />,
 		href: '/what-we-do/hygiene-solutions',
 	},
 	{
-		title: 'Packaging Solutions',
+		title: 'Bottle Washing Solutions',
 		description:
-			'Compostable and recyclable alternatives at institutional scale. Compliance-focused with durability for operational needs.',
-		icon: <Package className='w-8 h-8' />,
-		href: '/what-we-do/packaging-solutions',
+			'Large-scale glass bottle reuse and washing solutions for beverage and FMCG enterprises. Bottle collection, washing, quality checks, and circulation management.',
+		icon: <Droplets className='w-8 h-8' />,
+		href: '/what-we-do/bottle-washing-solutions',
 	},
 	{
 		title: 'Commercial Kitchen Solutions',
 		description:
-			'Lifecycle support from setup to maintenance. Layout optimization, workflow efficiency, and utility management.',
+			'Lifecycle support for commercial kitchens — from design and setup to equipment supply and optimisation. Efficient layouts, equipment selection, and streamlined workflows for safety and scale.',
 		icon: <ChefHat className='w-8 h-8' />,
 		href: '/what-we-do/commercial-kitchen-solutions',
 	},

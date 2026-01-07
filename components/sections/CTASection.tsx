@@ -33,7 +33,9 @@ export default function CTASection({
 			<div className='absolute inset-0 overflow-hidden'>
 				{/* Grid Pattern */}
 				<div
-					className={`absolute inset-0 ${isDark ? 'opacity-5' : 'opacity-[0.03]'}`}
+					className={`absolute inset-0 ${
+						isDark ? 'opacity-5' : 'opacity-[0.03]'
+					}`}
 					style={{
 						backgroundImage: `linear-gradient(${
 							isDark ? '#059669' : '#047857'
@@ -225,7 +227,7 @@ export default function CTASection({
 												isDark ? 'text-white' : 'text-neutral-900'
 											}`}
 										>
-											99% Compliance
+											100% Compliance
 										</div>
 										<div
 											className={`text-xs ${

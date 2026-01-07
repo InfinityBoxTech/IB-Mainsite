@@ -77,8 +77,8 @@ export default function Hero({
 						>
 							<Badge
 								showDot={true}
-								leftText='India'
-								rightText='Operations Partner'
+								leftText='Pan India'
+								rightText='Hygiene and sustainability partner'
 								separator='·'
 								variant='dark'
 								size='md'
@@ -131,11 +131,11 @@ export default function Hero({
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: 0.8 }}
-							className='flex flex-col sm:flex-row gap-4 sm:gap-6 mb-12 lg:mb-16 justify-center lg:justify-start'
+							className='flex flex-col gap-4 mb-12 lg:mb-16 max-w-2xl justify-center lg:justify-start'
 						>
 							<Link
 								href={primaryCTA.href}
-								className='group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold text-lg rounded-full overflow-hidden hover:shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300 hover:scale-105'
+								className='group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold text-base sm:text-lg rounded-full overflow-hidden hover:shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300 hover:scale-105'
 							>
 								<span className='relative z-10'>{primaryCTA.text}</span>
 								<ArrowRight className='w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1' />
@@ -146,10 +146,10 @@ export default function Hero({
 
 							<Link
 								href={secondaryCTA.href}
-								className='group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold text-lg rounded-full border-2 border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300'
+								className='group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-neutral-900 font-semibold text-base sm:text-lg rounded-full border-2 border-emerald-500/30 hover:bg-emerald-50 hover:border-emerald-500 hover:scale-105 transition-all duration-300 shadow-lg'
 							>
-								<span>{secondaryCTA.text}</span>
-								<Play className='w-5 h-5 transition-transform duration-300 group-hover:scale-110' />
+								<span className='text-neutral-900 group-hover:text-emerald-700 transition-colors duration-300'>{secondaryCTA.text}</span>
+								<Play className='w-5 h-5 text-emerald-600 transition-transform duration-300 group-hover:scale-110' />
 							</Link>
 						</motion.div>
 
@@ -169,7 +169,7 @@ export default function Hero({
 							<div className='flex items-center gap-2'>
 								<TrendingUp className='w-4 h-4 text-emerald-400' />
 								<span className='text-sm text-neutral-400'>
-									99% compliance rate
+									100% compliance rate
 								</span>
 							</div>
 						</motion.div>
@@ -208,7 +208,7 @@ export default function Hero({
 									<div className='group'>
 										<div className='flex items-baseline gap-2 mb-2'>
 											<div className='text-5xl sm:text-6xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent'>
-												50+
+												5+
 											</div>
 											<div className='text-sm text-emerald-400 font-semibold'>
 												Cities
@@ -217,7 +217,7 @@ export default function Hero({
 										<div className='h-2 bg-white/10 rounded-full overflow-hidden'>
 											<motion.div
 												initial={{ width: 0 }}
-												animate={{ width: '85%' }}
+												animate={{ width: '70%' }}
 												transition={{ duration: 1.5, delay: 1.2 }}
 												className='h-full bg-gradient-to-r from-emerald-500 to-teal-500'
 											/>
@@ -230,16 +230,16 @@ export default function Hero({
 									<div className='group'>
 										<div className='flex items-baseline gap-2 mb-2'>
 											<div className='text-5xl sm:text-6xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent'>
-												1000+
+												100+
 											</div>
 											<div className='text-sm text-emerald-400 font-semibold'>
-												Facilities
+												Client Facilities
 											</div>
 										</div>
 										<div className='h-2 bg-white/10 rounded-full overflow-hidden'>
 											<motion.div
 												initial={{ width: 0 }}
-												animate={{ width: '95%' }}
+												animate={{ width: '85%' }}
 												transition={{ duration: 1.5, delay: 1.4 }}
 												className='h-full bg-gradient-to-r from-emerald-500 to-teal-500'
 											/>
@@ -252,17 +252,39 @@ export default function Hero({
 									<div className='group'>
 										<div className='flex items-baseline gap-2 mb-2'>
 											<div className='text-5xl sm:text-6xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent'>
-												99%
+												6
 											</div>
 											<div className='text-sm text-emerald-400 font-semibold'>
-												Compliance
+												Self Owned Facilities
 											</div>
 										</div>
 										<div className='h-2 bg-white/10 rounded-full overflow-hidden'>
 											<motion.div
 												initial={{ width: 0 }}
-												animate={{ width: '99%' }}
+												animate={{ width: '60%' }}
 												transition={{ duration: 1.5, delay: 1.6 }}
+												className='h-full bg-gradient-to-r from-emerald-500 to-teal-500'
+											/>
+										</div>
+										<div className='text-xs text-neutral-400 mt-1'>
+											Centralized operations
+										</div>
+									</div>
+
+									<div className='group'>
+										<div className='flex items-baseline gap-2 mb-2'>
+											<div className='text-5xl sm:text-6xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent'>
+												100%
+											</div>
+											<div className='text-sm text-emerald-400 font-semibold'>
+												Compliant
+											</div>
+										</div>
+										<div className='h-2 bg-white/10 rounded-full overflow-hidden'>
+											<motion.div
+												initial={{ width: 0 }}
+												animate={{ width: '100%' }}
+												transition={{ duration: 1.5, delay: 1.8 }}
 												className='h-full bg-gradient-to-r from-emerald-500 to-teal-500'
 											/>
 										</div>

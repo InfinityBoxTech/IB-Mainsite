@@ -244,8 +244,7 @@ export default function HygieneSolutions() {
 							transition={{ duration: 0.8, delay: 0.6 }}
 							className='text-xl sm:text-2xl text-cyan-100 mb-10 leading-relaxed'
 						>
-							System-led hygiene protocols that ensure consistency, compliance,
-							and measurable outcomes across all your locations.
+							End-to-end dishwashing and hygiene operations at institutional scale. We operate centralised off-site washing facilities as well as on-site dishwashing units within client campuses. Our model is built on audit-ready SOPs, trained teams, controlled chemical dosing, and real-time execution — ensuring compliance, consistency, and measurable hygiene outcomes across locations.
 						</motion.p>
 
 						<motion.div
@@ -575,3 +574,4 @@ export default function HygieneSolutions() {
 		</div>
 	);
 }
+

@@ -7,7 +7,7 @@ import { ArrowRight, Mail, Phone, MapPin, Linkedin, Twitter, Instagram } from 'l
 const footerLinks = {
 	solutions: [
 		{ name: 'Hygiene Solutions', href: '/what-we-do/hygiene-solutions' },
-		{ name: 'Packaging Solutions', href: '/what-we-do/packaging-solutions' },
+		{ name: 'Bottle Washing Solutions', href: '/what-we-do/bottle-washing-solutions' },
 		{
 			name: 'Commercial Kitchen Solutions',
 			href: '/what-we-do/commercial-kitchen-solutions',
@@ -277,3 +277,4 @@ export default function Footer() {
 		</footer>
 	);
 }
+

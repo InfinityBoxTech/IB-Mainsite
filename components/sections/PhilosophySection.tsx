@@ -307,3 +307,4 @@ function StepCard({ data, setActiveStep, index }: any) {
         </motion.div>
     )
 }
+

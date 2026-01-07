@@ -74,9 +74,8 @@ export default function SectionHeader() {
 				ref={subtitleRef}
 				className='text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl text-neutral-600 leading-[1.6] font-normal text-center max-w-3xl'
 			>
-				Fewer handovers. Clear accountability.{' '}
 				<span className='font-semibold text-neutral-900'>
-					One partner for your complete operations infrastructure.
+					One partner. One SOP. One accountability layer.
 				</span>
 			</p>
 		</div>

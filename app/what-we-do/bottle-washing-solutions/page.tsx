@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import Link from 'next/link';
-import { Package, Leaf, Recycle, CheckCircle2, ArrowRight, ArrowDown } from 'lucide-react';
+import { Package, Droplets, Recycle, CheckCircle2, ArrowRight, ArrowDown } from 'lucide-react';
 
 // Animated Counter Component
 function AnimatedCounter({ end, suffix = '' }: { end: number; suffix?: string }) {
@@ -40,7 +40,7 @@ function AnimatedCounter({ end, suffix = '' }: { end: number; suffix?: string })
 	);
 }
 
-export default function PackagingSolutions() {
+export default function BottleWashingSolutions() {
 	const heroRef = useRef(null);
 	const { scrollYProgress } = useScroll({
 		target: heroRef,
@@ -50,8 +50,8 @@ export default function PackagingSolutions() {
 	const heroY = useTransform(scrollYProgress, [0, 1], [0, 200]);
 	const heroOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
 
-	// Generate random leaf particles
-	const leafParticles = Array.from({ length: 15 }, (_, i) => ({
+	// Generate random droplet particles
+	const dropletParticles = Array.from({ length: 15 }, (_, i) => ({
 		id: i,
 		left: `${Math.random() * 100}%`,
 		top: `${Math.random() * 100}%`,
@@ -62,17 +62,17 @@ export default function PackagingSolutions() {
 
 	return (
 		<div className='min-h-screen bg-white'>
-			{/* Hero Section with Animated Leaf Particles */}
+			{/* Hero Section with Animated Droplet Particles */}
 			<section
 				ref={heroRef}
-				className='relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-emerald-950 via-green-900 to-teal-950'
+				className='relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-950 via-cyan-900 to-teal-950'
 			>
-				{/* Animated Leaf Particles */}
+				{/* Animated Droplet Particles */}
 				<div className='absolute inset-0 overflow-hidden'>
-					{leafParticles.map((particle) => (
+					{dropletParticles.map((particle) => (
 						<motion.div
 							key={particle.id}
-							className='absolute text-emerald-400/20'
+							className='absolute text-cyan-400/20'
 							style={{
 								left: particle.left,
 								top: particle.top,
@@ -92,13 +92,13 @@ export default function PackagingSolutions() {
 								ease: 'easeInOut',
 							}}
 						>
-							<Leaf className='w-full h-full' />
+							<Droplets className='w-full h-full' />
 						</motion.div>
 					))}
 				</div>
 
 				{/* Gradient Overlay */}
-				<div className='absolute inset-0 bg-gradient-to-b from-transparent via-emerald-950/50 to-emerald-950/80'></div>
+				<div className='absolute inset-0 bg-gradient-to-b from-transparent via-cyan-950/50 to-cyan-950/80'></div>
 
 				{/* Floating Icon with Ripple Effect */}
 				<motion.div
@@ -117,7 +117,7 @@ export default function PackagingSolutions() {
 						{[0, 1, 2].map((i) => (
 							<motion.div
 								key={i}
-								className='absolute inset-0 rounded-full border-2 border-green-400'
+								className='absolute inset-0 rounded-full border-2 border-cyan-400'
 								initial={{ scale: 1, opacity: 0.6 }}
 								animate={{
 									scale: [1, 2, 3],
@@ -140,7 +140,7 @@ export default function PackagingSolutions() {
 							/>
 						))}
 						<motion.div
-							className='relative z-10 w-24 h-24 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center shadow-2xl'
+							className='relative z-10 w-24 h-24 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center shadow-2xl'
 							animate={{ rotate: 360 }}
 							transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
 						>
@@ -158,10 +158,10 @@ export default function PackagingSolutions() {
 						initial={{ opacity: 0, scale: 0.9 }}
 						animate={{ opacity: 1, scale: 1 }}
 						transition={{ duration: 0.8, ease: 'easeOut' }}
-						className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/20 backdrop-blur-sm border border-green-400/30 mb-6'
+						className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/20 backdrop-blur-sm border border-cyan-400/30 mb-6'
 					>
-						<Recycle className='w-4 h-4 text-green-400' />
-						<span className='text-sm font-medium text-green-400'>Sustainable Future</span>
+						<Recycle className='w-4 h-4 text-cyan-400' />
+						<span className='text-sm font-medium text-cyan-400'>Circular Economy</span>
 					</motion.div>
 
 					<motion.h1
@@ -170,9 +170,9 @@ export default function PackagingSolutions() {
 						transition={{ duration: 0.8, delay: 0.2 }}
 						className='text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight'
 					>
-						Packaging
+						Bottle Washing
 						<br />
-						<span className='bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent'>
+						<span className='bg-gradient-to-r from-cyan-400 via-blue-400 to-teal-400 bg-clip-text text-transparent'>
 							Solutions
 						</span>
 					</motion.h1>
@@ -181,10 +181,9 @@ export default function PackagingSolutions() {
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8, delay: 0.4 }}
-						className='text-xl sm:text-2xl md:text-3xl text-green-100 max-w-4xl mx-auto mb-12 leading-relaxed'
+						className='text-xl sm:text-2xl md:text-3xl text-cyan-100 max-w-4xl mx-auto mb-12 leading-relaxed'
 					>
-						Compostable and recyclable alternatives at institutional scale. Compliance-focused with
-						durability for operational needs.
+						Large-scale glass bottle reuse and washing solutions for beverage and FMCG enterprises. Bottle collection, washing, quality checks, and circulation management.
 					</motion.p>
 
 					<motion.div
@@ -195,7 +194,7 @@ export default function PackagingSolutions() {
 					>
 						<Link
 							href='/contact'
-							className='group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full text-white font-semibold text-lg hover:shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-105'
+							className='group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full text-white font-semibold text-lg hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105'
 						>
 							<span>Get Started</span>
 							<ArrowRight className='w-5 h-5 transition-transform duration-300 group-hover:translate-x-1' />
@@ -242,54 +241,53 @@ export default function PackagingSolutions() {
 						className='text-center mb-16'
 					>
 						<h2 className='text-4xl sm:text-5xl md:text-6xl font-bold text-neutral-900 mb-6'>
-							Sustainable{' '}
-							<span className='bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent'>
-								Packaging Portfolio
+							Complete{' '}
+							<span className='bg-gradient-to-r from-cyan-600 via-blue-600 to-teal-600 bg-clip-text text-transparent'>
+								Bottle Lifecycle Management
 							</span>
 						</h2>
 						<p className='text-xl text-neutral-600 max-w-3xl mx-auto'>
-							End-to-end packaging solutions that balance environmental responsibility with operational
-							excellence
+							End-to-end bottle washing and circulation systems that enable sustainable reuse at scale
 						</p>
 					</motion.div>
 
 					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8'>
 						{[
 							{
-								icon: <Leaf className='w-8 h-8' />,
-								title: 'Compostable Food Service',
+								icon: <Package className='w-8 h-8' />,
+								title: 'Bottle Collection',
 								description:
-									'Industrial-grade compostable containers, plates, and cutlery that meet ASTM D6400 standards for commercial composting.',
+									'Systematic collection networks from distribution points, retail partners, and end consumers with tracking systems.',
+							},
+							{
+								icon: <Droplets className='w-8 h-8' />,
+								title: 'Industrial Washing',
+								description:
+									'High-capacity automated washing lines with multi-stage cleaning, sanitization, and inspection processes.',
+							},
+							{
+								icon: <CheckCircle2 className='w-8 h-8' />,
+								title: 'Quality Assurance',
+								description:
+									'Comprehensive inspection protocols for cleanliness, structural integrity, and compliance with food safety standards.',
 							},
 							{
 								icon: <Recycle className='w-8 h-8' />,
-								title: 'Recyclable Systems',
+								title: 'Circulation Management',
 								description:
-									'Single-stream recyclable packaging with clear labeling for easy sorting and maximum recovery rates.',
-							},
-							{
-								icon: <Package className='w-8 h-8' />,
-								title: 'Biodegradable Alternatives',
-								description:
-									'Plant-based materials that naturally decompose while maintaining durability during use and storage.',
-							},
-							{
-								icon: <CheckCircle2 className='w-8 h-8' />,
-								title: 'Reusable Integration',
-								description:
-									'Durable reusable container programs with tracking, cleaning, and rotation systems for institutional scale.',
+									'Inventory tracking, logistics coordination, and distribution to maintain optimal bottle circulation rates.',
 							},
 							{
 								icon: <ArrowRight className='w-8 h-8' />,
-								title: 'Waste Stream Optimization',
+								title: 'Damage Sorting',
 								description:
-									'Complete waste management integration with composting, recycling, and minimal landfill diversion.',
+									'Automated detection and removal of damaged bottles with proper recycling or disposal management.',
 							},
 							{
 								icon: <CheckCircle2 className='w-8 h-8' />,
-								title: 'Compliance Documentation',
+								title: 'Compliance & Documentation',
 								description:
-									'Full regulatory compliance support with certifications, testing reports, and audit-ready documentation.',
+									'Full regulatory compliance support with sanitization records, quality reports, and audit-ready documentation.',
 							},
 						].map((item, idx) => (
 							<motion.div
@@ -299,16 +297,16 @@ export default function PackagingSolutions() {
 								viewport={{ once: true, margin: '-100px' }}
 								transition={{ duration: 0.6, delay: idx * 0.1 }}
 								whileHover={{ y: -8, scale: 1.02 }}
-								className='group relative bg-white rounded-2xl p-8 border border-neutral-200 hover:border-green-200 transition-all duration-300 hover:shadow-2xl hover:shadow-green-500/10'
+								className='group relative bg-white rounded-2xl p-8 border border-neutral-200 hover:border-cyan-200 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/10'
 							>
 								{/* Gradient Background on Hover */}
-								<div className='absolute inset-0 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+								<div className='absolute inset-0 bg-gradient-to-br from-cyan-50 via-blue-50 to-teal-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
 
 								<div className='relative z-10'>
-									<div className='mb-4 text-green-600 inline-flex p-3 rounded-xl bg-green-50 group-hover:bg-white transition-colors duration-300'>
+									<div className='mb-4 text-cyan-600 inline-flex p-3 rounded-xl bg-cyan-50 group-hover:bg-white transition-colors duration-300'>
 										{item.icon}
 									</div>
-									<h3 className='text-2xl font-semibold text-neutral-900 mb-3 group-hover:text-green-700 transition-colors duration-300'>
+									<h3 className='text-2xl font-semibold text-neutral-900 mb-3 group-hover:text-cyan-700 transition-colors duration-300'>
 										{item.title}
 									</h3>
 									<p className='text-neutral-600 leading-relaxed'>{item.description}</p>
@@ -316,7 +314,7 @@ export default function PackagingSolutions() {
 
 								{/* Bottom Accent Line */}
 								<motion.div
-									className='absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 origin-left'
+									className='absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 via-blue-400 to-teal-400 origin-left'
 									initial={{ scaleX: 0 }}
 									whileInView={{ scaleX: 1 }}
 									viewport={{ once: true }}
@@ -340,12 +338,12 @@ export default function PackagingSolutions() {
 					>
 						<h2 className='text-4xl sm:text-5xl md:text-6xl font-bold text-neutral-900 mb-6'>
 							How We{' '}
-							<span className='bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent'>
+							<span className='bg-gradient-to-r from-cyan-600 via-blue-600 to-teal-600 bg-clip-text text-transparent'>
 								Work
 							</span>
 						</h2>
 						<p className='text-xl text-neutral-600 max-w-3xl mx-auto'>
-							A systematic approach to implementing sustainable packaging across your operations
+							A systematic approach to implementing large-scale bottle reuse programs
 						</p>
 					</motion.div>
 
@@ -353,27 +351,27 @@ export default function PackagingSolutions() {
 						{[
 							{
 								step: '01',
-								title: 'Assessment & Analysis',
+								title: 'Network Assessment',
 								description:
-									'Comprehensive audit of current packaging usage, waste streams, and operational requirements to identify optimization opportunities.',
+									'Analysis of current bottle usage, collection points, and logistics infrastructure to design optimal circulation networks.',
 							},
 							{
 								step: '02',
-								title: 'Solution Design',
+								title: 'Washing Infrastructure Setup',
 								description:
-									'Custom packaging portfolio design that balances sustainability goals, compliance requirements, and operational durability.',
+									'Installation and commissioning of industrial washing equipment with quality control systems and compliance protocols.',
 							},
 							{
 								step: '03',
-								title: 'Implementation',
+								title: 'Collection & Logistics',
 								description:
-									'Phased rollout with staff training, supplier coordination, and waste management system integration across all locations.',
+									'Implementation of collection systems, reverse logistics, and tracking mechanisms across all touchpoints.',
 							},
 							{
 								step: '04',
-								title: 'Monitoring & Optimization',
+								title: 'Operations & Monitoring',
 								description:
-									'Ongoing performance tracking, compliance reporting, and continuous improvement to maximize environmental and operational benefits.',
+									'Ongoing washing operations, quality assurance, performance tracking, and continuous process optimization.',
 							},
 						].map((item, idx) => (
 							<motion.div
@@ -388,14 +386,14 @@ export default function PackagingSolutions() {
 									{/* Step Number */}
 									<motion.div
 										whileHover={{ scale: 1.1, rotate: 5 }}
-										className='flex-shrink-0 w-20 h-20 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-green-500/30 border-4 border-white group-hover:shadow-2xl group-hover:shadow-green-500/50 transition-all duration-300'
+										className='flex-shrink-0 w-20 h-20 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-cyan-500/30 border-4 border-white group-hover:shadow-2xl group-hover:shadow-cyan-500/50 transition-all duration-300'
 									>
 										{item.step}
 									</motion.div>
 
 									{/* Content */}
-									<div className='flex-1 bg-gradient-to-br from-neutral-50 to-white rounded-2xl p-8 border border-neutral-200 group-hover:border-green-200 transition-all duration-300 group-hover:shadow-xl'>
-										<h3 className='text-2xl sm:text-3xl font-semibold text-neutral-900 mb-3 group-hover:text-green-700 transition-colors duration-300'>
+									<div className='flex-1 bg-gradient-to-br from-neutral-50 to-white rounded-2xl p-8 border border-neutral-200 group-hover:border-cyan-200 transition-all duration-300 group-hover:shadow-xl'>
+										<h3 className='text-2xl sm:text-3xl font-semibold text-neutral-900 mb-3 group-hover:text-cyan-700 transition-colors duration-300'>
 											{item.title}
 										</h3>
 										<p className='text-lg text-neutral-600 leading-relaxed'>{item.description}</p>
@@ -408,12 +406,12 @@ export default function PackagingSolutions() {
 			</section>
 
 			{/* Statistics Section */}
-			<section className='section-padding pt-10 xl:pt-14 pb-10 xl:pb-14 bg-gradient-to-br from-neutral-900 via-green-950 to-emerald-950 relative overflow-hidden'>
+			<section className='section-padding pt-10 xl:pt-14 pb-10 xl:pb-14 bg-gradient-to-br from-neutral-900 via-cyan-950 to-blue-950 relative overflow-hidden'>
 				{/* Grid Pattern */}
 				<div
 					className='absolute inset-0 opacity-10'
 					style={{
-						backgroundImage: `linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)`,
+						backgroundImage: `linear-gradient(#06b6d4 1px, transparent 1px), linear-gradient(90deg, #06b6d4 1px, transparent 1px)`,
 						backgroundSize: '50px 50px',
 					}}
 				></div>
@@ -428,21 +426,21 @@ export default function PackagingSolutions() {
 					>
 						<h2 className='text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6'>
 							Impact{' '}
-							<span className='bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent'>
+							<span className='bg-gradient-to-r from-cyan-400 via-blue-400 to-teal-400 bg-clip-text text-transparent'>
 								By Numbers
 							</span>
 						</h2>
-						<p className='text-xl text-green-100 max-w-3xl mx-auto'>
-							Real results from our sustainable packaging implementations
+						<p className='text-xl text-cyan-100 max-w-3xl mx-auto'>
+							Real results from our bottle washing and reuse programs
 						</p>
 					</motion.div>
 
 					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
 						{[
-							{ value: 85, suffix: '%', label: 'Waste Diversion Rate' },
-							{ value: 100, suffix: '%', label: 'Compliance Achievement' },
-							{ value: 40, suffix: '%', label: 'Cost Optimization' },
-							{ value: 500, suffix: 'k+', label: 'Units Monthly' },
+							{ value: 95, suffix: '%', label: 'Bottle Recovery Rate' },
+							{ value: 100, suffix: '%', label: 'Quality Compliance' },
+							{ value: 60, suffix: '%', label: 'Carbon Reduction' },
+							{ value: 1, suffix: 'M+', label: 'Bottles Monthly' },
 						].map((stat, idx) => (
 							<motion.div
 								key={idx}
@@ -451,21 +449,21 @@ export default function PackagingSolutions() {
 								viewport={{ once: true, margin: '-100px' }}
 								transition={{ duration: 0.6, delay: idx * 0.1 }}
 								whileHover={{ y: -10, scale: 1.05 }}
-								className='group relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-green-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-green-500/20'
+								className='group relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-cyan-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/20'
 							>
 								{/* Glow Effect */}
-								<div className='absolute inset-0 bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+								<div className='absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
 
 								<div className='relative z-10 text-center'>
-									<div className='text-5xl sm:text-6xl md:text-7xl font-bold bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent mb-4'>
+									<div className='text-5xl sm:text-6xl md:text-7xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-teal-400 bg-clip-text text-transparent mb-4'>
 										<AnimatedCounter end={stat.value} suffix={stat.suffix} />
 									</div>
-									<div className='text-lg sm:text-xl text-green-100 font-medium'>{stat.label}</div>
+									<div className='text-lg sm:text-xl text-cyan-100 font-medium'>{stat.label}</div>
 								</div>
 
 								{/* Animated Border */}
 								<motion.div
-									className='absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400'
+									className='absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 via-blue-400 to-teal-400'
 									initial={{ scaleX: 0 }}
 									whileInView={{ scaleX: 1 }}
 									viewport={{ once: true }}
@@ -485,16 +483,16 @@ export default function PackagingSolutions() {
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true, margin: '-100px' }}
 						transition={{ duration: 0.8, ease: 'easeOut' }}
-						className='relative overflow-hidden bg-gradient-to-br from-neutral-900 via-green-900 to-emerald-900 rounded-2xl md:rounded-3xl p-8 sm:p-12 md:p-16 lg:p-20'
+						className='relative overflow-hidden bg-gradient-to-br from-neutral-900 via-cyan-900 to-blue-900 rounded-2xl md:rounded-3xl p-8 sm:p-12 md:p-16 lg:p-20'
 					>
 						{/* Gradient Overlay */}
-						<div className='absolute inset-0 bg-gradient-to-r from-green-500/10 via-emerald-500/10 to-teal-500/10 opacity-50'></div>
+						<div className='absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-teal-500/10 opacity-50'></div>
 
 						{/* Grid Pattern */}
 						<div
 							className='absolute inset-0 opacity-5'
 							style={{
-								backgroundImage: `linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)`,
+								backgroundImage: `linear-gradient(#06b6d4 1px, transparent 1px), linear-gradient(90deg, #06b6d4 1px, transparent 1px)`,
 								backgroundSize: '50px 50px',
 							}}
 						></div>
@@ -509,8 +507,8 @@ export default function PackagingSolutions() {
 									className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4'
 								>
 									Ready to{' '}
-									<span className='bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent'>
-										Go Sustainable
+									<span className='bg-gradient-to-r from-cyan-400 via-blue-400 to-teal-400 bg-clip-text text-transparent'>
+										Enable Reuse
 									</span>
 									?
 								</motion.h2>
@@ -521,7 +519,7 @@ export default function PackagingSolutions() {
 									transition={{ duration: 0.6, delay: 0.4 }}
 									className='text-base sm:text-lg md:text-xl text-neutral-300 max-w-2xl'
 								>
-									Transform your packaging operations with eco-friendly solutions that deliver results
+									Transform your bottle operations with circular economy solutions that deliver sustainability and scale
 								</motion.p>
 							</div>
 
@@ -533,7 +531,7 @@ export default function PackagingSolutions() {
 							>
 								<Link
 									href='/contact'
-									className='group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full text-white font-semibold text-lg hover:shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-105'
+									className='group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full text-white font-semibold text-lg hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105'
 								>
 									<span>Explore Solutions</span>
 									<ArrowRight className='w-5 h-5 transition-transform duration-300 group-hover:translate-x-1' />
@@ -546,4 +544,3 @@ export default function PackagingSolutions() {
 		</div>
 	);
 }
-

@@ -20,24 +20,19 @@ export const metadata: Metadata = {
 
 const metrics = [
 	{
-		value: '50+',
-		label: 'Cities',
-		description: 'Pan-India presence',
-	},
-	{
-		value: '1000+',
-		label: 'Facilities',
-		description: 'Active deployments',
-	},
-	{
-		value: '99%',
-		label: 'Compliance Rate',
-		description: 'Audit-ready operations',
-	},
-	{
 		value: '30%',
-		label: 'Waste Reduction',
+		label: 'Water Reduction',
 		description: 'Average impact',
+	},
+	{
+		value: '25%',
+		label: 'Electricity Reduction',
+		description: 'Energy efficiency',
+	},
+	{
+		value: '40%',
+		label: 'Single Use Waste Reduction',
+		description: 'Sustainability impact',
 	},
 ];
 
@@ -46,9 +41,9 @@ export default function Home() {
 		<>
 			<Hero
 				headline='Hygiene Made Sustainable. Operations Made Simple.'
-				subhead='One accountable partner across hygiene, packaging, kitchens, and manpower—built for scale, compliance, and measurable sustainability impact.'
-				primaryCTA={{ text: 'Get in Touch', href: '/contact' }}
-				secondaryCTA={{ text: 'Explore Solutions', href: '/what-we-do' }}
+				subhead='One accountable partner across hygiene, kitchen service ware and equipment, and manpower—built for scale, compliance, and measurable sustainability impact.'
+				primaryCTA={{ text: 'Talk to a Hygiene Operations Expert', href: '/contact' }}
+				secondaryCTA={{ text: 'See How Enterprises Manage Hygiene at Scale', href: '/insights/case-studies' }}
 			/>
 
 			<EcosystemSection />

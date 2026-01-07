@@ -15,8 +15,8 @@ const navigation = [
 		children: [
 			{ name: 'Hygiene Solutions', href: '/what-we-do/hygiene-solutions' },
 			{
-				name: 'Packaging Solutions',
-				href: '/what-we-do/packaging-solutions',
+				name: 'Bottle Washing Solutions',
+				href: '/what-we-do/bottle-washing-solutions',
 			},
 			{
 				name: 'Commercial Kitchen Solutions',

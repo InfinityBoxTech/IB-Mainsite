@@ -18,8 +18,7 @@ export default function ContactInfo() {
 						<span className='text-emerald-400'>Sustainable Loop.</span>
 					</h1>
 					<p className='text-lg text-emerald-50 max-w-md leading-relaxed'>
-						Whether you're looking to optimize waste, automate your kitchen, or
-						find the right manpower—we're here to build the solution with you.
+						Pan India - Hygiene and sustainability partner. We're here to build scalable, compliant solutions with you.
 					</p>
 				</motion.div>
 			</div>
@@ -29,8 +28,8 @@ export default function ContactInfo() {
 				<ContactCard
 					icon={<Mail className='w-6 h-6' />}
 					label='Email Us'
-					value='connect@infinitybox.in'
-					href='mailto:connect@infinitybox.in'
+					value='admin@getinfinitybox.com'
+					href='mailto:admin@getinfinitybox.com'
 					delay={0.1}
 				/>
 				<ContactCard

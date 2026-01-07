@@ -189,8 +189,7 @@ export default function CommercialKitchenSolutions() {
 						transition={{ duration: 0.8, delay: 0.4 }}
 						className='text-xl sm:text-2xl md:text-3xl text-orange-100 max-w-4xl mx-auto mb-12 leading-relaxed'
 					>
-						Lifecycle support from setup to maintenance. Layout optimization, workflow efficiency, and
-						utility management.
+						Lifecycle support for commercial kitchens — from design and setup to equipment supply and optimisation. We help enterprises plan efficient layouts, select the right kitchen equipment, serviceware, and smallware, and streamline workflows for safety, speed, and cost efficiency.
 					</motion.p>
 
 					<motion.div
@@ -551,3 +550,4 @@ export default function CommercialKitchenSolutions() {
 		</div>
 	);
 }
+

@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { MapPin, Building2, CheckCircle2, Leaf, TrendingUp } from 'lucide-react';
+import { Leaf, TrendingUp } from 'lucide-react';
 import Badge from '@/components/ui/Badge';
 
 interface Metric {
@@ -16,10 +16,9 @@ interface MetricsStripProps {
 }
 
 const iconMap: Record<string, any> = {
-	Cities: MapPin,
-	Facilities: Building2,
-	'Compliance Rate': CheckCircle2,
-	'Waste Reduction': Leaf,
+	'Water Reduction': Leaf,
+	'Electricity Reduction': TrendingUp,
+	'Single Use Waste Reduction': Leaf,
 };
 
 export default function MetricsStrip({ metrics }: MetricsStripProps) {
@@ -50,8 +49,8 @@ export default function MetricsStrip({ metrics }: MetricsStripProps) {
 					<div className='flex justify-center mb-6'>
 						<Badge
 							showDot={true}
-							leftText='Impact'
-							rightText='Metrics'
+							leftText='Sustainability'
+							rightText='Impact'
 							separator='·'
 							variant='dark'
 							size='md'
@@ -60,19 +59,16 @@ export default function MetricsStrip({ metrics }: MetricsStripProps) {
 					<h2 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 leading-tight'>
 						Driving{' '}
 						<span className='bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent'>
-							Measurable Impact
+							Environmental Change
 						</span>
 					</h2>
 					<p className='text-lg sm:text-xl md:text-2xl text-neutral-300 max-w-3xl mx-auto leading-relaxed'>
-						Real numbers from real operations across India
+						Measurable sustainability outcomes from our operations
 					</p>
 				</motion.div>
 
 				{/* Metrics Grid */}
-				<div
-					ref={containerRef}
-					className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 lg:gap-16'
-				>
+				<div ref={containerRef} className='grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 lg:gap-16'>
 					{metrics.map((metric, idx) => {
 						const Icon = iconMap[metric.label];
 						return (
@@ -100,17 +96,17 @@ export default function MetricsStrip({ metrics }: MetricsStripProps) {
 									)}
 
 									{/* Value */}
-									<div className='text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-br from-white to-white/80 bg-clip-text text-transparent mb-3 sm:mb-4 leading-none'>
+									<div className='text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-br from-white to-white/80 bg-clip-text text-transparent mb-3 sm:mb-4 leading-none text-center'>
 										{metric.value}
 									</div>
 
 									{/* Label */}
-									<div className='text-base sm:text-lg md:text-xl font-bold text-emerald-400 mb-2'>
+									<div className='text-base sm:text-lg md:text-xl font-bold text-emerald-400 mb-2 text-center'>
 										{metric.label}
 									</div>
 
 									{/* Description */}
-									<div className='text-xs sm:text-sm text-neutral-400 mt-auto whitespace-nowrap'>
+									<div className='text-xs sm:text-sm text-neutral-400 mt-auto text-center'>
 										{metric.description || '\u00A0'}
 									</div>
 
