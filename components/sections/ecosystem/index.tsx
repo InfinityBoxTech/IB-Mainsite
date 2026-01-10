@@ -7,30 +7,30 @@ import BottomCTA from './BottomCTA';
 
 const pillars = [
 	{
-		title: 'Hygiene Solutions',
+		title: 'Hygiene & Dishwashing Operations',
 		description:
-			'End-to-end dishwashing and hygiene operations at institutional scale. Centralised off-site and on-site dishwashing with audit-ready SOPs, trained teams, and controlled chemical dosing.',
+			'On-site and off-site dishwashing services designed for institutional scale. We operate centralised washing facilities and client-side units backed by audit-ready SOPs, trained teams, controlled chemical dosing, and strict quality checks — ensuring consistent hygiene, compliance, and execution across locations.',
 		icon: <Droplets className='w-8 h-8' />,
 		href: '/what-we-do/hygiene-solutions',
 	},
 	{
-		title: 'Bottle Washing Solutions',
+		title: 'Reuse & Bottle Washing Systems',
 		description:
-			'Large-scale glass bottle reuse and washing solutions for beverage and FMCG enterprises. Bottle collection, washing, quality checks, and circulation management.',
+			'Enterprise-grade glass bottle and serviceware reuse solutions that enable circular operations. From collection and washing to quality control and circulation, we help large organisations reduce waste while maintaining hygiene standards and supply reliability.',
 		icon: <Droplets className='w-8 h-8' />,
 		href: '/what-we-do/bottle-washing-solutions',
 	},
 	{
-		title: 'Commercial Kitchen Solutions',
+		title: 'Commercial Kitchen & Serviceware',
 		description:
-			'Lifecycle support for commercial kitchens — from design and setup to equipment supply and optimisation. Efficient layouts, equipment selection, and streamlined workflows for safety and scale.',
+			'End-to-end support for commercial kitchens — from setup and layout design to equipment, serviceware, and smallware supply. We optimise workflows, utility usage, and processes to create kitchens that are safer, more efficient, and easier to operate at scale.',
 		icon: <ChefHat className='w-8 h-8' />,
 		href: '/what-we-do/commercial-kitchen-solutions',
 	},
 	{
-		title: 'Manpower Solutions',
+		title: 'Event & High-Volume Operations',
 		description:
-			'Trained, compliant workforce with SOPs, supervision, and planning. Reliable execution across multi-site operations.',
+			'Operational support for corporate events and large gatherings, covering serviceware, hygiene systems, coordination, and post-event processing. Built to handle high volumes seamlessly while maintaining sustainability and operational discipline.',
 		icon: <Users className='w-8 h-8' />,
 		href: '/what-we-do/manpower-solutions',
 	},

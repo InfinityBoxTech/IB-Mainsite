@@ -68,29 +68,66 @@ export const accentColors: Record<
 	},
 };
 
+export interface Service {
+	title: string;
+	description: string;
+	icon: string;
+	accentColor: 'orange' | 'blue' | 'emerald' | 'purple' | 'slate';
+}
+
+export const services: Service[] = [
+	{
+		title: 'Hygiene & Dishwashing Operations',
+		description:
+			'On-site and off-site dishwashing services designed for institutional scale. We operate centralised washing facilities and client-side units backed by audit-ready SOPs, trained teams, controlled chemical dosing, and strict quality checks — ensuring consistent hygiene, compliance, and execution across locations.',
+		icon: '🧼',
+		accentColor: 'blue',
+	},
+	{
+		title: 'Commercial Kitchen & Serviceware',
+		description:
+			'End-to-end support for commercial kitchens — from setup and layout design to equipment, serviceware, and smallware supply. We optimise workflows, utility usage, and processes to create kitchens that are safer, more efficient, and easier to operate at scale.',
+		icon: '🍽',
+		accentColor: 'orange',
+	},
+	{
+		title: 'Reuse & Bottle Washing Systems',
+		description:
+			'Enterprise-grade glass bottle and serviceware reuse solutions that enable circular operations. From collection and washing to quality control and circulation, we help large organisations reduce waste while maintaining hygiene standards and supply reliability.',
+		icon: '♻️',
+		accentColor: 'emerald',
+	},
+	{
+		title: 'Event & High-Volume Operations',
+		description:
+			'Operational support for corporate events and large gatherings, covering serviceware, hygiene systems, coordination, and post-event processing. Built to handle high volumes seamlessly while maintaining sustainability and operational discipline.',
+		icon: '🎪',
+		accentColor: 'purple',
+	},
+];
+
 export const industries: Industry[] = [
 	{
 		title: 'Hospitality & Food Services',
 		description:
-			'Optimizing guest experiences through rigorous standards. We ensure safety and satisfaction at every touchpoint.',
+			'Delivering consistent guest experiences across high-volume food service environments. InfinityBox manages hygiene, dishwashing, serviceware, and operational systems behind the scenes—ensuring safety, compliance, and sustainability without disrupting service quality.',
 		challenges: [
-			'Multi-location hygiene standardization across properties',
-			'Maintaining compliance across diverse operational environments',
-			'Waste reduction strategies and sustainability goals',
+			'Maintaining consistent hygiene standards across multiple outlets and kitchens',
+			'Managing high-volume dishwashing and serviceware logistics during peak hours',
+			'Balancing sustainability goals with operational speed and cost pressures',
 		],
 		valueDelivered: [
 			{
-				title: 'Standardized Protocols',
-				description: 'Unified hygiene standards implemented across all chains',
+				title: 'Standardized Operations',
+				description: 'Unified hygiene and dishwashing protocols implemented across locations',
 			},
 			{
-				title: 'Operational Efficiency',
-				description:
-					'Significantly reduced downtime through proactive management',
+				title: 'Operational Continuity',
+				description: 'Reduced service disruptions through structured workflows and capacity planning',
 			},
 			{
-				title: 'Enhanced Trust',
-				description: 'Elevated guest safety scores and customer loyalty',
+				title: 'Guest Confidence',
+				description: 'Improved hygiene assurance supporting brand trust and repeat patronage',
 			},
 		],
 		href: '/who-we-serve/hospitality',
@@ -100,24 +137,24 @@ export const industries: Industry[] = [
 	{
 		title: 'Corporate Offices & IT Parks',
 		description:
-			'Creating safe, efficient, and sustainable workspaces. We empower productivity through optimized facility management.',
+			'Enabling clean, efficient, and sustainable cafeteria operations in large corporate campuses. InfinityBox simplifies daily operations by managing hygiene, reuse systems, serviceware, and compliance—allowing facility teams to focus on employee experience.',
 		challenges: [
-			'Managing large-scale facility maintenance effectively',
-			'Ensuring consistent employee health and safety standards',
-			'Meeting complex sustainability reporting requirements',
+			'Managing cafeteria hygiene and dishwashing across large, multi-building campuses',
+			'Ensuring audit-ready compliance without constant supervision',
+			'Meeting sustainability targets while controlling operational costs',
 		],
 		valueDelivered: [
 			{
-				title: 'Audit Readiness',
-				description: 'Always-on compliance systems for immediate reporting',
+				title: 'Audit-Ready Systems',
+				description: 'Always-on hygiene processes with documentation and reporting readiness',
 			},
 			{
-				title: 'Sustainability Impact',
-				description: 'Measurable reduction in carbon footprint and waste',
+				title: 'Sustainability at Scale',
+				description: 'Reduced waste and resource consumption through reuse-driven operations',
 			},
 			{
-				title: 'Resource Optimization',
-				description: 'Intelligent allocation of resources to reduce overheads',
+				title: 'Cost Optimization',
+				description: 'Lower total operating costs through centralized systems and vendor consolidation',
 			},
 		],
 		href: '/who-we-serve/corporates',
@@ -125,26 +162,26 @@ export const industries: Industry[] = [
 		gradient: 'from-blue-500 via-indigo-500 to-purple-500',
 	},
 	{
-		title: 'Healthcare & Institutions',
+		title: 'Healthcare Institutions',
 		description:
-			'Maintaining critical standards for patient safety. Rigorous protocols ensuring the highest level of care.',
+			'Supporting critical hygiene and infection-control environments where failure is not an option. InfinityBox delivers rigorously controlled dishwashing, serviceware handling, and hygiene processes designed for healthcare-grade compliance.',
 		challenges: [
-			'Meeting critical hygiene and infection control standards',
-			'Implementing rigorous infection control protocols',
-			'Maintaining regulatory compliance at all times',
+			'Maintaining stringent hygiene standards across patient and staff food services',
+			'Preventing cross-contamination through controlled dishwashing and handling',
+			'Ensuring continuous regulatory compliance without operational lapses',
 		],
 		valueDelivered: [
 			{
-				title: 'Patient Safety',
-				description: 'Enhanced safety protocols reducing infection risks',
+				title: 'Patient Safety Assurance',
+				description: 'Hygiene protocols aligned with healthcare infection-control requirements',
 			},
 			{
-				title: 'Compliance Standards',
-				description: 'Full adherence to healthcare regulatory requirements',
+				title: 'Regulatory Compliance',
+				description: 'Structured SOPs ensuring adherence to healthcare standards at all times',
 			},
 			{
-				title: 'Reliable Execution',
-				description: 'Consistent operational delivery across all facilities',
+				title: 'Operational Reliability',
+				description: 'Consistent execution across facilities with minimal dependency on manual oversight',
 			},
 		],
 		href: '/who-we-serve/healthcare',
@@ -154,24 +191,24 @@ export const industries: Industry[] = [
 	{
 		title: 'Education Campuses',
 		description:
-			'Building safe learning environments for students. Cost-effective solutions that promote wellbeing and sustainability.',
+			'Creating safe, scalable, and cost-efficient cafeteria operations for educational institutions. InfinityBox manages hygiene, dishwashing, and reuse systems that support student wellbeing while operating within tight institutional budgets.',
 		challenges: [
-			'Prioritizing student health and safety across campus',
-			'Managing large-scale operations with limited resources',
-			'Operating within tight budget constraints',
+			'Managing hygiene and dishwashing for large student populations',
+			'Operating efficiently with limited budgets and shared infrastructure',
+			'Introducing sustainability without adding operational complexity',
 		],
 		valueDelivered: [
 			{
-				title: 'Safe Environments',
-				description: 'Protected learning spaces promoting student wellbeing',
+				title: 'Safe Dining Environments',
+				description: 'Consistent hygiene standards supporting student health and safety',
 			},
 			{
-				title: 'Cost-Effective Solutions',
-				description: 'Maximum impact within educational budget limits',
+				title: 'Budget-Friendly Operations',
+				description: 'Optimized systems designed to deliver scale without cost overruns',
 			},
 			{
-				title: 'Sustainability Integration',
-				description: 'Educational opportunities through green practices',
+				title: 'Embedded Sustainability',
+				description: 'Practical reuse and waste-reduction practices integrated into daily operations',
 			},
 		],
 		href: '/who-we-serve/education',

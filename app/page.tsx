@@ -46,10 +46,12 @@ export default function Home() {
 				secondaryCTA={{ text: 'See How Enterprises Manage Hygiene at Scale', href: '/insights/case-studies' }}
 			/>
 
-			<EcosystemSection />
+			<PhilosophySection />
 
 			{/* Section Divider */}
 			<div className='h-px bg-gradient-to-r from-transparent via-neutral-200 to-transparent' />
+
+			<EcosystemSection />
 
 			<WhoWeServeSection />
 
@@ -57,8 +59,6 @@ export default function Home() {
 			<MetricsStrip metrics={metrics} />
 
 			<CaseStudiesSection />
-
-			<PhilosophySection />
 
 			<CTASection
 				headline='Looking for a reliable operations partner?'

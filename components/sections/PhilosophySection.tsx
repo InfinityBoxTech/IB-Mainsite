@@ -8,27 +8,27 @@ import Badge from '@/components/ui/Badge';
 const principles = [
 	{
 		icon: Target,
-		title: 'Inputs',
-		subtitle: 'Right chemical, right dose.',
-		description: 'Precision dispensing and controlled processes ensure optimal resource utilization from the start.',
+		title: 'Problem',
+		subtitle: 'Fragmented operations.',
+		description: 'Managing cafeterias at scale often means coordinating multiple vendors — dishwashing, serviceware, kitchens, bottle reuse, and event operations — each with separate processes, costs, and accountability.',
 		color: 'from-blue-500 to-cyan-500',
 		shadow: 'shadow-blue-500/20',
 		index: 0,
 	},
 	{
 		icon: Droplet,
-		title: 'Optimization',
-		subtitle: 'Efficiency and waste reduction.',
-		description: 'Smart systems continuously monitor and optimize resource usage, reducing waste at every step.',
+		title: 'Solution',
+		subtitle: 'Unified platform.',
+		description: 'InfinityBox replaces this fragmentation with a single operational platform for everything around food, excluding food itself.',
 		color: 'from-emerald-500 to-teal-500',
 		shadow: 'shadow-emerald-500/20',
 		index: 1,
 	},
 	{
 		icon: Recycle,
-		title: 'Reuse',
-		subtitle: 'Circular resource recovery.',
-		description: 'Closed-loop systems recover and reintegrate materials, minimizing environmental impact.',
+		title: 'Execution',
+		subtitle: 'Integrated operations.',
+		description: 'By unifying execution, compliance, and sustainability under one system, we make cafeteria operations cleaner, more cost-effective, and dramatically easier to manage.',
 		color: 'from-amber-500 to-orange-500',
 		shadow: 'shadow-amber-500/20',
 		index: 2,
@@ -204,29 +204,29 @@ function CycleVisual({ activeStep, scrollProgress }: { activeStep: number; scrol
             </div>
 
             {/* 4. Satellite Nodes (Labels always at bottom) */}
-            {/* Top Node (Inputs) */}
+            {/* Top Node (Problem) */}
             <Node 
                 position="top-0 left-1/2 -translate-x-1/2 -translate-y-1/2" 
                 active={activeStep >= 0} 
                 icon={Target} 
                 color="bg-blue-500" 
-                title="Inputs"
+                title="Problem"
             />
-            {/* Right Node (Optimization) */}
+            {/* Right Node (Solution) */}
             <Node 
                 position="top-1/2 right-0 translate-x-1/2 -translate-y-1/2" 
                 active={activeStep >= 1} 
                 icon={Droplet} 
                 color="bg-emerald-500" 
-                title="Optimization"
+                title="Solution"
             />
-            {/* Bottom Node (Reuse) */}
+            {/* Bottom Node (Execution) */}
             <Node 
                 position="bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2" 
                 active={activeStep >= 2} 
                 icon={Recycle} 
                 color="bg-amber-500" 
-                title="Reuse"
+                title="Execution"
             />
              {/* Left Node (Compliance) */}
             <Node 

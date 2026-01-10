@@ -1,6 +1,6 @@
 'use client';
 
-import { Mail, MapPin, Phone, ArrowRight, Globe } from 'lucide-react';
+import { Mail, MapPin, ArrowRight, Linkedin, Instagram } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function ContactInfo() {
@@ -33,17 +33,10 @@ export default function ContactInfo() {
 					delay={0.1}
 				/>
 				<ContactCard
-					icon={<Phone className='w-6 h-6' />}
-					label='Call Us'
-					value='+91 999 999 9999' // Placeholder, update if user provides real number
-					href='tel:+919999999999'
-					delay={0.2}
-				/>
-				<ContactCard
 					icon={<MapPin className='w-6 h-6' />}
 					label='Visit HQ'
 					value='Bangalore, Karnataka, India'
-					delay={0.3}
+					delay={0.2}
 				/>
 			</div>
 
@@ -58,15 +51,24 @@ export default function ContactInfo() {
 					Connect
 				</h3>
 				<div className='flex gap-4'>
-					{['LinkedIn', 'Twitter', 'Instagram'].map((social, idx) => (
-						<a
-							key={social}
-							href='#'
-							className='w-10 h-10 rounded-full bg-white/5 hover:bg-white/20 flex items-center justify-center transition-all duration-300 border border-white/10 hover:scale-110'
-						>
-							<Globe className='w-4 h-4' />
-						</a>
-					))}
+					<a
+						href='https://linkedin.com/company/infinitybox'
+						target='_blank'
+						rel='noopener noreferrer'
+						className='w-10 h-10 rounded-full bg-white/5 hover:bg-white/20 flex items-center justify-center transition-all duration-300 border border-white/10 hover:scale-110'
+						aria-label='LinkedIn'
+					>
+						<Linkedin className='w-4 h-4' />
+					</a>
+					<a
+						href='https://instagram.com/infinitybox'
+						target='_blank'
+						rel='noopener noreferrer'
+						className='w-10 h-10 rounded-full bg-white/5 hover:bg-white/20 flex items-center justify-center transition-all duration-300 border border-white/10 hover:scale-110'
+						aria-label='Instagram'
+					>
+						<Instagram className='w-4 h-4' />
+					</a>
 				</div>
 			</motion.div>
 		</div>

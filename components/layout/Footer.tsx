@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Phone, MapPin, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { ArrowRight, Mail, MapPin, Linkedin, Twitter, Instagram } from 'lucide-react';
 
 const footerLinks = {
 	solutions: [
@@ -36,14 +36,12 @@ const footerLinks = {
 };
 
 const socialLinks = [
-	{ name: 'LinkedIn', href: '#', icon: Linkedin },
-	{ name: 'Twitter', href: '#', icon: Twitter },
-	{ name: 'Instagram', href: '#', icon: Instagram },
+	{ name: 'LinkedIn', href: 'https://linkedin.com/company/infinitybox', icon: Linkedin },
+	{ name: 'Instagram', href: 'https://instagram.com/infinitybox', icon: Instagram },
 ];
 
 const contactInfo = [
 	{ icon: Mail, text: 'hello@infinitybox.in', href: 'mailto:hello@infinitybox.in' },
-	{ icon: Phone, text: '+91 XXX XXX XXXX', href: 'tel:+91XXXXXXXXXX' },
 	{ icon: MapPin, text: 'Pan-India Operations', href: '#' },
 ];
 
