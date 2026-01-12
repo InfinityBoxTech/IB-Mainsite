@@ -207,22 +207,6 @@ export default function CaseStudiesSection() {
 					))}
 				</div>
 
-				{/* View All CTA */}
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true }}
-					transition={{ duration: 0.6, delay: 0.4 }}
-					className='text-center'
-				>
-					<Link
-						href='/insights/case-studies'
-						className='inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold rounded-full hover:shadow-xl hover:shadow-emerald-500/30 transition-all duration-300 hover:scale-105 group'
-					>
-						<span>View All Case Studies</span>
-						<ArrowRight className='w-5 h-5 transition-transform group-hover:translate-x-1' />
-					</Link>
-				</motion.div>
 			</div>
 		</section>
 	);
@@ -505,16 +489,6 @@ function CaseStudyCard({ study, index }: { study: typeof caseStudies[0]; index: 
 							)}
 						</div>
 
-						{/* CTA */}
-						<div className='mt-8 pt-6 border-t border-neutral-100'>
-							<motion.div
-								className='inline-flex items-center gap-2 text-emerald-600 font-semibold group-hover:text-emerald-700 transition-colors'
-								whileHover={{ x: 4 }}
-							>
-								<span>View Full Case Study</span>
-								<ArrowRight className='w-5 h-5 transition-transform group-hover:translate-x-1' />
-							</motion.div>
-						</div>
 					</div>
 
 					{/* Bottom Section - Result */}
