@@ -16,11 +16,11 @@ export default function WhoWeServeSection() {
 				/>
 			</div>
 
-			<div className='container mx-auto relative z-10'>
+			<div className='container mx-auto relative z-10 flex flex-col items-center'>
 				<SectionHeader />
 
 				{/* Industries Grid */}
-				<div className='max-w-7xl mx-auto flex flex-col gap-8 sm:gap-12 md:gap-14 lg:gap-16 mt-8 sm:mt-12 md:mt-16 lg:mt-20'>
+				<div className='w-full max-w-7xl flex flex-col gap-8 sm:gap-12 md:gap-14 lg:gap-16 mt-8 sm:mt-12 md:mt-16 lg:mt-20'>
 					{industries.map((industry, idx) => (
 						<IndustryCard key={idx} industry={industry} index={idx} />
 					))}

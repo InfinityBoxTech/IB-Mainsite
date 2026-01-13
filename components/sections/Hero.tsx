@@ -25,13 +25,14 @@ export default function Hero({
 		offset: ['start start', 'end start'],
 	});
 
-	const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-	const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1, 0]);
+	// Smoother scroll transform - less aggressive on mobile
+	const y = useTransform(scrollYProgress, [0, 0.5, 1], ['0%', '10%', '20%']);
+	const opacity = useTransform(scrollYProgress, [0, 0.5, 0.8, 1], [1, 1, 1, 0]);
 
 	return (
 		<section
 			ref={containerRef}
-			className='relative min-h-screen flex items-center justify-center overflow-hidden bg-neutral-900 section-padding pt-10 xl:pt-14 pb-10 xl:pb-14'
+			className='relative min-h-screen flex items-center justify-center overflow-hidden bg-neutral-900 section-padding pt-10 xl:pt-14 pb-24 sm:pb-28 md:pb-32 xl:pb-36'
 		>
 			{/* Background Video/Image Placeholder with Overlay */}
 			<div className='absolute inset-0 z-0'>
@@ -67,7 +68,7 @@ export default function Hero({
 			>
 				<div className='grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center'>
 					{/* Left Column - Main Content */}
-					<div className='lg:col-span-7 xl:col-span-8 text-center lg:text-left'>
+					<div className='lg:col-span-7 xl:col-span-8 text-center lg:text-left px-4 sm:px-6 md:px-0'>
 						{/* Badge */}
 						<motion.div
 							initial={{ opacity: 0, y: -20 }}
@@ -90,7 +91,7 @@ export default function Hero({
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 							transition={{ duration: 0.8, delay: 0.2 }}
-							className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 lg:mb-8 leading-[1.1] tracking-tight'
+							className='text-[28px] sm:text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-bold mb-6 lg:mb-8 leading-[1.15] tracking-tight px-2 sm:px-3 md:px-0'
 						>
 							<motion.span
 								initial={{ opacity: 0, x: -30 }}
@@ -98,8 +99,8 @@ export default function Hero({
 								transition={{ duration: 0.6, delay: 0.3 }}
 								className='block text-white'
 							>
-								<span className='whitespace-nowrap'>Hygiene Made </span>
-								<span className='whitespace-nowrap lg:block bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent'>
+								<span className='sm:whitespace-nowrap'>Hygiene Made </span>
+								<span className='sm:whitespace-nowrap lg:block bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent'>
 									Sustainable.
 								</span>
 							</motion.span>
@@ -109,8 +110,8 @@ export default function Hero({
 								transition={{ duration: 0.6, delay: 0.5 }}
 								className='block text-white mt-2'
 							>
-								<span className='whitespace-nowrap'>Operations Made </span>
-								<span className='whitespace-nowrap lg:block bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent'>
+								<span className='sm:whitespace-nowrap'>Operations Made </span>
+								<span className='sm:whitespace-nowrap lg:block bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent'>
 									Simple.
 								</span>
 							</motion.span>
@@ -121,7 +122,7 @@ export default function Hero({
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: 0.7 }}
-							className='text-lg sm:text-xl md:text-2xl lg:text-3xl text-neutral-300 mb-8 lg:mb-10 leading-relaxed max-w-3xl'
+							className='text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-neutral-300 mb-8 lg:mb-10 leading-relaxed max-w-3xl px-1 sm:px-2 md:px-0'
 						>
 							{subhead}
 						</motion.p>
@@ -131,11 +132,11 @@ export default function Hero({
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: 0.8 }}
-							className='flex flex-col gap-4 mb-12 lg:mb-16 max-w-2xl justify-center lg:justify-start'
+							className='flex flex-col gap-4 mb-12 lg:mb-16 max-w-2xl items-center md:items-center lg:items-start'
 						>
 							<Link
 								href={primaryCTA.href}
-								className='group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold text-base sm:text-lg rounded-full overflow-hidden hover:shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300 hover:scale-105'
+								className='group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold text-base sm:text-lg rounded-full overflow-hidden hover:shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300 hover:scale-105 w-full sm:w-auto'
 							>
 								<span className='relative z-10'>{primaryCTA.text}</span>
 								<ArrowRight className='w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1' />
@@ -146,7 +147,7 @@ export default function Hero({
 
 							<Link
 								href={secondaryCTA.href}
-								className='group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-neutral-900 font-semibold text-base sm:text-lg rounded-full border-2 border-emerald-500/30 hover:bg-emerald-50 hover:border-emerald-500 hover:scale-105 transition-all duration-300 shadow-lg'
+								className='group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-neutral-900 font-semibold text-base sm:text-lg rounded-full border-2 border-emerald-500/30 hover:bg-emerald-50 hover:border-emerald-500 hover:scale-105 transition-all duration-300 shadow-lg w-full sm:w-auto'
 							>
 								<span className='text-neutral-900 group-hover:text-emerald-700 transition-colors duration-300'>{secondaryCTA.text}</span>
 								<Play className='w-5 h-5 text-emerald-600 transition-transform duration-300 group-hover:scale-110' />
@@ -180,9 +181,9 @@ export default function Hero({
 						initial={{ opacity: 0, x: 30 }}
 						animate={{ opacity: 1, x: 0 }}
 						transition={{ duration: 0.8, delay: 1 }}
-						className='lg:col-span-5 xl:col-span-4'
+						className='lg:col-span-5 xl:col-span-4 mt-8 lg:mt-0'
 					>
-						<div className='relative bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-8 sm:p-10 shadow-2xl'>
+						<div className='relative bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-6 sm:p-8 md:p-10 shadow-2xl mb-4 sm:mb-0'>
 							{/* Glow Effect */}
 							<div className='absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-3xl opacity-20 blur-xl' />
 

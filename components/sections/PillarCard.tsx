@@ -131,6 +131,19 @@ export default function PillarCard({
 						/>
 					</motion.div>
 
+					{/* Card Number Badge - Top Right Corner - Shaded Gradient Design */}
+					<motion.div
+						className='absolute top-4 sm:top-6 right-4 sm:right-6 z-20'
+						initial={{ opacity: 0 }}
+						whileInView={{ opacity: 1 }}
+						viewport={{ once: true }}
+						transition={{ duration: 0.5, delay: index * 0.1 }}
+					>
+						<span className='text-5xl sm:text-6xl font-black bg-gradient-to-br from-neutral-100 via-neutral-200 to-emerald-100 bg-clip-text text-transparent group-hover:from-emerald-100 group-hover:via-teal-100 group-hover:to-cyan-100 transition-all duration-500'>
+							{String(index + 1).padStart(2, '0')}
+						</span>
+					</motion.div>
+
 					{/* Content */}
 					<div className='relative z-10 flex flex-col h-full'>
 						{/* Icon with Animation */}

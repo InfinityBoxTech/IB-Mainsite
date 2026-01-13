@@ -1,6 +1,6 @@
 'use client';
 
-import { Droplets, ChefHat, Users } from 'lucide-react';
+import { Droplets, ChefHat, Users, Recycle } from 'lucide-react';
 import SectionHeader from './SectionHeader';
 import PillarCard from '../PillarCard';
 import BottomCTA from './BottomCTA';
@@ -17,7 +17,7 @@ const pillars = [
 		title: 'Reuse & Bottle Washing Systems',
 		description:
 			'Enterprise-grade glass bottle and serviceware reuse solutions that enable circular operations. From collection and washing to quality control and circulation, we help large organisations reduce waste while maintaining hygiene standards and supply reliability.',
-		icon: <Droplets className='w-8 h-8' />,
+		icon: <Recycle className='w-8 h-8' />,
 		href: '/what-we-do/bottle-washing-solutions',
 	},
 	{
@@ -38,7 +38,7 @@ const pillars = [
 
 export default function EcosystemSection() {
 	return (
-		<section className='relative bg-white section-padding py-16 md:py-24 overflow-hidden z-10'>
+		<section className='relative bg-white section-padding py-16 md:py-24 overflow-hidden z-10 max-w-[1920px] mx-auto'>
 			{/* Subtle Background Pattern */}
 			<div className='absolute inset-0 opacity-[0.02]'>
 				<div
@@ -55,8 +55,8 @@ export default function EcosystemSection() {
 					{/* Section Header */}
 					<SectionHeader />
 
-					{/* Pillars Grid */}
-					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-stretch'>
+					{/* Pillars Grid - 2x2 layout at 1024px, 4 columns at larger screens */}
+					<div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8 items-stretch'>
 						{pillars.map((pillar, idx) => (
 							<PillarCard
 								key={idx}

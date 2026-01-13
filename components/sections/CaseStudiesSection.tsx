@@ -201,7 +201,7 @@ export default function CaseStudiesSection() {
 				</motion.div>
 
 				{/* Case Studies Grid */}
-				<div className='grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 xl:gap-12 max-w-7xl mx-auto mb-16'>
+				<div className='grid grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-10 xl:gap-12 max-w-7xl mx-auto mb-16'>
 					{caseStudies.map((study, idx) => (
 						<CaseStudyCard key={idx} study={study} index={idx} />
 					))}
@@ -252,6 +252,35 @@ function CaseStudyCard({ study, index }: { study: typeof caseStudies[0]; index: 
 					/>
 					{/* Card-specific border accent */}
 					<div className={`absolute top-0 left-0 w-1 h-full bg-gradient-to-b ${study.gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-500`} />
+
+					{/* Case Study Number Badge */}
+					<motion.div
+						initial={{ opacity: 0, scale: 0 }}
+						whileInView={{ opacity: 1, scale: 1 }}
+						viewport={{ once: true }}
+						transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
+						className='absolute top-6 right-6 z-20'
+					>
+						<div className='relative'>
+							<div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${study.gradient} flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-all duration-500 border-2 border-white`}>
+								<span className='text-3xl font-black text-white'>
+									{index + 1}
+								</span>
+							</div>
+							<motion.div
+								className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${study.gradient} blur-lg opacity-50`}
+								animate={{
+									scale: [1, 1.1, 1],
+									opacity: [0.5, 0.7, 0.5],
+								}}
+								transition={{
+									duration: 2,
+									repeat: Infinity,
+									ease: 'easeInOut',
+								}}
+							/>
+						</div>
+					</motion.div>
 
 					{/* Top Section - Challenge & Client Info */}
 					<div className='relative'>

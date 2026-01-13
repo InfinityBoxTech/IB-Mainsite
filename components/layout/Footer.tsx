@@ -36,12 +36,12 @@ const footerLinks = {
 };
 
 const socialLinks = [
-	{ name: 'LinkedIn', href: 'https://linkedin.com/company/infinitybox', icon: Linkedin },
+	{ name: 'LinkedIn', href: 'https://www.linkedin.com/company/infinitybox/posts/?feedView=all', icon: Linkedin },
 	{ name: 'Instagram', href: 'https://instagram.com/infinitybox', icon: Instagram },
 ];
 
 const contactInfo = [
-	{ icon: Mail, text: 'hello@infinitybox.in', href: 'mailto:hello@infinitybox.in' },
+	{ icon: Mail, text: 'admin@getinfinitybox.com', href: 'mailto:admin@getinfinitybox.com' },
 	{ icon: MapPin, text: 'Pan-India Operations', href: '#' },
 ];
 
