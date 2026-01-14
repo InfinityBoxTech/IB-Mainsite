@@ -70,9 +70,9 @@ export default function EcosystemSection() {
 					</div>
 
 					{/* Bottom CTA */}
-					<div className='mt-8 sm:mt-12 md:mt-16 lg:mt-20'>
+					{/* <div className='mt-8 sm:mt-12 md:mt-16 lg:mt-20'>
 						<BottomCTA />
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</section>
