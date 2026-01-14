@@ -1,49 +1,45 @@
 import type { Metadata } from 'next';
 import KineticHero from '@/components/about-us/KineticHero';
-import StickyScrollNarrative from '@/components/about-us/StickyScrollNarrative';
+import OriginNarrative from '@/components/about-us/OriginNarrative';
+import LongTermVision from '@/components/about-us/LongTermVision';
 import HorizontalGallery from '@/components/about-us/HorizontalGallery';
-import Button from '@/components/ui/Button';
 
 export const metadata: Metadata = {
 	title: 'About Us | InfinityBox',
 	description:
-		'We are the hidden infrastructure. InfinityBox delivers integrated operations solutions across hygiene, packaging, and kitchens.',
+		'A pan-India operations company building long-term cafeteria infrastructure for enterprise clients. Led by operators, engineers, and sustainability practitioners.',
 };
 
 export default function AboutUs() {
 	return (
 		<main className='bg-neutral-50'>
+			{/* Section 1: Hero */}
 			<KineticHero />
-			
-			<div className="pt-24 pb-4 bg-white">
-				<div className="container mx-auto px-4 text-center max-w-2xl">
-					<p className="text-lg text-neutral-500 uppercase tracking-widest mb-4">The Story</p>
-					<h2 className="text-4xl md:text-5xl font-bold text-neutral-900 leading-tight">
-						From chaos to control.<br/>
-						From fragmentation to flow.
+
+			{/* Section 2: Building Infrastructure (Origin Narrative) */}
+			<div className='pt-16 sm:pt-20 md:pt-24 bg-white'>
+				<div className='container mx-auto px-6 sm:px-8 md:px-12 text-center max-w-3xl mb-8 sm:mb-10 md:mb-12'>
+					<p className='text-sm md:text-base text-neutral-500 uppercase tracking-[0.2em] mb-4 md:mb-6 font-semibold'>
+						Origin & Philosophy
+					</p>
+					<h2 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 leading-tight'>
+						Building Infrastructure,
+						<br />
+						Not Just Services.
 					</h2>
 				</div>
+				<OriginNarrative />
 			</div>
 
-			<StickyScrollNarrative />
+			{/* Section 3: Built for Long Term */}
+			<div className='py-16 sm:py-20 md:py-0 bg-white'>
+				<LongTermVision />
+			</div>
 
-			<HorizontalGallery />
-
-			{/* Final CTA */}
-			<section className='section-padding py-32 bg-neutral-950 text-white text-center'>
-				<div className='container mx-auto px-4'>
-					<h2 className='text-5xl md:text-8xl font-black tracking-tighter mb-10'>
-						READY TO<br /> TRANSFORM?
-					</h2>
-					<a
-						href='/contact'
-						className='inline-block bg-white text-neutral-950 hover:bg-neutral-200 transition-colors duration-300 border-none px-12 py-6 text-xl font-bold rounded-full'
-					>
-						Let's Talk
-					</a>
-				</div>
-			</section>
+			{/* Section 4: Horizontal Gallery */}
+			<div className='py-16 sm:py-20 md:py-24 bg-white'>
+				<HorizontalGallery />
+			</div>
 		</main>
 	);
 }
-

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Hero from '@/components/sections/Hero';
 import EcosystemSection from '@/components/sections/ecosystem';
-import WhoWeServeSection from '@/components/sections/WhoWeServeSection';
 import MetricsStrip from '@/components/sections/MetricsStrip';
 import CaseStudiesSection from '@/components/sections/CaseStudiesSection';
 import PhilosophySection from '@/components/sections/PhilosophySection';
@@ -53,7 +52,6 @@ export default function Home() {
 
 			<EcosystemSection />
 
-			<WhoWeServeSection />
 
 			{/* Section 4 - Stats Section - Redesigned */}
 			<MetricsStrip metrics={metrics} />

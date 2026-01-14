@@ -124,6 +124,17 @@ export default function ContactForm() {
 						)}
 					</button>
 				</form>
+
+				{/* Trust Line */}
+				<div className='mt-8 pt-6 border-t border-neutral-200'>
+					<p className='text-sm text-neutral-500 text-center leading-relaxed'>
+						<span className='font-medium text-neutral-700'>Response time:</span> Within 24 hours
+						<br />
+						<span className='text-neutral-400 mt-2 block'>
+							InfinityBox does not share contact information or send unsolicited communication.
+						</span>
+					</p>
+				</div>
 			</div>
 		</div>
 	);

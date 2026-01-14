@@ -1,145 +1,54 @@
-import type { Metadata } from "next";
-import IndustryCard from "@/components/sections/IndustryCard";
-import Button from "@/components/ui/Button";
+import type { Metadata } from 'next';
+import WhoWeServeSection from '@/components/sections/WhoWeServeSection';
 
 export const metadata: Metadata = {
-  title: "Who We Serve",
-  description:
-    "Tailored solutions for diverse industries: hospitality, corporates, healthcare, education, and industrial sectors across India.",
+	title: 'Who We Serve | InfinityBox',
+	description:
+		'InfinityBox works with organisations that operate large, high-volume cafeterias where hygiene, compliance, and reliability are critical.',
 };
 
-const industries = [
-  {
-    title: "Hospitality & Food Services",
-    challenges: [
-      "Multi-location hygiene standardization",
-      "Compliance across diverse operations",
-      "Waste reduction and sustainability",
-      "Guest safety and trust",
-    ],
-    valueDelivered: [
-      "Standardized hygiene protocols",
-      "Reduced operational downtime",
-      "Enhanced guest safety",
-      "Cost optimization",
-    ],
-    href: "/who-we-serve/hospitality",
-  },
-  {
-    title: "Corporate Offices & IT Parks",
-    challenges: [
-      "Large-scale facility management",
-      "Employee health and safety",
-      "Sustainability reporting requirements",
-      "Multi-tenant coordination",
-    ],
-    valueDelivered: [
-      "Audit-ready compliance systems",
-      "Measurable sustainability impact",
-      "Cost optimization",
-      "Enhanced workplace safety",
-    ],
-    href: "/who-we-serve/corporates",
-  },
-  {
-    title: "Healthcare & Institutions",
-    challenges: [
-      "Critical hygiene standards",
-      "Infection control protocols",
-      "Regulatory compliance",
-      "Patient safety requirements",
-    ],
-    valueDelivered: [
-      "Enhanced patient safety",
-      "Healthcare standards compliance",
-      "Reliable execution",
-      "Risk mitigation",
-    ],
-    href: "/who-we-serve/healthcare",
-  },
-  {
-    title: "Education Campuses",
-    challenges: [
-      "Student health and safety",
-      "Large-scale operations",
-      "Budget constraints",
-      "Sustainability education",
-    ],
-    valueDelivered: [
-      "Safe learning environments",
-      "Cost-effective solutions",
-      "Sustainability integration",
-      "Scalable operations",
-    ],
-    href: "/who-we-serve/education",
-  },
-  {
-    title: "Industrial & Manufacturing",
-    challenges: [
-      "Heavy-duty cleaning requirements",
-      "Safety compliance",
-      "Operational efficiency",
-      "Environmental regulations",
-    ],
-    valueDelivered: [
-      "Specialized industrial solutions",
-      "Safety-first protocols",
-      "Reduced downtime",
-      "Compliance assurance",
-    ],
-    href: "/who-we-serve/industrial",
-  },
-];
-
 export default function WhoWeServe() {
-  return (
-    <div className="pt-20">
-      <section className="section-padding bg-gradient-to-br from-neutral-50 to-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-neutral-900 mb-6">
-              Who We Serve
-            </h1>
-            <p className="text-xl text-neutral-600">
-              Tailored solutions for diverse industries, each with unique
-              challenges and measurable outcomes.
-            </p>
-          </div>
-        </div>
-      </section>
+	return (
+		<main className='bg-neutral-50'>
+			{/* Introduction Section */}
+			<section className='relative bg-gradient-to-br from-neutral-50 via-white to-neutral-100 pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden'>
+				{/* Background Pattern */}
+				<div className='absolute inset-0 opacity-[0.03]'>
+					<div
+						className='absolute inset-0'
+						style={{
+							backgroundImage: `radial-gradient(circle at 2px 2px, #059669 1px, transparent 0)`,
+							backgroundSize: '40px 40px',
+						}}
+					/>
+				</div>
 
-      <section className="section-padding bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {industries.map((industry, idx) => (
-              <IndustryCard key={idx} {...industry} />
-            ))}
-          </div>
-        </div>
-      </section>
+				{/* Gradient Overlay */}
+				<div className='absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white' />
 
-      <section className="section-padding bg-neutral-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-neutral-900 mb-4">
-              Not Sure Which Solution Fits Your Industry?
-            </h2>
-            <p className="text-lg text-neutral-600 mb-8">
-              Talk to our industry specialists to understand how InfinityBox can
-              address your specific challenges.
-            </p>
-            <Button href="/contact" size="lg">
-              Talk to Industry Specialist
-            </Button>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
+				<div className='container mx-auto px-6 sm:px-8 md:px-12 relative z-10'>
+					<div className='max-w-4xl mx-auto text-center'>
+						{/* Who We Serve Heading */}
+						<h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl font-semibold text-neutral-900 tracking-tight leading-[1.1] mb-8 sm:mb-10 md:mb-12'>
+							Who We{' '}
+							<span className='relative inline-block'>
+								<span className='relative z-10 bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent'>
+									Serve
+								</span>
+								<span className='absolute -bottom-2 sm:-bottom-3 md:-bottom-4 left-0 right-0 h-3 sm:h-4 md:h-5 bg-gradient-to-r from-emerald-400/40 via-teal-400/40 to-cyan-400/40 rounded-full origin-center'></span>
+							</span>
+						</h1>
+
+						{/* Description */}
+						<p className='text-lg sm:text-xl md:text-2xl text-neutral-600 leading-relaxed'>
+							InfinityBox works with organisations that operate large, high-volume cafeterias where hygiene, compliance, and reliability are critical. Our systems are designed to perform consistently across scale, peak demand, and regulatory scrutiny.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			{/* Who We Serve Section Component */}
+			<WhoWeServeSection />
+		</main>
+	);
 }
-
-
-
-
-
-
