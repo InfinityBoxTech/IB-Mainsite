@@ -26,6 +26,99 @@ export default function Sustainability() {
              {/* Viz */}
              <ImpactViz />
 
+             {/* Philosophy & Commitment Section */}
+             <section className="section-padding pt-10 xl:pt-14 pb-10 xl:pb-14 bg-gradient-to-b from-neutral-950 to-neutral-900 relative overflow-hidden">
+                 {/* Grid Pattern */}
+                 <div className="absolute inset-0 opacity-10">
+                     <div
+                         className="absolute inset-0"
+                         style={{
+                             backgroundImage: `linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)`,
+                             backgroundSize: '50px 50px',
+                         }}
+                     />
+                 </div>
+
+                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                     <div className="max-w-4xl mx-auto">
+                         {/* Header */}
+                         <div className="text-center mb-16">
+                             <span className="inline-block px-4 py-2 rounded-full border border-emerald-500/30 text-emerald-400 uppercase tracking-widest text-sm mb-6">
+                                 Our Philosophy & Sustainability Commitment
+                             </span>
+                             <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                                 Sustainability That Holds Up Under Operations
+                             </h2>
+                         </div>
+
+                         {/* Main Philosophy */}
+                         <div className="mb-12">
+                             <p className="text-lg md:text-xl text-neutral-300 leading-relaxed mb-6">
+                                 At InfinityBox, sustainability is not treated as a parallel initiative or a compliance exercise. We believe it only creates value when it works under real operating conditions — high volumes, tight service windows, audits, cost constraints, and daily variability.
+                             </p>
+                             <p className="text-xl md:text-2xl font-semibold text-emerald-400 leading-relaxed mb-6">
+                                 Our philosophy is straightforward: if a sustainable solution cannot be executed reliably at scale, it is not viable.
+                             </p>
+                             <p className="text-lg md:text-xl text-neutral-300 leading-relaxed">
+                                 This principle guides how we design processes, select materials, train teams, and run operations across facilities. We prioritise operational discipline, accountability, and consistency over experimentation or short-term optics.
+                             </p>
+                         </div>
+
+                         {/* Embedded, Not Added On */}
+                         <div className="mb-12 p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-emerald-500/20">
+                             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                                 Embedded, Not Added On
+                             </h3>
+                             <p className="text-lg text-neutral-300 leading-relaxed">
+                                 Sustainability at InfinityBox is built directly into day-to-day cafeteria operations rather than layered on top. By standardising execution and owning outcomes end-to-end, we help enterprises reduce waste and resource consumption without increasing operational complexity or management overhead.
+                             </p>
+                             <p className="text-lg text-neutral-300 leading-relaxed mt-4">
+                                 This approach allows sustainability goals to be met without disrupting service quality, hygiene standards, or cost predictability.
+                             </p>
+                         </div>
+
+                         {/* Our Commitment */}
+                         <div>
+                             <h3 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
+                                 Our Commitment
+                             </h3>
+                             <p className="text-lg text-neutral-300 text-center mb-10">
+                                 We commit to building sustainability that enterprises can depend on:
+                             </p>
+                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                 <div className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-emerald-500/20">
+                                     <h4 className="text-xl font-bold text-emerald-400 mb-3">
+                                         Operationally Sound
+                                     </h4>
+                                     <p className="text-neutral-300">
+                                         Solutions designed to work within real-world constraints, without compromising reliability or safety.
+                                     </p>
+                                 </div>
+                                 <div className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-emerald-500/20">
+                                     <h4 className="text-xl font-bold text-emerald-400 mb-3">
+                                         Measurable Over Time
+                                     </h4>
+                                     <p className="text-neutral-300">
+                                         Focus on outcomes that can be tracked, reviewed, and improved year after year.
+                                     </p>
+                                 </div>
+                                 <div className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-emerald-500/20">
+                                     <h4 className="text-xl font-bold text-emerald-400 mb-3">
+                                         Built for the Long Term
+                                     </h4>
+                                     <p className="text-neutral-300">
+                                         Systems designed to strengthen with scale, not pilots or one-off interventions.
+                                     </p>
+                                 </div>
+                             </div>
+                             <p className="text-lg text-neutral-300 text-center mt-10">
+                                 This commitment enables enterprises to pursue sustainability with confidence — knowing that operations remain stable, audits remain intact, and execution remains predictable.
+                             </p>
+                         </div>
+                     </div>
+                 </div>
+             </section>
+
              {/* CTA */}
               <section className="section-padding pt-10 xl:pt-14 pb-10 xl:pb-14 bg-gradient-to-br from-emerald-950 via-emerald-900 to-teal-950 relative overflow-hidden">
                  {/* Grid Pattern */}

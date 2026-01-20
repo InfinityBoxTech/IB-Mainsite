@@ -6,66 +6,91 @@ import { useState } from "react";
 
 const leaders = [
   {
-    name: "Shashwath Gangwal",
-    role: "CEO, Founder",
+    name: "Shashwat Gangwal",
+    role: "Co-Founder & CEO",
     image: "/leaders/shashwath.jpg",
     gradient: "from-emerald-500 to-teal-500",
-    bio: "Visionary leader with 10+ years driving operational excellence and sustainable growth across India's infrastructure landscape.",
-    expertise: ["Strategy", "Operations", "Innovation"]
+    cardText: "Leads InfinityBox's long-term vision and platform strategy, grounded in global sustainability investing and operational accountability.",
+    expandedProfile: "Shashwat co-founded InfinityBox with the belief that sustainability must be embedded into real operating systems to work at scale. Prior to InfinityBox, he worked closely with global climate and sustainability investors, including Sagana and Circulate Capital, evaluating and supporting companies focused on preventing plastic waste from entering oceans and landfills across geographies. This exposure shaped InfinityBox's approach — grounding environmental intent in commercially viable, operationally rigorous models. As CEO, Shashwat focuses on long-term partnerships, platform thinking, and building trust through predictable execution and measurable impact.",
+    expertise: ["Strategy", "Platform Thinking", "Sustainability"]
   },
   {
     name: "Keshav Godala",
-    role: "Business and Operations Head, Co-Founder",
+    role: "Co-Founder & VP – Operations",
     image: "/leaders/keshav.jpg",
     gradient: "from-blue-500 to-cyan-500",
-    bio: "Expert in scaling operations and building high-performance teams that deliver consistent, measurable results.",
-    expertise: ["Scaling", "Process Design", "Team Building"]
+    cardText: "Owns multi-city execution, compliance readiness, and operational consistency across InfinityBox facilities.",
+    expandedProfile: "An alumnus of IIT Kharagpur, Keshav is responsible for building and scaling InfinityBox's operational backbone. He leads on-site and off-site operations, SOP standardisation, training-to-execution frameworks, compliance readiness, and performance management across cities. His mandate is to ensure InfinityBox operates predictably at scale — delivering consistent outcomes across facilities, clients, and operating conditions.",
+    expertise: ["Operations", "Compliance", "Scaling"]
   },
   {
-    name: "Yashashwini",
-    role: "Head of Sales",
-    image: "/leaders/yashashwini.jpg",
+    name: "Harsh Jain",
+    role: "On-Site Operations Head",
+    image: "/leaders/harsh.jpg",
     gradient: "from-purple-500 to-pink-500",
-    bio: "Strategic sales leader focused on building lasting client partnerships and driving revenue growth through value-driven solutions.",
-    expertise: ["Sales Strategy", "Client Relations", "Growth"]
+    cardText: "Leads on-site execution across enterprise campuses with a founder-operator mindset.",
+    expandedProfile: "Harsh brings a strong founder mindset shaped by having co-founded and run a company for several years before joining InfinityBox. His experience building teams and managing execution at ground level informs his leadership of on-site operations. At InfinityBox, Harsh owns execution across enterprise client locations, ensuring hygiene standards, manpower discipline, and SOP adherence are maintained consistently across sites.",
+    expertise: ["On-Site Operations", "Team Building", "Execution"]
   },
   {
     name: "Sneha Barnawal",
     role: "Head of Procurement",
     image: "/leaders/sneha.jpg",
     gradient: "from-orange-500 to-red-500",
-    bio: "Procurement specialist optimizing supply chains and vendor relationships to ensure quality, efficiency, and cost-effectiveness.",
-    expertise: ["Supply Chain", "Vendor Management", "Cost Optimization"]
+    cardText: "Leads procurement as a strategic function across internal operations and client-facing procurement services.",
+    expandedProfile: "Sneha owns procurement end-to-end at InfinityBox. She manages all internal procurement for on-site and off-site operations and leads the procurement services vertical, where InfinityBox supports enterprise clients with sourcing of serviceware, smallware, and kitchen equipment. Her role spans supplier strategy, SKU standardisation, pricing discipline, quality assurance, and procurement-led revenue growth. She operates with a strong founder mindset, treating procurement as a core driver of reliability, cost control, and client trust.",
+    expertise: ["Procurement", "Supply Chain", "Cost Control"]
   },
   {
-    name: "Jerry",
-    role: "City Head, Bengaluru",
-    image: "/leaders/jerry.jpg",
+    name: "Yasaswini R",
+    role: "Head of Sales",
+    image: "/leaders/yashashwini.jpg",
     gradient: "from-indigo-500 to-purple-500",
-    bio: "Leading InfinityBox's Bengaluru operations with a focus on local market expertise and operational excellence.",
-    expertise: ["Regional Operations", "Market Strategy", "Team Leadership"]
-  },
-  {
-    name: "Nilesh",
-    role: "City Head, Mumbai & Gurgaon",
-    image: "/leaders/nilesh.jpg",
-    gradient: "from-teal-500 to-emerald-500",
-    bio: "Managing multi-city operations across Mumbai and Gurgaon, ensuring consistent service delivery and client satisfaction.",
-    expertise: ["Multi-City Management", "Client Success", "Operations"]
+    cardText: "Leads enterprise partnerships with experience across Compass Group, Chai Point, and B2B food services.",
+    expandedProfile: "Yasaswini brings experience from organisations including Compass Group and Chai Point, with a strong understanding of enterprise sales cycles, stakeholder management, and operationally complex accounts. At InfinityBox, she focuses on building long-term partnerships aligned to reliability, compliance, and measurable operational outcomes.",
+    expertise: ["Enterprise Sales", "Partnerships", "Client Relations"]
   },
   {
     name: "Shreyas Ananth",
-    role: "Head of Tech & Systems Architecture",
+    role: "Head of Technology",
     image: "/leaders/shreyas.jpg",
     gradient: "from-cyan-500 to-blue-500",
-    bio: "Technology architect building scalable systems that power InfinityBox's operational infrastructure and digital transformation.",
-    expertise: ["Systems Architecture", "Tech Strategy", "Innovation"]
+    cardText: "Builds the technology backbone that enables visibility, standardisation, and operational control.",
+    expandedProfile: "Shreyas brings nearly a decade of experience at ANZ, working in large, regulated, high-reliability environments. At InfinityBox, he leads systems that support operational visibility, workflow standardisation, reporting, and performance tracking — ensuring technology strengthens execution rather than adding complexity.",
+    expertise: ["Technology", "Systems Architecture", "Operational Control"]
+  },
+  {
+    name: "Jerry Jacob",
+    role: "Regional Operations Head",
+    image: "/leaders/jerry.jpg",
+    gradient: "from-teal-500 to-emerald-500",
+    cardText: "Leads regional execution with deep experience in logistics-led, multi-location operations.",
+    expandedProfile: "Jerry spent nearly a decade at Let's Transport, managing distributed operations, manpower-intensive execution, and service reliability at scale. At InfinityBox, he oversees regional execution, focusing on SOP adherence, training quality, and service continuity across client sites.",
+    expertise: ["Regional Operations", "Logistics", "Service Reliability"]
+  },
+  {
+    name: "Nilesh Mokal",
+    role: "Regional Operations Head",
+    image: "/leaders/nilesh.jpg",
+    gradient: "from-amber-500 to-orange-500",
+    cardText: "Drives operational stability and process discipline across multi-site deployments.",
+    expandedProfile: "Nilesh brings experience from operations-led organisations including NinjaCart, where he managed multi-site execution and workforce coordination in fast-moving environments. At InfinityBox, he focuses on stabilising operations, reducing escalations, and embedding repeatable routines.",
+    expertise: ["Multi-Site Operations", "Process Discipline", "Operational Stability"]
+  },
+  {
+    name: "Piyush Kumar Khan",
+    role: "Finance & Operations Controller",
+    image: "/leaders/piyush.jpg",
+    gradient: "from-violet-500 to-purple-500",
+    cardText: "Leads financial governance and cost discipline across InfinityBox operations.",
+    expandedProfile: "Piyush brings experience from large organisations such as Amazon, where he worked on cost optimisation and operational efficiency at scale. At InfinityBox, he leads financial planning, cost controls, and operational analytics, ensuring growth is supported by discipline, transparency, and predictable unit economics.",
+    expertise: ["Finance", "Cost Control", "Analytics"]
   },
 ];
 
 export default function LeadershipReveal() {
   const founders = leaders.slice(0, 2);
-  const coreTeam = leaders.slice(2);
+  const coreTeam = leaders.slice(2); // Harsh, Sneha, Yasaswini, Shreyas, Jerry, Nilesh, Piyush
 
   return (
     <section className="section-padding pt-10 xl:pt-14 pb-10 xl:pb-14 bg-gradient-to-b from-white to-neutral-50">
@@ -152,9 +177,29 @@ function LeaderCard({ leader, index }: { leader: typeof leaders[0]; index: numbe
 
           {/* Content */}
           <div className="h-1/4 p-6 flex flex-col justify-center">
-            <h3 className="text-xl font-bold text-neutral-900 mb-1 group-hover:text-emerald-600 transition-colors duration-300">
-              {leader.name}
-            </h3>
+            <div className="flex items-center gap-2 mb-1">
+              <h3 className="text-xl font-bold text-neutral-900 group-hover:text-emerald-600 transition-colors duration-300">
+                {leader.name}
+              </h3>
+              <div className="flex items-center gap-1.5 ml-auto">
+                <a
+                  href={`mailto:${leader.name.toLowerCase().replace(/\s+/g, '.')}@getinfinitybox.com`}
+                  onClick={(e) => e.stopPropagation()}
+                  className="w-6 h-6 rounded-full bg-neutral-100 hover:bg-emerald-100 flex items-center justify-center transition-colors group/icon"
+                  title="Email"
+                >
+                  <Mail className="w-3.5 h-3.5 text-neutral-600 group-hover/icon:text-emerald-600 transition-colors" />
+                </a>
+                <a
+                  href="#"
+                  onClick={(e) => e.stopPropagation()}
+                  className="w-6 h-6 rounded-full bg-neutral-100 hover:bg-emerald-100 flex items-center justify-center transition-colors group/icon"
+                  title="LinkedIn"
+                >
+                  <Linkedin className="w-3.5 h-3.5 text-neutral-600 group-hover/icon:text-emerald-600 transition-colors" />
+                </a>
+              </div>
+            </div>
             <p className="text-sm text-neutral-600">
               {leader.role}
             </p>
@@ -174,15 +219,38 @@ function LeaderCard({ leader, index }: { leader: typeof leaders[0]; index: numbe
           <div className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-br ${leader.gradient} opacity-20 blur-3xl rounded-full -translate-y-10 translate-x-10`} />
 
           <div className="relative z-10">
-            <h3 className="text-2xl font-bold text-white mb-2">
-              {leader.name}
-            </h3>
+            <div className="flex items-center gap-3 mb-2">
+              <h3 className="text-2xl font-bold text-white">
+                {leader.name}
+              </h3>
+              <div className="flex items-center gap-2 ml-auto">
+                <a
+                  href={`mailto:${leader.name.toLowerCase().replace(/\s+/g, '.')}@getinfinitybox.com`}
+                  onClick={(e) => e.stopPropagation()}
+                  className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-colors group/icon"
+                  title="Email"
+                >
+                  <Mail className="w-4 h-4 text-white group-hover/icon:text-emerald-400 transition-colors" />
+                </a>
+                <a
+                  href="#"
+                  onClick={(e) => e.stopPropagation()}
+                  className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-colors group/icon"
+                  title="LinkedIn"
+                >
+                  <Linkedin className="w-4 h-4 text-white group-hover/icon:text-emerald-400 transition-colors" />
+                </a>
+              </div>
+            </div>
             <p className={`text-sm font-medium mb-4 bg-gradient-to-r ${leader.gradient} bg-clip-text text-transparent`}>
               {leader.role}
             </p>
 
-            <p className="text-sm text-neutral-300 leading-relaxed mb-6">
-              {leader.bio}
+            <p className="text-sm text-neutral-300 leading-relaxed mb-4">
+              {leader.cardText}
+            </p>
+            <p className="text-xs text-neutral-400 leading-relaxed mb-6">
+              {leader.expandedProfile}
             </p>
 
             <div className="space-y-2">
@@ -200,15 +268,6 @@ function LeaderCard({ leader, index }: { leader: typeof leaders[0]; index: numbe
             </div>
           </div>
 
-          {/* Bottom Icons */}
-          <div className="relative z-10 flex gap-3">
-            <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white/20 transition-colors cursor-pointer">
-              <Mail className="w-4 h-4 text-white" />
-            </div>
-            <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white/20 transition-colors cursor-pointer">
-              <Linkedin className="w-4 h-4 text-white" />
-            </div>
-          </div>
         </div>
       </div>
     </motion.div>
