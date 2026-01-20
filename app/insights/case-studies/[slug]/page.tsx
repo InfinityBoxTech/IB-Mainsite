@@ -1,10 +1,16 @@
 'use client';
 
-import { getCaseStudyBySlug } from '@/data/caseStudies';
+import { getCaseStudyBySlug, caseStudies } from '@/data/caseStudies';
 import { notFound, useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Building2, MapPin, Target, Zap, TrendingUp, CheckCircle2, Award } from 'lucide-react';
 import Link from 'next/link';
+
+export function generateStaticParams() {
+  return caseStudies.map((study) => ({
+    slug: study.slug,
+  }));
+}
 
 export default function CaseStudyDetail() {
   const params = useParams();
