@@ -20,13 +20,18 @@ export default function JobListings() {
 	useEffect(() => {
 		setIsLoading(true);
 		setError(null);
+		
+		// Debug logging
+		console.log('JobListings: Starting to fetch jobs...');
+		
 		fetchJobs({ limit: 100 })
 			.then((result) => {
+				console.log('JobListings: Successfully fetched jobs:', result.jobs.length);
 				setJobs(result.jobs);
 			})
 			.catch((err) => {
+				console.error('JobListings: Error fetching jobs:', err);
 				setError('Failed to load job listings. Please try again later.');
-				console.error('Error fetching jobs:', err);
 			})
 			.finally(() => {
 				setIsLoading(false);

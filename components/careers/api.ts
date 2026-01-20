@@ -1,22 +1,22 @@
 import { JobsApiResponse, JobDetailApiResponse, JobListing, JobDetail } from './types';
 
-// Get API base URL from environment variable
-const getApiBaseUrl = (): string => {
-	const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-	if (!apiUrl) {
-		console.error('NEXT_PUBLIC_API_URL is not set in environment variables');
-		throw new Error('API URL is not configured. Please set NEXT_PUBLIC_API_URL in your environment variables.');
-	}
-	// Remove trailing slash if present to normalize the URL
-	return apiUrl.replace(/\/$/, '');
-};
+// Get API base URL from environment variable at module level (so Next.js can replace it at build time)
+// Next.js replaces process.env.NEXT_PUBLIC_* variables at build time for static exports
+const API_BASE_URL = (process.env.NEXT_PUBLIC_API_URL || '').replace(/\/$/, '');
+
+if (!API_BASE_URL) {
+	console.error('NEXT_PUBLIC_API_URL is not set in environment variables');
+	// Don't throw at module level, but log the error
+}
 
 // Helper function to build API endpoint URLs
 const buildApiUrl = (endpoint: string): string => {
-	const apiBaseUrl = getApiBaseUrl();
+	if (!API_BASE_URL) {
+		throw new Error('API URL is not configured. Please set NEXT_PUBLIC_API_URL in your environment variables.');
+	}
 	// Ensure endpoint starts with / to avoid double slashes
 	const normalizedEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
-	return `${apiBaseUrl}${normalizedEndpoint}`;
+	return `${API_BASE_URL}${normalizedEndpoint}`;
 };
 
 export async function fetchJobs(params?: {
@@ -36,39 +36,92 @@ export async function fetchJobs(params?: {
 	if (params?.search) searchParams.set('search', params.search);
 
 	const url = buildApiUrl(`/career/opportunities?${searchParams.toString()}`);
-	const response = await fetch(url);
+	
+	try {
+		const response = await fetch(url, {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			// Add credentials for CORS if needed
+			credentials: 'omit',
+		});
 
-	if (!response.ok) {
-		throw new Error('Failed to fetch jobs');
+		if (!response.ok) {
+			const errorText = await response.text();
+			console.error('API Error:', response.status, errorText);
+			throw new Error(`Failed to fetch jobs: ${response.status} ${response.statusText}`);
+		}
+
+		const data: JobsApiResponse = await response.json();
+		return {
+			jobs: data.data.jobs,
+			pagination: data.data.pagination,
+		};
+	} catch (error) {
+		console.error('Fetch error:', error);
+		// Re-throw with more context
+		if (error instanceof Error) {
+			throw error;
+		}
+		throw new Error('Network error while fetching jobs');
 	}
-
-	const data: JobsApiResponse = await response.json();
-	return {
-		jobs: data.data.jobs,
-		pagination: data.data.pagination,
-	};
 }
 
 export async function fetchJobById(id: number): Promise<JobDetail> {
 	const url = buildApiUrl(`/career/opportunities/${id}`);
-	const response = await fetch(url);
+	
+	try {
+		const response = await fetch(url, {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			credentials: 'omit',
+		});
 
-	if (!response.ok) {
-		throw new Error('Failed to fetch job details');
+		if (!response.ok) {
+			const errorText = await response.text();
+			console.error('API Error:', response.status, errorText);
+			throw new Error(`Failed to fetch job details: ${response.status} ${response.statusText}`);
+		}
+
+		const data: JobDetailApiResponse = await response.json();
+		return data.data;
+	} catch (error) {
+		console.error('Fetch error:', error);
+		if (error instanceof Error) {
+			throw error;
+		}
+		throw new Error('Network error while fetching job details');
 	}
-
-	const data: JobDetailApiResponse = await response.json();
-	return data.data;
 }
 
 export async function fetchJobBySlug(slug: string): Promise<JobDetail> {
 	const url = buildApiUrl(`/career/opportunities/slug/${slug}`);
-	const response = await fetch(url);
+	
+	try {
+		const response = await fetch(url, {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			credentials: 'omit',
+		});
 
-	if (!response.ok) {
-		throw new Error('Failed to fetch job details');
+		if (!response.ok) {
+			const errorText = await response.text();
+			console.error('API Error:', response.status, errorText);
+			throw new Error(`Failed to fetch job details: ${response.status} ${response.statusText}`);
+		}
+
+		const data: JobDetailApiResponse = await response.json();
+		return data.data;
+	} catch (error) {
+		console.error('Fetch error:', error);
+		if (error instanceof Error) {
+			throw error;
+		}
+		throw new Error('Network error while fetching job details');
 	}
-
-	const data: JobDetailApiResponse = await response.json();
-	return data.data;
 }

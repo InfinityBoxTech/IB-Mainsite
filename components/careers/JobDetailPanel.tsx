@@ -303,7 +303,7 @@ export default function JobDetailPanel({ job, onClose }: JobDetailPanelProps) {
 								<p className='text-neutral-600 text-sm sm:text-base'>
 									Please apply with your CV to{' '}
 									<a
-										href='mailto:admin@getinfinitybox.com'
+										href='mailto:hiring@getinfinitybox.com'
 										className='text-emerald-600 hover:text-emerald-700 font-medium underline'
 									>
 										hiring@getinfinitybox.com
