@@ -4,5 +4,13 @@
 
 # Configure secrets scanning to ignore NEXT_PUBLIC_API_URL
 # This is a public API endpoint, not a secret, and is meant to be embedded in the client bundle
+# Set this as an environment variable in Netlify UI: SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_API_URL"
+# Or add it here (but Netlify UI is preferred for build-time env vars)
 [build.environment]
   SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_API_URL"
+
+# Redirects for Next.js static export (SPA routing)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
