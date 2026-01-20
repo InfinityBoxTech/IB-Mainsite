@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = "out"
+
+# Configure secrets scanning to ignore NEXT_PUBLIC_API_URL
+# This is a public API endpoint, not a secret, and is meant to be embedded in the client bundle
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_API_URL"
