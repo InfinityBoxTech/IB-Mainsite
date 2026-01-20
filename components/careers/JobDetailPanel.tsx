@@ -11,12 +11,10 @@ import {
 	CheckCircle2,
 	Sparkles,
 	Gift,
-	ArrowRight,
 	Loader2,
 } from 'lucide-react';
 import { JobListing, JobDetail, formatJobType, formatExperienceLevel } from './types';
 import { fetchJobById } from './api';
-import Button from '@/components/ui/Button';
 
 interface JobDetailPanelProps {
 	job: JobListing | null;
@@ -299,26 +297,18 @@ export default function JobDetailPanel({ job, onClose }: JobDetailPanelProps) {
 							) : null}
 						</div>
 
-						{/* Footer CTA */}
+						{/* Footer Note */}
 						<div className='flex-shrink-0 border-t border-neutral-200 px-6 sm:px-8 py-6 bg-neutral-50'>
-							<div className='flex flex-col sm:flex-row items-stretch sm:items-center gap-4'>
-								<Button
-									href={jobDetail?.application_url || `/contact?type=careers&role=${encodeURIComponent(job.title)}`}
-									className='flex-1 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl py-4 text-base font-semibold flex items-center justify-center gap-2'
-								>
-									Apply for this role
-									<ArrowRight className='w-5 h-5' />
-								</Button>
-								<button
-									onClick={() => {
-										navigator.clipboard.writeText(
-											`${window.location.origin}/about-us/careers/${job.slug}`
-										);
-									}}
-									className='px-6 py-4 bg-white border border-neutral-200 hover:border-neutral-300 rounded-xl text-neutral-600 font-medium transition-colors'
-								>
-									Copy Link
-								</button>
+							<div className='text-center'>
+								<p className='text-neutral-600 text-sm sm:text-base'>
+									Please apply with your CV to{' '}
+									<a
+										href='mailto:admin@getinfinitybox.com'
+										className='text-emerald-600 hover:text-emerald-700 font-medium underline'
+									>
+										admin@getinfinitybox.com
+									</a>
+								</p>
 							</div>
 						</div>
 					</motion.div>
