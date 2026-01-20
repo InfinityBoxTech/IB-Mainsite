@@ -306,7 +306,7 @@ export default function JobDetailPanel({ job, onClose }: JobDetailPanelProps) {
 										href='mailto:admin@getinfinitybox.com'
 										className='text-emerald-600 hover:text-emerald-700 font-medium underline'
 									>
-										admin@getinfinitybox.com
+										hiring@getinfinitybox.com
 									</a>
 								</p>
 							</div>

@@ -1,7 +1,23 @@
 import { JobsApiResponse, JobDetailApiResponse, JobListing, JobDetail } from './types';
 
-// Base URL already includes /v1/api/ so we append /career/opportunities
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || '';
+// Get API base URL from environment variable
+const getApiBaseUrl = (): string => {
+	const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+	if (!apiUrl) {
+		console.error('NEXT_PUBLIC_API_URL is not set in environment variables');
+		throw new Error('API URL is not configured. Please set NEXT_PUBLIC_API_URL in your environment variables.');
+	}
+	// Remove trailing slash if present to normalize the URL
+	return apiUrl.replace(/\/$/, '');
+};
+
+// Helper function to build API endpoint URLs
+const buildApiUrl = (endpoint: string): string => {
+	const apiBaseUrl = getApiBaseUrl();
+	// Ensure endpoint starts with / to avoid double slashes
+	const normalizedEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+	return `${apiBaseUrl}${normalizedEndpoint}`;
+};
 
 export async function fetchJobs(params?: {
 	page?: number;
@@ -19,7 +35,8 @@ export async function fetchJobs(params?: {
 	}
 	if (params?.search) searchParams.set('search', params.search);
 
-	const response = await fetch(`${API_BASE_URL}/career/opportunities?${searchParams.toString()}`);
+	const url = buildApiUrl(`/career/opportunities?${searchParams.toString()}`);
+	const response = await fetch(url);
 
 	if (!response.ok) {
 		throw new Error('Failed to fetch jobs');
@@ -33,7 +50,8 @@ export async function fetchJobs(params?: {
 }
 
 export async function fetchJobById(id: number): Promise<JobDetail> {
-	const response = await fetch(`${API_BASE_URL}/career/opportunities/${id}`);
+	const url = buildApiUrl(`/career/opportunities/${id}`);
+	const response = await fetch(url);
 
 	if (!response.ok) {
 		throw new Error('Failed to fetch job details');
@@ -44,7 +62,8 @@ export async function fetchJobById(id: number): Promise<JobDetail> {
 }
 
 export async function fetchJobBySlug(slug: string): Promise<JobDetail> {
-	const response = await fetch(`${API_BASE_URL}/career/opportunities/slug/${slug}`);
+	const url = buildApiUrl(`/career/opportunities/slug/${slug}`);
+	const response = await fetch(url);
 
 	if (!response.ok) {
 		throw new Error('Failed to fetch job details');
