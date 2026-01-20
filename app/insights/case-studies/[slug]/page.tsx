@@ -1,8 +1,5 @@
-'use client';
-
 import { getCaseStudyBySlug, caseStudies } from '@/data/caseStudies';
-import { notFound, useParams } from 'next/navigation';
-import { motion } from 'framer-motion';
+import { notFound } from 'next/navigation';
 import { ArrowLeft, Building2, MapPin, Target, Zap, TrendingUp, CheckCircle2, Award } from 'lucide-react';
 import Link from 'next/link';
 
@@ -12,9 +9,12 @@ export function generateStaticParams() {
   }));
 }
 
-export default function CaseStudyDetail() {
-  const params = useParams();
-  const slug = params?.slug as string;
+export default function CaseStudyDetail({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const slug = params.slug;
   const study = getCaseStudyBySlug(slug);
 
   if (!study) {
@@ -42,11 +42,7 @@ export default function CaseStudyDetail() {
             Back to Case Studies
           </Link>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div>
             <div className="flex flex-wrap items-center gap-3 mb-6">
                 <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-semibold uppercase tracking-wider">
                   <Building2 className="w-4 h-4" />
@@ -69,7 +65,7 @@ export default function CaseStudyDetail() {
             <p className="text-xl md:text-2xl text-neutral-100 max-w-3xl leading-relaxed">
               {study.description}
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
