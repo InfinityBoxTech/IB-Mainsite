@@ -143,9 +143,9 @@ export default function JobListings() {
 						</motion.div>
 
 						{/* Job listings grid */}
-						<div className='grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6'>
-							{filteredJobs.length > 0 ? (
-								filteredJobs.map((job, index) => (
+						{filteredJobs.length > 0 ? (
+							<div className='grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6'>
+								{filteredJobs.map((job, index) => (
 									<JobCard
 										key={job.id}
 										job={job}
@@ -153,39 +153,18 @@ export default function JobListings() {
 										isSelected={selectedJob?.id === job.id}
 										onSelect={handleSelectJob}
 									/>
-								))
-							) : (
-								<div className='col-span-2 py-20 text-center'>
-									<div className='text-6xl mb-4'>🔍</div>
-									<h3 className='text-xl font-semibold text-neutral-900 mb-2'>
-										No positions found
-									</h3>
-									<p className='text-neutral-500'>
-										{jobs.length === 0
-											? "We don't have any open positions right now. Check back soon!"
-											: 'Try adjusting your filters'}
-									</p>
-								</div>
-							)}
-						</div>
-
-						{/* No openings message */}
-						{jobs.length === 0 && !isLoading && (
+								))}
+							</div>
+						) : (
 							<div className='py-20 text-center'>
 								<div className='text-6xl mb-4'>🌱</div>
 								<h3 className='text-2xl font-semibold text-neutral-900 mb-4'>
 									No open positions right now
 								</h3>
-								<p className='text-neutral-600 max-w-md mx-auto mb-8'>
+								<p className='text-neutral-600 max-w-md mx-auto'>
 									We&apos;re always looking for exceptional talent. Drop us your
 									resume and we&apos;ll reach out when something opens up.
 								</p>
-								<a
-									href='/contact?type=careers'
-									className='inline-flex items-center gap-2 px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-medium transition-colors'
-								>
-									Send your resume
-								</a>
 							</div>
 						)}
 					</>
