@@ -44,7 +44,7 @@ const leaders = [
   {
     name: "Yasaswini R",
     role: "Head of Sales",
-    image: "/leaders/yashashwini.jpg",
+    image: "/images/profilePics/Yashaswini.jpg",
     gradient: "from-indigo-500 to-purple-500",
     cardText: "Leads enterprise partnerships with experience across Compass Group, Chai Point, and B2B food services.",
     expandedProfile: "Yasaswini brings experience from organisations including Compass Group and Chai Point, with a strong understanding of enterprise sales cycles, stakeholder management, and operationally complex accounts. At InfinityBox, she focuses on building long-term partnerships aligned to reliability, compliance, and measurable operational outcomes.",
