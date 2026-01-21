@@ -380,7 +380,7 @@ export default function BottleWashingSolutions() {
 								whileInView={{ opacity: 1, x: 0 }}
 								viewport={{ once: true, margin: '-100px' }}
 								transition={{ duration: 0.8, delay: idx * 0.2 }}
-								className='group'
+								className='group gap-6'
 							>
 								<div className='flex flex-col md:flex-row gap-6 items-start'>
 									{/* Step Number */}

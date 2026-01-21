@@ -236,7 +236,7 @@ function CaseStudyCard({ study, index }: { study: typeof caseStudies[0]; index: 
 			}}
 			className='h-full'
 		>
-			<Link href={study.href} className='block group h-full'>
+			{/* <Link href={study.href} className='block group h-full'> */}
 				<div className='relative h-full bg-white rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-[0_20px_60px_rgba(16,185,129,0.25)] transition-all duration-700 flex flex-col border border-neutral-100 hover:border-emerald-300/50'>
 					{/* Animated Gradient Border Glow */}
 					<motion.div
@@ -562,7 +562,7 @@ function CaseStudyCard({ study, index }: { study: typeof caseStudies[0]; index: 
 					{/* Corner Accent */}
 					<div className='absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-emerald-500/5 to-transparent rounded-bl-full pointer-events-none' />
 				</div>
-			</Link>
+			{/* </Link> */}
 		</motion.div>
 	);
 }

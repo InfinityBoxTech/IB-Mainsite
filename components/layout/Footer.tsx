@@ -37,7 +37,7 @@ const footerLinks = {
 
 const socialLinks = [
 	{ name: 'LinkedIn', href: 'https://www.linkedin.com/company/infinitybox/posts/?feedView=all', icon: Linkedin },
-	{ name: 'Instagram', href: 'https://instagram.com/infinitybox', icon: Instagram },
+	{ name: 'Instagram', href: 'https://instagram.com/getinfinitybox', icon: Instagram },
 ];
 
 const contactInfo = [

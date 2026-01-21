@@ -295,7 +295,7 @@ export default function HygieneSolutions() {
 			</section>
 
 			{/* Ecosystem Section with Cards */}
-			<section className='relative section-padding pt-10 xl:pt-14 pb-10 xl:pb-14 bg-white'>
+			<section id='ecosystem' className='relative section-padding pt-10 xl:pt-14 pb-10 xl:pb-14 bg-white'>
 				<div className='container mx-auto relative z-10'>
 					<motion.div
 						initial={{ opacity: 0, y: 30 }}
