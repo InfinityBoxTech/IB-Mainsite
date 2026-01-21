@@ -53,7 +53,7 @@ const leaders = [
   {
     name: "Shreyas Ananth",
     role: "Head of Technology",
-    image: "/leaders/shreyas.jpg",
+    image: "/images/profilePics/Shreyas.jpeg",
     gradient: "from-cyan-500 to-blue-500",
     cardText: "Builds the technology backbone that enables visibility, standardisation, and operational control.",
     expandedProfile: "Shreyas brings nearly a decade of experience at ANZ, working in large, regulated, high-reliability environments. At InfinityBox, he leads systems that support operational visibility, workflow standardisation, reporting, and performance tracking — ensuring technology strengthens execution rather than adding complexity.",
@@ -62,7 +62,7 @@ const leaders = [
   {
     name: "Jerry Jacob",
     role: "Regional Operations Head",
-    image: "/leaders/jerry.jpg",
+    image: "/images/profilePics/Jerry.jpeg",
     gradient: "from-teal-500 to-emerald-500",
     cardText: "Leads regional execution with deep experience in logistics-led, multi-location operations.",
     expandedProfile: "Jerry spent nearly a decade at Let's Transport, managing distributed operations, manpower-intensive execution, and service reliability at scale. At InfinityBox, he oversees regional execution, focusing on SOP adherence, training quality, and service continuity across client sites.",
@@ -80,7 +80,7 @@ const leaders = [
   {
     name: "Piyush Kumar Khan",
     role: "Finance & Operations Controller",
-    image: "/leaders/piyush.jpg",
+    image: "/images/profilePics/Piyush.jpeg",
     gradient: "from-violet-500 to-purple-500",
     cardText: "Leads financial governance and cost discipline across InfinityBox operations.",
     expandedProfile: "Piyush brings experience from large organisations such as Amazon, where he worked on cost optimisation and operational efficiency at scale. At InfinityBox, he leads financial planning, cost controls, and operational analytics, ensuring growth is supported by discipline, transparency, and predictable unit economics.",
@@ -163,13 +163,27 @@ function LeaderCard({ leader, index }: { leader: typeof leaders[0]; index: numbe
         <div className="absolute inset-0 backface-hidden rounded-2xl bg-white shadow-lg overflow-hidden" style={{ backfaceVisibility: 'hidden' }}>
           {/* Image Container */}
           <div className="relative h-3/4 overflow-hidden bg-gradient-to-br from-neutral-100 to-neutral-200">
-            {/* Placeholder with gradient background and icon */}
+            {/* Background gradient */}
             <div className={`absolute inset-0 bg-gradient-to-br ${leader.gradient} opacity-10 group-hover:opacity-20 transition-opacity duration-500`} />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className={`w-32 h-32 rounded-full bg-gradient-to-br ${leader.gradient} opacity-20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500`}>
-                <User className="w-16 h-16 text-white opacity-50" />
+            
+            {/* Profile Image or Placeholder */}
+            {leader.image ? (
+              <img
+                src={leader.image}
+                alt={leader.name}
+                className="absolute inset-0 w-full h-full object-contain object-center"
+                onError={(e) => {
+                  // Fallback to placeholder if image fails to load
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
+            ) : (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className={`w-32 h-32 rounded-full bg-gradient-to-br ${leader.gradient} opacity-20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500`}>
+                  <User className="w-16 h-16 text-white opacity-50" />
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
