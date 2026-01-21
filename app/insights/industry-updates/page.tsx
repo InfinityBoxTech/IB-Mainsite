@@ -194,7 +194,7 @@ export default function IndustryUpdates() {
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                       className="relative"
                     >
-                      <Link href={update.href}>
+                      {/* <Link href={update.href}> */}
                         <div className={`md:grid md:grid-cols-2 gap-8 items-center ${isEven ? '' : 'md:flex-row-reverse'}`}>
                           {/* Content */}
                           <div className={`${isEven ? 'md:text-right md:pr-8' : 'md:col-start-2 md:pl-8'}`}>
@@ -255,7 +255,7 @@ export default function IndustryUpdates() {
                           {/* Empty Column for Spacing */}
                           <div className={`hidden md:block ${isEven ? 'md:col-start-2' : ''}`} />
                         </div>
-                      </Link>
+                      {/* </Link> */}
                     </motion.div>
                   );
                 })}
