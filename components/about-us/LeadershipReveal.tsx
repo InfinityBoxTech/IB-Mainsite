@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { User, Mail, Linkedin, ArrowRight } from "lucide-react";
+import { Mail, Linkedin, ArrowRight } from "lucide-react";
 import { useState } from "react";
 
 const leaders = [
@@ -18,7 +18,7 @@ const leaders = [
   {
     name: "Keshav Godala",
     role: "Co-Founder & VP – Operations",
-    image: "/leaders/keshav.jpg",
+    image: "/images/profilePics/Keshav.jpeg",
     gradient: "from-blue-500 to-cyan-500",
     cardText: "Owns multi-city execution, compliance readiness, and operational consistency across InfinityBox facilities.",
     expandedProfile: "An alumnus of IIT Kharagpur, Keshav is responsible for building and scaling InfinityBox's operational backbone. He leads on-site and off-site operations, SOP standardisation, training-to-execution frameworks, compliance readiness, and performance management across cities. His mandate is to ensure InfinityBox operates predictably at scale — delivering consistent outcomes across facilities, clients, and operating conditions.",
@@ -93,7 +93,7 @@ const leaders = [
     cardText: "Leads financial governance and cost discipline across InfinityBox operations.",
     expandedProfile: "Piyush brings experience from large organisations such as Amazon, where he worked on cost optimisation and operational efficiency at scale. At InfinityBox, he leads financial planning, cost controls, and operational analytics, ensuring growth is supported by discipline, transparency, and predictable unit economics.",
     expertise: ["Finance", "Cost Control", "Analytics"],
-    linkedin:"https://www.linkedin.com/"
+    linkedin:"https://www.linkedin.com/in/piyush-k-11803934/"
   },
 ];
 
@@ -175,23 +175,17 @@ function LeaderCard({ leader, index }: { leader: typeof leaders[0]; index: numbe
             {/* Background gradient */}
             <div className={`absolute inset-0 bg-gradient-to-br ${leader.gradient} opacity-10 group-hover:opacity-20 transition-opacity duration-500`} />
             
-            {/* Profile Image or Placeholder */}
-            {leader.image ? (
+            {/* Profile Image */}
+            {leader.image && (
               <img
                 src={leader.image}
                 alt={leader.name}
                 className="absolute inset-0 w-full h-full object-contain object-center"
                 onError={(e) => {
-                  // Fallback to placeholder if image fails to load
+                  // Hide image if it fails to load
                   e.currentTarget.style.display = 'none';
                 }}
               />
-            ) : (
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className={`w-32 h-32 rounded-full bg-gradient-to-br ${leader.gradient} opacity-20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500`}>
-                  <User className="w-16 h-16 text-white opacity-50" />
-                </div>
-              </div>
             )}
 
             {/* Gradient Overlay */}
@@ -200,29 +194,9 @@ function LeaderCard({ leader, index }: { leader: typeof leaders[0]; index: numbe
 
           {/* Content */}
           <div className="h-1/4 p-6 flex flex-col justify-center">
-            <div className="flex items-center gap-2 mb-1">
-              <h3 className="text-xl font-bold text-neutral-900 group-hover:text-emerald-600 transition-colors duration-300">
-                {leader.name}
-              </h3>
-              <div className="flex items-center gap-1.5 ml-auto">
-                <a
-                  href={`mailto:${leader.name.toLowerCase().replace(/\s+/g, '.')}@getinfinitybox.com`}
-                  onClick={(e) => e.stopPropagation()}
-                  className="w-6 h-6 rounded-full bg-neutral-100 hover:bg-emerald-100 flex items-center justify-center transition-colors group/icon"
-                  title="Email"
-                >
-                  <Mail className="w-3.5 h-3.5 text-neutral-600 group-hover/icon:text-emerald-600 transition-colors" />
-                </a>
-                <a
-                  href={leader.linkedin}
-                  onClick={(e) => e.stopPropagation()}
-                  className="w-6 h-6 rounded-full bg-neutral-100 hover:bg-emerald-100 flex items-center justify-center transition-colors group/icon"
-                  title="LinkedIn"
-                >
-                  <Linkedin className="w-3.5 h-3.5 text-neutral-600 group-hover/icon:text-emerald-600 transition-colors" />
-                </a>
-              </div>
-            </div>
+            <h3 className="text-xl font-bold text-neutral-900 group-hover:text-emerald-600 transition-colors duration-300 mb-1">
+              {leader.name}
+            </h3>
             <p className="text-sm text-neutral-600">
               {leader.role}
             </p>
@@ -257,6 +231,8 @@ function LeaderCard({ leader, index }: { leader: typeof leaders[0]; index: numbe
                 </a>
                 <a
                   href={leader.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
                   className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-colors group/icon"
                   title="LinkedIn"

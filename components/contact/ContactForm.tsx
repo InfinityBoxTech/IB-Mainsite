@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, CheckCircle2, Loader2, ArrowRight } from 'lucide-react';
 
-type Interest = 'Hygiene' | 'Packaging' | 'Kitchens' | 'Manpower' | 'Other';
+type Interest = 'Hygiene' | 'Packaging' | 'Kitchens' | 'Events' | 'Other';
 
 // Get API base URL from environment variable at module level (so Next.js can replace it at build time)
 const API_BASE_URL = (process.env.NEXT_PUBLIC_API_URL || '').replace(/\/$/, '');
@@ -138,7 +138,7 @@ export default function ContactForm() {
 						I am interested in... <span className='text-neutral-400 text-xs font-normal'>(Select all that apply)</span>
 					</label>
 					<div className='flex flex-wrap gap-2'>
-						{['Hygiene', 'Packaging', 'Kitchens', 'Manpower', 'Other'].map(
+						{['Hygiene', 'Packaging', 'Kitchens', 'Events', 'Other'].map(
 							(item) => (
 								<button
 									key={item}

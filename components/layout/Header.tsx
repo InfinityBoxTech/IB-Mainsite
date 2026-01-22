@@ -22,7 +22,7 @@ const navigation = [
 				name: 'Commercial Kitchen Solutions',
 				href: '/what-we-do/commercial-kitchen-solutions',
 			},
-			{ name: 'Manpower Solutions', href: '/what-we-do/manpower-solutions' },
+			{ name: 'Event & High Volume Operations', href: '/what-we-do/manpower-solutions' },
 		],
 	},
 	{

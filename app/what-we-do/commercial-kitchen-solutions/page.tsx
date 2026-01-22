@@ -388,7 +388,7 @@ export default function CommercialKitchenSolutions() {
 								transition={{ duration: 0.8, delay: idx * 0.2 }}
 								className='group gap-6'
 							>
-								<div className='flex flex-col md:flex-row gap-6 items-start'>
+								<div className='flex flex-col md:flex-row gap-6 items-start md:items-center'>
 									{/* Step Number */}
 									<motion.div
 										whileHover={{ scale: 1.1, rotate: 5 }}

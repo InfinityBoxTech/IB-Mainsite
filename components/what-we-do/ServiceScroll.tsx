@@ -69,22 +69,22 @@ const services = [
 	},
 	{
 		id: 'manpower',
-		title: 'Manpower Solutions',
+		title: 'Event & High Volume Operations',
 		color: '#0284c7', // Sky 600
 		icon: Users,
 		href: '/what-we-do/manpower-solutions',
-		problem: 'Untrained workforce, inconsistent execution, compliance gaps, and high turnover.',
+		problem: 'Corporate events and large gatherings require seamless coordination, high-volume serviceware management, hygiene systems, and post-event processing—all while maintaining sustainability and operational discipline.',
 		deliver: [
-			'Trained, compliant workforce',
-			'SOP-driven execution',
-			'Supervision and planning',
-			'Multi-site coordination',
+			'End-to-end event operational support',
+			'Serviceware and equipment supply',
+			'Hygiene systems and coordination',
+			'Post-event processing and cleanup',
 		],
 		value: [
-			'Reliable Ops',
-			'No Risk',
-			'Scalable Model',
-			'Visual Reporting',
+			'Seamless Execution',
+			'Sustainability Focus',
+			'High Volume Ready',
+			'Operational Discipline',
 		],
 	},
 ];

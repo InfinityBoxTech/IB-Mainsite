@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import Link from 'next/link';
-import { Users, UserCheck, Award, Shield, CheckCircle2, ArrowRight, ArrowDown, Target } from 'lucide-react';
+import { Users, Calendar, Package, Droplets, CheckCircle2, ArrowRight, ArrowDown, Target, Sparkles, UserCheck } from 'lucide-react';
 
 // Animated Counter Component
 function AnimatedCounter({ end, suffix = '' }: { end: number; suffix?: string }) {
@@ -192,8 +192,8 @@ export default function ManpowerSolutions() {
 						transition={{ duration: 0.8, ease: 'easeOut' }}
 						className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/20 backdrop-blur-sm border border-purple-400/30 mb-6'
 					>
-						<Shield className='w-4 h-4 text-purple-400' />
-						<span className='text-sm font-medium text-purple-400'>Trained & Compliant</span>
+						<Sparkles className='w-4 h-4 text-purple-400' />
+						<span className='text-sm font-medium text-purple-400'>High-Volume Ready</span>
 					</motion.div>
 
 					<motion.h1
@@ -202,10 +202,10 @@ export default function ManpowerSolutions() {
 						transition={{ duration: 0.8, delay: 0.2 }}
 						className='text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight'
 					>
-						Manpower
+						Event & High Volume
 						<br />
 						<span className='bg-gradient-to-r from-purple-400 via-indigo-400 to-blue-400 bg-clip-text text-transparent'>
-							Solutions
+							Operations
 						</span>
 					</motion.h1>
 
@@ -215,8 +215,7 @@ export default function ManpowerSolutions() {
 						transition={{ duration: 0.8, delay: 0.4 }}
 						className='text-xl sm:text-2xl md:text-3xl text-purple-100 max-w-4xl mx-auto mb-12 leading-relaxed'
 					>
-						Trained, compliant workforce with SOPs, supervision, and planning. Reliable execution across
-						multi-site operations.
+						Operational support for corporate events and large gatherings, covering serviceware, hygiene systems, coordination, and post-event processing. Built to handle high volumes seamlessly while maintaining sustainability and operational discipline.
 					</motion.p>
 
 					<motion.div
@@ -263,7 +262,7 @@ export default function ManpowerSolutions() {
 				</motion.div>
 			</section>
 
-			{/* Workforce Enablement Section */}
+			{/* Event Operations Section */}
 			<section id='ecosystem' className='section-padding pt-10 xl:pt-14 pb-10 xl:pb-14 bg-gradient-to-b from-neutral-50 to-white'>
 				<div className='container mx-auto px-4 sm:px-6 lg:px-8'>
 					<motion.div
@@ -274,53 +273,53 @@ export default function ManpowerSolutions() {
 						className='text-center mb-16'
 					>
 						<h2 className='text-4xl sm:text-5xl md:text-6xl font-bold text-neutral-900 mb-6'>
-							Workforce{' '}
+							Complete{' '}
 							<span className='bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 bg-clip-text text-transparent'>
-								Enablement
+								Event Support
 							</span>
 						</h2>
 						<p className='text-xl text-neutral-600 max-w-3xl mx-auto'>
-							Building high-performing teams through training, standardization, and continuous support
+							End-to-end operational solutions for corporate events and large gatherings, from planning to post-event processing
 						</p>
 					</motion.div>
 
 					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8'>
 						{[
 							{
-								icon: <Award className='w-8 h-8' />,
-								title: 'Rigorous Training',
+								icon: <Calendar className='w-8 h-8' />,
+								title: 'Event Planning & Coordination',
 								description:
-									'Comprehensive training programs covering safety protocols, quality standards, and operational procedures.',
+									'Comprehensive event planning with timeline management, resource allocation, and seamless coordination across all operational aspects.',
 							},
 							{
-								icon: <CheckCircle2 className='w-8 h-8' />,
-								title: 'Standardized SOPs',
+								icon: <Package className='w-8 h-8' />,
+								title: 'Serviceware Supply',
 								description:
-									'Clear, documented operating procedures that ensure consistent execution across all locations and shifts.',
+									'High-volume serviceware and equipment supply including plates, cutlery, glassware, and sustainable alternatives for large gatherings.',
 							},
 							{
-								icon: <UserCheck className='w-8 h-8' />,
-								title: 'Real-Time Supervision',
+								icon: <Droplets className='w-8 h-8' />,
+								title: 'Hygiene Systems',
 								description:
-									'On-site supervisors providing guidance, quality control, and immediate issue resolution.',
-							},
-							{
-								icon: <Target className='w-8 h-8' />,
-								title: 'Performance Monitoring',
-								description:
-									'Continuous tracking and feedback loops that drive improvement and maintain high standards.',
+									'On-site hygiene infrastructure including dishwashing units, waste management, and sanitation protocols to maintain health standards.',
 							},
 							{
 								icon: <Users className='w-8 h-8' />,
-								title: 'Multi-Site Coordination',
+								title: 'Operational Team',
 								description:
-									'Centralized planning and resource allocation ensuring optimal coverage across all your locations.',
+									'Trained event staff for setup, service, monitoring, and breakdown—ensuring smooth execution throughout the event lifecycle.',
 							},
 							{
-								icon: <Shield className='w-8 h-8' />,
-								title: 'Compliance-Focused',
+								icon: <Target className='w-8 h-8' />,
+								title: 'Real-Time Monitoring',
 								description:
-									'Complete regulatory compliance with certifications, background checks, and audit-ready documentation.',
+									'Live tracking of service levels, inventory, and operations to proactively address issues and maintain quality standards.',
+							},
+							{
+								icon: <CheckCircle2 className='w-8 h-8' />,
+								title: 'Post-Event Processing',
+								description:
+									'Comprehensive cleanup, serviceware collection, washing, and waste management with sustainability-focused disposal and recycling.',
 							},
 						].map((item, idx) => (
 							<motion.div
@@ -376,7 +375,7 @@ export default function ManpowerSolutions() {
 							</span>
 						</h2>
 						<p className='text-xl text-neutral-600 max-w-3xl mx-auto'>
-							A systematic approach to building and managing high-performing teams
+							A systematic approach to delivering seamless high-volume event operations
 						</p>
 					</motion.div>
 
@@ -384,27 +383,27 @@ export default function ManpowerSolutions() {
 						{[
 							{
 								step: '01',
-								title: 'Training & Certification',
+								title: 'Event Planning & Assessment',
 								description:
-									'Comprehensive onboarding with role-specific training, safety certifications, and quality standards education for every team member.',
+									'Comprehensive pre-event consultation to understand scale, requirements, venue logistics, and sustainability goals. We develop detailed operational plans covering serviceware needs, hygiene infrastructure, staffing, and timeline coordination.',
 							},
 							{
 								step: '02',
-								title: 'SOP-Driven Execution',
+								title: 'Resource Mobilization',
 								description:
-									'Standardized operating procedures provide clear, documented guidelines ensuring consistent performance across all locations.',
+									'Rapid deployment of serviceware inventory, equipment, hygiene systems, and trained operational teams. All resources are pre-positioned and tested to ensure readiness for high-volume operations.',
 							},
 							{
 								step: '03',
-								title: 'Supervision & Planning',
+								title: 'Event Execution',
 								description:
-									'Real-time oversight with strategic resource allocation, shift planning, and proactive issue resolution.',
+									'Real-time operational support with on-site coordination, service monitoring, inventory management, and proactive issue resolution. Our teams ensure seamless service delivery throughout the event duration.',
 							},
 							{
 								step: '04',
-								title: 'Performance Monitoring',
+								title: 'Post-Event Processing',
 								description:
-									'Continuous feedback loops, quality audits, and improvement initiatives to maintain excellence and drive growth.',
+									'Systematic collection, washing, and processing of all serviceware with sustainable waste management. Complete cleanup, equipment breakdown, and detailed reporting on operations and sustainability metrics.',
 							},
 						].map((item, idx) => (
 							<motion.div
@@ -415,7 +414,7 @@ export default function ManpowerSolutions() {
 								transition={{ duration: 0.8, delay: idx * 0.2 }}
 								className='group gap-6'
 							>
-								<div className='flex flex-col md:flex-row gap-6 items-start'>
+								<div className='flex flex-col md:flex-row gap-6 items-start md:items-center'>
 									{/* Step Number */}
 									<motion.div
 										whileHover={{ scale: 1.1, rotate: 5 }}
@@ -458,22 +457,22 @@ export default function ManpowerSolutions() {
 						className='text-center mb-16'
 					>
 						<h2 className='text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6'>
-							Workforce{' '}
+							Event{' '}
 							<span className='bg-gradient-to-r from-purple-400 via-indigo-400 to-blue-400 bg-clip-text text-transparent'>
 								Excellence
 							</span>
 						</h2>
 						<p className='text-xl text-purple-100 max-w-3xl mx-auto'>
-							Real results from our manpower solutions implementations
+							Real results from our event and high-volume operations
 						</p>
 					</motion.div>
 
 					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
 						{[
-							{ value: 98, suffix: '%', label: 'Retention Rate' },
-							{ value: 100, suffix: '%', label: 'Compliance Score' },
-							{ value: 50, suffix: '%', label: 'Efficiency Gain' },
-							{ value: 1200, suffix: '+', label: 'Trained Staff' },
+							{ value: 500, suffix: '+', label: 'Events Managed' },
+							{ value: 100, suffix: '%', label: 'On-Time Delivery' },
+							{ value: 95, suffix: '%', label: 'Client Satisfaction' },
+							{ value: 80, suffix: '%', label: 'Waste Reduction' },
 						].map((stat, idx) => (
 							<motion.div
 								key={idx}
@@ -541,7 +540,7 @@ export default function ManpowerSolutions() {
 								>
 									Ready to{' '}
 									<span className='bg-gradient-to-r from-purple-400 via-indigo-400 to-blue-400 bg-clip-text text-transparent'>
-										Build Your Team
+										Plan Your Event
 									</span>
 									?
 								</motion.h2>
@@ -552,7 +551,7 @@ export default function ManpowerSolutions() {
 									transition={{ duration: 0.6, delay: 0.4 }}
 									className='text-base sm:text-lg md:text-xl text-neutral-300 max-w-2xl'
 								>
-									Discuss your workforce needs and build a high-performing team today
+									Transform your corporate events and large gatherings with seamless operational support that scales
 								</motion.p>
 							</div>
 
