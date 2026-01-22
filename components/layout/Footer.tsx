@@ -12,7 +12,7 @@ const footerLinks = {
 			name: 'Commercial Kitchen Solutions',
 			href: '/what-we-do/commercial-kitchen-solutions',
 		},
-		{ name: 'Manpower Solutions', href: '/what-we-do/manpower-solutions' },
+		{ name: 'Event & High Volume Operations', href: '/what-we-do/manpower-solutions' },
 	],
 	industries: [
 		{ name: 'Hospitality', href: '/who-we-serve/hospitality' },
@@ -37,7 +37,7 @@ const footerLinks = {
 
 const socialLinks = [
 	{ name: 'LinkedIn', href: 'https://www.linkedin.com/company/infinitybox/posts/?feedView=all', icon: Linkedin },
-	{ name: 'Instagram', href: 'https://instagram.com/infinitybox', icon: Instagram },
+	{ name: 'Instagram', href: 'https://instagram.com/getinfinitybox', icon: Instagram },
 ];
 
 const contactInfo = [

@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 export default function Leadership() {
 	return (
 		<main className='bg-white pt-20'>
-             <div className="container mx-auto px-4 mb-20">
-                <h1 className="text-6xl md:text-9xl font-black tracking-tighter text-neutral-900 leading-[0.8]">
-                    THE<br/>TEAM
+             <div className="container mx-auto px-4 pb-8 md:pb-16 lg:pb-24">
+                <h1 className="text-6xl text-center md:text-9xl font-black tracking-tighter text-neutral-900 leading-[0.8]">
+                    THE TEAM
                 </h1>
              </div>
 

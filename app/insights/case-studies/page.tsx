@@ -134,7 +134,7 @@ export default function CaseStudies() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
               >
-                <Link href={study.href}>
+                {/* <Link href={study.href}> */}
                   <div className="group relative block">
                     {/* Main Card */}
                     <div className={`relative rounded-3xl overflow-hidden bg-gradient-to-br ${study.bgColor} shadow-2xl hover:shadow-3xl transition-all duration-500`}>
@@ -245,7 +245,7 @@ export default function CaseStudies() {
                       <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${study.gradient} opacity-20 blur-3xl rounded-full transform translate-x-32 -translate-y-32 group-hover:scale-150 transition-transform duration-700`} />
                     </div>
                   </div>
-                </Link>
+                {/* </Link> */}
               </motion.div>
             ))}
           </div>
