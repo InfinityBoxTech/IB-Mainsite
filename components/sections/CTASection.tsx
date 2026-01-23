@@ -202,7 +202,7 @@ export default function CTASection({
 												isDark ? 'text-white' : 'text-neutral-900'
 											}`}
 										>
-											1000+ Facilities
+											100+ Facilities
 										</div>
 										<div
 											className={`text-xs ${
