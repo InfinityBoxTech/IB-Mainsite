@@ -81,8 +81,8 @@ export default function JobListings() {
 	};
 
 	return (
-		<section className='py-16 sm:py-20 md:py-24 bg-neutral-50 min-h-screen'>
-			<div className='container mx-auto px-6 sm:px-8 md:px-12'>
+		<section className='section-padding py-16 sm:py-20 md:py-24 bg-neutral-50 min-h-screen'>
+			<div className='container mx-auto'>
 				{/* Section header */}
 				<div className='max-w-3xl mb-12 sm:mb-16'>
 					<motion.h2

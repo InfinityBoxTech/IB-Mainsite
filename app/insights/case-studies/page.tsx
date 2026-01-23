@@ -233,12 +233,12 @@ export default function CaseStudies() {
                         </div>
 
                         {/* CTA */}
-                        <div className="inline-flex items-center gap-3 text-white font-semibold group-hover:gap-5 transition-all duration-300">
+                        {/* <div className="inline-flex items-center gap-3 text-white font-semibold group-hover:gap-5 transition-all duration-300">
                           <span className="text-lg">Read Full Case Study</span>
                           <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${study.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                             <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
                           </div>
-                        </div>
+                        </div> */}
                       </div>
 
                       {/* Decorative Element */}
