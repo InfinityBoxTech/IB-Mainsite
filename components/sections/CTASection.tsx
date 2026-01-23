@@ -169,7 +169,7 @@ export default function CTASection({
 								{secondaryCTA && (
 									<Link
 										href={secondaryCTA.href}
-										className={`group relative inline-flex items-center justify-center gap-3 px-8 py-4 font-semibold text-lg rounded-full border-2 transition-all duration-300 hover:scale-105 ${
+										className={`group relative inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-4 font-semibold text-base sm:text-lg rounded-full border-2 transition-all duration-300 hover:scale-105 whitespace-nowrap ${
 											isDark
 												? 'bg-white/10 backdrop-blur-sm text-white border-white/20 hover:bg-white/20 hover:border-white/40'
 												: 'bg-neutral-900/5 backdrop-blur-sm text-neutral-900 border-neutral-300 hover:bg-neutral-900/10 hover:border-neutral-400'
