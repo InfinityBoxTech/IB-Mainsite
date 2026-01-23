@@ -32,14 +32,8 @@ export const metadata: Metadata = {
   creator: "InfinityBox",
   publisher: "InfinityBox",
   metadataBase: new URL("https://infinitybox.in"),
-  icons: {
-    icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-    ],
-    apple: [
-      { url: "/icon.svg", sizes: "180x180", type: "image/svg+xml" },
-    ],
-    shortcut: "/icon.svg",
+  alternates: {
+    canonical: "https://infinitybox.in",
   },
   openGraph: {
     type: "website",
@@ -77,11 +71,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
-        <link rel="icon" type="image/svg+xml" href="/icon.svg" />
-        <link rel="alternate icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/icon.svg" />
-        <link rel="mask-icon" href="/icon.svg" color="#10b981" />
-        <link rel="canonical" href="https://infinitybox.in" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

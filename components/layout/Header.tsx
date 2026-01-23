@@ -54,7 +54,7 @@ const navigation = [
 		name: 'Insights',
 		href: '/insights',
 		children: [
-			{ name: 'Blogs', href: '/insights/blogs' },
+			// { name: 'Blogs', href: '/insights/blogs' },
 			{ name: 'Case Studies', href: '/insights/case-studies' },
 			{ name: 'Industry Updates', href: '/insights/industry-updates' },
 		],

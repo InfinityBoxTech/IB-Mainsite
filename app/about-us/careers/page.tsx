@@ -13,8 +13,8 @@ export default function Careers() {
 			<CareersHero />
 
 			{/* Quote section */}
-			<section className='py-16 sm:py-20 bg-white'>
-				<div className='container mx-auto px-6 sm:px-8 md:px-12'>
+			<section className='section-padding py-16 sm:py-20 bg-white'>
+				<div className='container mx-auto'>
 					<div className='max-w-4xl mx-auto text-center'>
 						<blockquote className='text-2xl sm:text-3xl md:text-4xl font-medium text-neutral-900 leading-relaxed'>
 							&ldquo;We don&apos;t hire people to fill seats. We hire people to{' '}
