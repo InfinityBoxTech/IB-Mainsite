@@ -11,6 +11,10 @@ import {
 	Sparkles,
 	TrendingUp,
 	Shield,
+	ShieldCheck,
+	Award,
+	BadgeCheck,
+	FileCheck,
 	Target,
 	Zap,
 	BarChart3,
@@ -292,6 +296,46 @@ export default function HygieneSolutions() {
 						/>
 					</motion.div>
 				</motion.div>
+			</section>
+
+			{/* Certifications Bar */}
+			<section className='relative py-8 sm:py-12 bg-white border-b border-neutral-100'>
+				<div className='container mx-auto section-padding'>
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true }}
+						transition={{ duration: 0.6 }}
+						className='flex flex-col items-center gap-6'
+					>
+						<p className='text-sm font-semibold text-neutral-500 uppercase tracking-wider'>
+							Certified & Compliant
+						</p>
+						<div className='flex flex-wrap items-center justify-center gap-8 sm:gap-12 md:gap-16'>
+							{/* TUV Badge */}
+							<div className='flex flex-col items-center gap-2 group'>
+								<div className='w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl flex items-center justify-center border-2 border-emerald-200 group-hover:border-emerald-400 transition-colors'>
+									<BadgeCheck className='w-8 h-8 sm:w-10 sm:h-10 text-emerald-600' strokeWidth={2} />
+								</div>
+								<span className='text-xs sm:text-sm font-semibold text-neutral-700'>TUV Certifications</span>
+							</div>
+							{/* Safety Badge */}
+							<div className='flex flex-col items-center gap-2 group'>
+								<div className='w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl flex items-center justify-center border-2 border-blue-200 group-hover:border-blue-400 transition-colors'>
+									<FileCheck className='w-8 h-8 sm:w-10 sm:h-10 text-blue-600' strokeWidth={2} />
+								</div>
+								<span className='text-xs sm:text-sm font-semibold text-neutral-700'>Safety Compliant</span>
+							</div>
+							{/* Quality Badge */}
+							<div className='flex flex-col items-center gap-2 group'>
+								<div className='w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl flex items-center justify-center border-2 border-amber-200 group-hover:border-amber-400 transition-colors'>
+									<BadgeCheck className='w-8 h-8 sm:w-10 sm:h-10 text-amber-600' strokeWidth={2} />
+								</div>
+								<span className='text-xs sm:text-sm font-semibold text-neutral-700'>Quality Assured</span>
+							</div>
+						</div>
+					</motion.div>
+				</div>
 			</section>
 
 			{/* Ecosystem Section with Cards */}
