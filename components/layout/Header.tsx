@@ -118,7 +118,7 @@ export default function Header() {
 						className='flex items-center group cursor-pointer'
 					>
 						<motion.div
-							whileHover={{ scale: 1.05 }}
+							//whileHover={{ scale: 1.05 }}
 							transition={{ duration: 0.3, type: 'spring' }}
 							className='relative h-10 sm:h-12 md:h-14 lg:h-16 w-auto'
 						>

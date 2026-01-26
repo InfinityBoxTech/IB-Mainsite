@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     default: "InfinityBox | Hygiene Made Sustainable",
     template: "%s | InfinityBox",
   },
+  icons:{
+    icon:'/IBlogo.ico'
+  },
   description:
     "Pan-India operator delivering integrated ecosystem across sustainable hygiene solutions, eco-friendly packaging, commercial kitchens, and workforce enablement.",
   keywords: [

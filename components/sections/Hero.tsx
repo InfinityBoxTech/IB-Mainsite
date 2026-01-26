@@ -64,7 +64,7 @@ export default function Hero({
 			{/* Main Content Container */}
 			<motion.div
 				style={{ y, opacity }}
-				className='container mx-auto relative z-10 py-20 sm:py-24 md:py-28 lg:py-32'
+				className='container mx-auto relative z-10 py-20 sm:py-24 md:py-28 lg:py-16'
 			>
 				<div className='grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center'>
 					{/* Left Column - Main Content */}
@@ -122,7 +122,7 @@ export default function Hero({
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: 0.7 }}
-							className='text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-neutral-300 mb-8 lg:mb-10 leading-relaxed max-w-3xl px-1 sm:px-2 md:px-0'
+							className='text-base sm:text-lg md:text-xl lg:text-2xl xl:text-2xl text-neutral-300 mb-8 lg:mb-10 leading-relaxed max-w-3xl px-1 sm:px-2 md:px-0'
 						>
 							{subhead}
 						</motion.p>
@@ -132,14 +132,14 @@ export default function Hero({
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: 0.8 }}
-							className='flex flex-col gap-4 mb-12 lg:mb-16 max-w-2xl items-center md:items-center lg:items-start'
+							className='flex flex-col gap-4 mb-12 lg:mb-16 w-full lg:w-fit items-center lg:flex-row md:items-center lg:items-start'
 						>
 							<Link
 								href={primaryCTA.href}
-								className='group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold text-base sm:text-lg rounded-full overflow-hidden hover:shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300 hover:scale-105 w-full sm:w-auto'
+								className='group relative inline-flex whitespace-nowrap items-center justify-center md:gap-3 lg:gap-0  py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold text-base sm:text-lg rounded-full overflow-hidden hover:shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300 w-full '
 							>
 								<span className='relative z-10'>{primaryCTA.text}</span>
-								<ArrowRight className='w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1' />
+								<ArrowRight className='w-5 h-5  relative z-10 transition-transform duration-300 group-hover:translate-x-1' />
 
 								{/* Shine Effect */}
 								<div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000' />
@@ -147,7 +147,7 @@ export default function Hero({
 
 							<Link
 								href={secondaryCTA.href}
-								className='group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-neutral-900 font-semibold text-base sm:text-lg rounded-full border-2 border-emerald-500/30 hover:bg-emerald-50 hover:border-emerald-500 hover:scale-105 transition-all duration-300 shadow-lg w-full sm:w-auto'
+								className='group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-neutral-900 font-semibold text-base sm:text-lg rounded-full border-2 border-emerald-500/30 hover:bg-emerald-50 hover:border-emerald-500  transition-all duration-300 shadow-lg w-full  whitespace-nowrap'
 							>
 								<span className='text-neutral-900 group-hover:text-emerald-700 transition-colors duration-300'>{secondaryCTA.text}</span>
 								<Play className='w-5 h-5 text-emerald-600 transition-transform duration-300 group-hover:scale-110' />
@@ -183,7 +183,7 @@ export default function Hero({
 						transition={{ duration: 0.8, delay: 1 }}
 						className='lg:col-span-5 xl:col-span-4 mt-8 lg:mt-0'
 					>
-						<div className='relative bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-6 sm:p-8 md:p-10 shadow-2xl mb-4 sm:mb-0'>
+						<div className='relative bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-6 sm:p-8 md:p-10 shadow-2xl mb-4 sm:mb-0 lg:mb-72'>
 							{/* Glow Effect */}
 							<div className='absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-3xl opacity-20 blur-xl' />
 
@@ -205,7 +205,7 @@ export default function Hero({
 								</div>
 
 								{/* Stats Grid */}
-								<div className='space-y-6'>
+								<div className='space-y-6 '>
 									<div className='group'>
 										<div className='flex items-baseline gap-2 mb-2'>
 											<div className='text-5xl sm:text-6xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent'>
