@@ -61,7 +61,7 @@ const leaders = [
     email: "yasaswini@getinfinitybox.com"
   },
   {
-    name: "Shreyas Geetha",
+    name: "Shreyas Ananth",
     role: "Head of Technology",
     image: "/images/profilePics/Shreyas.jpeg",
     gradient: "from-cyan-500 to-blue-500",
