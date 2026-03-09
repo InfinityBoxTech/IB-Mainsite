@@ -39,15 +39,15 @@ const leaders = [
     email: "harsh@getinfinitybox.com"
   },
   {
-    name: "Sneha Barnawal",
-    role: "Head of Procurement",
-    image: "/images/profilePics/Sneha.jpg",
+    name: "Priyanka Agarwal",
+    role: "Finance Manager",
+    image: "/images/profilePics/priyanka.png",
     gradient: "from-orange-500 to-red-500",
-    cardText: "Leads procurement as a strategic function across internal operations and client-facing procurement services.",
-    expandedProfile: "Sneha owns procurement end-to-end at InfinityBox. She manages all internal procurement for on-site and off-site operations and leads the procurement services vertical, where InfinityBox supports enterprise clients with sourcing of serviceware, smallware, and kitchen equipment. Her role spans supplier strategy, SKU standardisation, pricing discipline, quality assurance, and procurement-led revenue growth. She operates with a strong founder mindset, treating procurement as a core driver of reliability, cost control, and client trust.",
-    expertise: ["Procurement", "Supply Chain", "Cost Control"],
-    linkedin:"https://www.linkedin.com/in/sneha-barnawal-780693123/",
-    email: "sneha@getinfinitybox.com"
+    cardText: "Priyanka leads the financial planning and analysis (FP&A) function at InfinityBox, driving the company’s fiscal strategy and operational growth.",
+    expandedProfile: "With over 15 years of experience across accounting, consulting, and business strategy, Priyanka is responsible for building the finance team from the ground up. She focuses on establishing robust reporting systems, setting up scalable financial processes, and leveraging data science to drive profitability. As a Chartered Accountant and business analyst, she treats finance as a strategic partner to the business, ensuring every number aligns with the company's long-term mission of sustainable growth.",
+    expertise: ["Business Strategy", "Process Optimization", "Financial Planning & Analysis"],
+    linkedin:"https://www.linkedin.com/in/priyanka-agarwal-92b72419/",
+    email: "priyanka@getinfinitybox.com"
   },
   {
     name: "Yasaswini Rallabandi",
