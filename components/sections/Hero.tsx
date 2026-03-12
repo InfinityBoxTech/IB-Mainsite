@@ -132,11 +132,11 @@ export default function Hero({
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: 0.8 }}
-							className='flex flex-col gap-4 mb-12 lg:mb-16 w-full lg:w-fit items-center lg:flex-row md:items-center lg:items-start'
+							className='flex flex-col gap-4 lg:gap-5 mb-12 lg:mb-16 w-full lg:w-fit items-center lg:flex-row md:items-center lg:items-start'
 						>
 							<Link
 								href={primaryCTA.href}
-								className='group relative inline-flex whitespace-nowrap items-center justify-center md:gap-3 lg:gap-0  py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold text-base sm:text-lg rounded-full overflow-hidden hover:shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300 w-full '
+								className='group relative inline-flex whitespace-nowrap items-center justify-center md:gap-3 lg:gap-0 px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold text-base sm:text-lg rounded-full overflow-hidden hover:shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300 w-full lg:w-auto'
 							>
 								<span className='relative z-10'>{primaryCTA.text}</span>
 								<ArrowRight className='w-5 h-5  relative z-10 transition-transform duration-300 group-hover:translate-x-1' />
@@ -147,7 +147,7 @@ export default function Hero({
 
 							<Link
 								href={secondaryCTA.href}
-								className='group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-neutral-900 font-semibold text-base sm:text-lg rounded-full border-2 border-emerald-500/30 hover:bg-emerald-50 hover:border-emerald-500  transition-all duration-300 shadow-lg w-full  whitespace-nowrap'
+								className='group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-neutral-900 font-semibold text-base sm:text-lg rounded-full border-2 border-emerald-500/30 hover:bg-emerald-50 hover:border-emerald-500  transition-all duration-300 shadow-lg w-full lg:w-auto whitespace-nowrap'
 							>
 								<span className='text-neutral-900 group-hover:text-emerald-700 transition-colors duration-300'>{secondaryCTA.text}</span>
 								<Play className='w-5 h-5 text-emerald-600 transition-transform duration-300 group-hover:scale-110' />
