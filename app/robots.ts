@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/", "/_next/"],
     },
-    sitemap: "https://infinitybox.in/sitemap.xml",
+    sitemap: "https://getinfinitybox.com/sitemap.xml",
   };
 }
 

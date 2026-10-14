@@ -28,14 +28,14 @@ export const metadata: Metadata = {
   authors: [{ name: "InfinityBox" }],
   creator: "InfinityBox",
   publisher: "InfinityBox",
-  metadataBase: new URL("https://infinitybox.in"),
+  metadataBase: new URL("https://getinfinitybox.com"),
   alternates: {
-    canonical: "https://infinitybox.in",
+    canonical: "https://getinfinitybox.com",
   },
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://infinitybox.in",
+    url: "https://getinfinitybox.com",
     siteName: "InfinityBox",
     title: "InfinityBox | Hygiene Made Sustainable",
     description:
@@ -75,8 +75,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "InfinityBox",
-              url: "https://infinitybox.in",
-              logo: "https://infinitybox.in/logo.png",
+              url: "https://getinfinitybox.com",
+              logo: "https://getinfinitybox.com/logo.png",
               description:
                 "Pan-India operator delivering integrated ecosystem across sustainable hygiene solutions, eco-friendly packaging, commercial kitchens, and workforce enablement.",
               address: {
